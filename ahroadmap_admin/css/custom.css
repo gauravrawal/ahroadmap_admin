@@ -1,0 +1,58 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+	background-image: url("../images/bodyBackground.jpg");
+    background-position: 0 0;
+    background-size: cover;
+}
+#loading-image{
+	margin-left:45%; 
+	margin-top:10%;
+}
+#main-container{
+	display:none;
+}
+h1{
+	color:#fff;
+}
+.dataTables_wrapper select{
+	color:#000;
+}
+.dataTables_wrapper input{
+	color:#000;
+	float:right;
+}
+.dataTables_wrapper{
+	padding-top:20px;
+	
+}
+.dataTables_wrapper th{
+	background-color:#73cd13;
+	color:#fff;
+}
+table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td {
+    border-top: 1px solid #ddd;
+	border-left: 1px solid #ddd;
+}
+
+.header{
+                margin-top:50px;
+                margin-left:20px;
+                margin-bottom:50px;
+                
+}
+.header span{
+                display:inline-block;
+                color:#fff;
+                font-size:36px;
+                float:right;
+                margin-right:50px;
+}
+.footer{
+                color:#fff;
+                text-align:center;
+                margin-bottom:50px;
+}
+.wizard > .content > .body ul > li {
+                margin-left:20px;
+}

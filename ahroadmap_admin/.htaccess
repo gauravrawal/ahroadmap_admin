@@ -1,0 +1,7 @@
+<IfDefine QA>
+  AuthName "Restricted Area" 
+  AuthType Basic
+  AuthUserFile /apps/ms/www/qa.ahdemo.com/roadmap/admin/.htpasswd
+  AuthGroupFile /dev/null 
+  Require valid-user
+</IfDefine>
