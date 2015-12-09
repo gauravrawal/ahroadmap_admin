@@ -3,8 +3,21 @@ var clientSecret = "eZkuPFS0/cJLy4BnFmzozmmR46yGAoevHYxxgA+Uru5OJIp/JSmnftDaRAY8
 var username = "4a4bc608-cc4e-45c7-abaf-925502230a4f";
 var password = "63FOdNVwd4TpbGDLvIY6pa73ZMrVZ+Wb6FaYHPiAfkpmkrQG2a63fsBGznMKV9QnpLrwn0QB4qRXMji19oO7tYGuiia0p+hT1pDyGLxmKUs=";
 var applicationId = "1a24bd197a4f85392969";
+
+roadmap:
+//var repositoryId = '08a6d0b854cca496951b';
+//var branchId = 'ddf67faa6edc8e3074bb';
+
+
+//ahroadmap admin
 var repositoryId = '254893db0c304ba3295d';
 var branchId = '1c6332c3a1eeafbfb3a2';
+
+
+
+
+
+
 var repository;
 var branch;
 var newCommentId;
@@ -115,17 +128,28 @@ var rows="";
 };
 
 function myFunction(){
+	var name = $("#txtName").val();
+	for (j=0; j < allPortfolioObjects.length; j++) {
+		if(name == allPortfolioObjects[j].name)
+		{
+			alert("Name Already exist");
+			return false;
+		}
+		
+	}
 	
-	var ckEditorData = CKEDITOR.instances.editor2.getData();
-
+	var ckEditorData1 = CKEDITOR.instances.editor2.getData();
+	var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
 	branch.createNode({
         	"name": $("#txtName").val(),
+			"_doc": $("#txtName").val(),
 			"primaryContact": $("#primaryContact").val(),
-			"customerNotes" : $("#txtCnotes").val(),
-			"aonInternalNotes" : $("#txtAnotes").val(),
+			"customerNotes" : ckEditorData2,
+			"aonInternalNotes" : ckEditorData3,
             //"description": $("#txtDescription").val(),
-			"description": ckEditorData,
-            "_type": "custom:release0",//change as needed
+			"description": ckEditorData1,
+            "_type": "custom:portfolio0",//change as needed
 			"type": "portfolio",//chnage this as needed
 			//"parent": "my upoint release",//change as needed
 			"parent": "Application",
@@ -140,7 +164,7 @@ function myFunction(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + uploadFilename.value + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -159,19 +183,30 @@ function myFunction(){
 						alert("Your media has NOT been successfully uploaded. Please try again.");
 						})			
 		});
+	
 };
 
 function myFunction1(){
-	
-	var ckEditorData = CKEDITOR.instances.editor1.getData();
-
+var name = $("#txtName").val();
+	for (j=0; j < allPortfolioObjects.length; j++) {
+		if(name == allPortfolioObjects[j].name)
+		{
+			alert("Name Already exist");
+			return false;
+		}
+		
+	}	
+	var ckEditorData1 = CKEDITOR.instances.editor1.getData();
+	var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
 	branch.createNode({
         	"name": $("#txtPlatformName").val(),
-			"primaryContact": $("#primaryContact").val(),
-			"customerNotes" : $("#txtCnotes").val(),
-			"aonInternalNotes" : $("#txtAnotes").val(),
+			"_doc": $("#txtPlatformName").val(),
+			"primaryContact": $("#txtPlatformprimaryContact").val(),
+			"customerNotes" : ckEditorData2,
+			"aonInternalNotes" : ckEditorData3,
             //"description": $("#txtDescription").val(),
-			"description": ckEditorData,
+			"description": ckEditorData1,
             "_type": "custom:platform0",//change as needed
 			"type": "platform",//chnage this as needed
 			//"parent": "my upoint release",//change as needed
@@ -206,21 +241,23 @@ function myFunction1(){
 
 function myFunction2(){
 	
-	var ckEditorData = CKEDITOR.instances.editor2.getData();
-
+	var ckEditorData1 = CKEDITOR.instances.editor3.getData();
+	var ckEditorData2 = CKEDITOR.instances.txtReleaseCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
 	branch.createNode({
         	"name": $("#txtReleaseName").val(),
-			"primaryContact": $("#primaryContact").val(),
-			"customerNotes" : $("#txtCnotes").val(),
-			"aonInternalNotes" : $("#txtAnotes").val(),
+			"_doc": $("#txtReleaseName").val(),
+			"primaryContact": $("#ReleaseprimaryContact").val(),
+			"customerNotes" : ckEditorData2,
+			"aonInternalNotes" : ckEditorData3,
             //"description": $("#txtDescription").val(),
-			"description": ckEditorData,
+			"description": ckEditorData1,
             "_type": "custom:release0",//change as needed
 			"type": "release",//chnage this as needed
 			//"parent": "my upoint release",//change as needed
 			"parent": $("#txtPlatform").val(),
 			"content": "true",
-			"date": "12/10/2015",
+			"date": $("#releasedate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
@@ -249,15 +286,18 @@ function myFunction2(){
 
 function myFunction3(){
 	
-	var ckEditorData = CKEDITOR.instances.editor3.getData();
-
+	var ckEditorData1 = CKEDITOR.instances.editor4.getData();
+	var ckEditorData2 = CKEDITOR.instances.txtFeatureCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtFeatureAnotes.getData();
 	branch.createNode({
         	"name": $("#txtFeatureName").val(),
-			"primaryContact": $("#primaryContact").val(),
-			"customerNotes" : $("#txtCnotes").val(),
-			"aonInternalNotes" : $("#txtAnotes").val(),
+			"_doc": $("#txtFeatureName").val(),
+			
+			"primaryContact": $("#FeatureprimaryContact").val(),
+			"customerNotes" : ckEditorData2,
+			"aonInternalNotes" : ckEditorData3,
             //"description": $("#txtDescription").val(),
-			"description": ckEditorData,
+			"description": ckEditorData1,
             "_type": "custom:feature0",//change as needed
 			"type": "feature",//chnage this as needed
 			//"parent": "my upoint release",//change as needed
