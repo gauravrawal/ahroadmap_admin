@@ -163,7 +163,7 @@ function populateDropDown()
 	 	var rows="";
 		for (j=0; j < allPortfolioObjects.length; j++) {
  	  	rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePortfolio' onclick='javascript:deleteportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\""+allPortfolioObjects[j]._doc+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Platform</a> \</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePortfolio' onclick='javascript:deleteportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Platform</a> \</tr>";
 	
 	}
 		$( rows ).appendTo("#example tbody");
@@ -178,11 +178,11 @@ function populateDropDown()
 function populatePlatform(m){
 	var rows="";
 	for (j=0; j < allPortfolioObjects.length; j++) {
-		if(allPortfolioObjects[j]._doc === m){
+		if(allPortfolioObjects[j].name === m){
 		$("#txtPnName").val(allPortfolioObjects[j].name);
 			for (k=0; k < allPortfolioObjects[j].platforms.length; k++) {
 				rows += "<tr><td>" + allPortfolioObjects[j].platforms[k].name + "</td><td>" + allPortfolioObjects[j].platforms[k].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPlatform' onclick='javascript:viewplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPlatform' onclick='javascript:editplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePlatform' onclick='javascript:deleteplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep1(\""+allPortfolioObjects[j].platforms[k]._doc+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Release</a> \</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPlatform' onclick='javascript:viewplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPlatform' onclick='javascript:editplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePlatform' onclick='javascript:deleteplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep1(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Release</a> \</tr>";
 				
 				//alert("allPortfolioObjects[j].name" + allPortfolioObjects[j].name)		   
 			}
@@ -201,12 +201,12 @@ function populatePlatform(m){
 function populateRelease(m){
 	var rows="";
 	for (j=0; j < allPlatformObjects.length; j++) {
-		if(allPlatformObjects[j]._doc === m){
+		if(allPlatformObjects[j].name === m){
 		//inatalert(allPlatformObjects[j].name);
 			$("#txtPlatform").val(allPlatformObjects[j].name);
 			for (k=0; k < allPlatformObjects[j].releases.length; k++) {
 				rows += "<tr><td>" + allPlatformObjects[j].releases[k].name + "</td><td>" + allPlatformObjects[j].releases[k].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewRelease' onclick='javascript:viewrelease(\""+allPlatformObjects[j].releases[k].name+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editRelease'  onclick='javascript:editrelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteRelease' onclick='javascript:deleterelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep2(\""+allPlatformObjects[j].releases[k]._doc+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Feature</a> \</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewRelease' onclick='javascript:viewrelease(\""+allPlatformObjects[j].releases[k].name+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editRelease'  onclick='javascript:editrelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteRelease' onclick='javascript:deleterelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep2(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Feature</a> \</tr>";
 			}
 		}
 	}
@@ -222,7 +222,7 @@ function populateRelease(m){
 function populateFeature(m){
 	var rows="";
 	for (j=0; j < allReleaseObjects.length; j++) {
-		if(allReleaseObjects[j]._doc === m){
+		if(allReleaseObjects[j].name === m){
 		//alert(allReleaseObjects[j].name);
 		$("#txtRelease").val(allReleaseObjects[j].name);
 			for (k=0; k < allReleaseObjects[j].features.length; k++) {
@@ -325,7 +325,7 @@ for (j=0; j < allPortfolioObjects.length; j++) {
 		CKEDITOR.instances.txteditoredit1.setData( allPortfolioObjects[j].description );
 		
 		//CKEDITOR.instances.EdittxtCnotes.updateElement();
-		var portid = allPortfolioObjects[j]._doc;
+		var portid = allPortfolioObjects[j].name;
 		var portname= allPortfolioObjects[j].name;
 		var portcontact = allPortfolioObjects[j].primaryContact;
 		var portcnotes = allPortfolioObjects[j].customerNotes;
@@ -348,7 +348,7 @@ for (j=0; j < allPlatformObjects.length; j++) {
 		CKEDITOR.instances.PlatformEdittxtAnotes.setData( allPlatformObjects[j].aonInternalNotes );
 		CKEDITOR.instances.PlatformtxteditorDescription.setData( allPlatformObjects[j].description );
 
-		var Platformid = allPlatformObjects[j]._doc;
+		var Platformid = allPlatformObjects[j].name;
 		var Platformname= allPlatformObjects[j].name;
 		var Platformtcontact = allPlatformObjects[j].primaryContact;
 		var Platformtcnotes = allPlatformObjects[j].customerNotes;
@@ -372,7 +372,7 @@ for (j=0; j < allReleaseObjects.length; j++) {
 		CKEDITOR.instances.ReleaseEdittxtAnotes.setData( allReleaseObjects[j].aonInternalNotes );
 		CKEDITOR.instances.ReleasetxteditorDescription.setData( allReleaseObjects[j].description );
 	
-		var Releaseid = allReleaseObjects[j]._doc;
+		var Releaseid = allReleaseObjects[j].name;
 		var Releasename= allReleaseObjects[j].name;
 		var Releasecontact = allReleaseObjects[j].primaryContact;
 		var Releasecnotes = allReleaseObjects[j].customerNotes;
@@ -437,7 +437,7 @@ for (j=0; j < allFeatureObjects.length; j++) {
 		CKEDITOR.instances.FeatureEdittxtCnotes.setData( allFeatureObjects[j].customerNotes );
 		CKEDITOR.instances.FeatureEdittxtAnotes.setData( allFeatureObjects[j].aonInternalNotes );
 		CKEDITOR.instances.FeaturetxteditorDescription.setData( allFeatureObjects[j].description );
-		var Featureid = allFeatureObjects[j]._doc;
+		var Featureid = allFeatureObjects[j].name;
 		var Featurename= allFeatureObjects[j].name;
 		var Featurecontact = allFeatureObjects[j].primaryContact;
 		var Featurecnotes = allFeatureObjects[j].customerNotes;

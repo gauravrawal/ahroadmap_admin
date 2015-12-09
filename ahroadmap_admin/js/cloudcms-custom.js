@@ -5,13 +5,13 @@ var password = "63FOdNVwd4TpbGDLvIY6pa73ZMrVZ+Wb6FaYHPiAfkpmkrQG2a63fsBGznMKV9Qn
 var applicationId = "1a24bd197a4f85392969";
 
 roadmap:
-//var repositoryId = '08a6d0b854cca496951b';
-//var branchId = 'ddf67faa6edc8e3074bb';
+var repositoryId = '08a6d0b854cca496951b';
+var branchId = 'ddf67faa6edc8e3074bb';
 
 
 //ahroadmap admin
-var repositoryId = '254893db0c304ba3295d';
-var branchId = '1c6332c3a1eeafbfb3a2';
+//var repositoryId = '254893db0c304ba3295d';
+//var branchId = '1c6332c3a1eeafbfb3a2';
 
 
 
@@ -143,6 +143,7 @@ function myFunction(){
 	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
 	branch.createNode({
         	"name": $("#txtName").val(),
+			//"_doc": $("#txtName").val(),
 			"primaryContact": $("#primaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -202,6 +203,7 @@ var name = $("#txtName").val();
 	var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
 	branch.createNode({
         	"name": $("#txtPlatformName").val(),
+			//"_doc": $("#txtPlatformName").val(),
 			"primaryContact": $("#txtPlatformprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -247,6 +249,7 @@ function myFunction2(){
 	var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
 	branch.createNode({
         	"name": $("#txtReleaseName").val(),
+			//"_doc": $("#txtReleaseName").val(),
 			"primaryContact": $("#ReleaseprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -291,6 +294,8 @@ function myFunction3(){
 	var ckEditorData3 = CKEDITOR.instances.txtFeatureAnotes.getData();
 	branch.createNode({
         	"name": $("#txtFeatureName").val(),
+			//"_doc": $("#txtFeatureName").val(),
+			
 			"primaryContact": $("#FeatureprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -333,7 +338,7 @@ function populateDropDown()
 	 	var rows="";
 		for (j=0; j < allPortfolioObjects.length; j++) {
  	  	rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
-                           <td><a class='btn btn-info btn-lg' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-info btn-lg'>View</a>&nbsp;&nbsp;<a class='btn btn-info btn-lg' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\""+allPortfolioObjects[j]._doc+"\");' href='javascript:void(0)' class='btn btn-info btn-lg'>Platform</a> \</tr>";
+                           <td><a class='btn btn-info btn-lg' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-info btn-lg'>View</a>&nbsp;&nbsp;<a class='btn btn-info btn-lg' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-info btn-lg'>Platform</a> \</tr>";
 	
 	}
 		$( rows ).appendTo("#example tbody");
