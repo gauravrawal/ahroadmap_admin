@@ -154,7 +154,9 @@ function myFunction(){
 			//"parent": "my upoint release",//change as needed
 			"parent": "Application",
 			"content": "true",
-			"date": "12/10/2015",
+			//"date": "12/10/2015",
+			//"date": moment().format('L')
+			"date": "01/30/2016"
 	}).then(function(){
 			newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
