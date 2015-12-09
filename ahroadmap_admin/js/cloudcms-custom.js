@@ -143,7 +143,6 @@ function myFunction(){
 	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
 	branch.createNode({
         	"name": $("#txtName").val(),
-			"_doc": $("#txtName").val(),
 			"primaryContact": $("#primaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -203,7 +202,6 @@ var name = $("#txtName").val();
 	var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
 	branch.createNode({
         	"name": $("#txtPlatformName").val(),
-			"_doc": $("#txtPlatformName").val(),
 			"primaryContact": $("#txtPlatformprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -249,7 +247,6 @@ function myFunction2(){
 	var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
 	branch.createNode({
         	"name": $("#txtReleaseName").val(),
-			"_doc": $("#txtReleaseName").val(),
 			"primaryContact": $("#ReleaseprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -294,8 +291,6 @@ function myFunction3(){
 	var ckEditorData3 = CKEDITOR.instances.txtFeatureAnotes.getData();
 	branch.createNode({
         	"name": $("#txtFeatureName").val(),
-			"_doc": $("#txtFeatureName").val(),
-			
 			"primaryContact": $("#FeatureprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
