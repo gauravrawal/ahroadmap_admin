@@ -214,7 +214,8 @@ var name = $("#txtName").val();
 			//"parent": "my upoint release",//change as needed
 			"parent": $("#txtPnName").val(),
 			"content": "true",
-			"date": "12/10/2015",
+			//"date": "12/10/2015",
+			"date": "01/30/2016",
 	}).then(function(){
 			newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
@@ -305,7 +306,8 @@ function myFunction3(){
 			//"parent": "my upoint release",//change as needed
 			"parent": $("#txtRelease").val(),
 			"content": "true",
-			"date": "12/10/2015",
+			//"date": "12/10/2015",
+			"date": "01/30/2016",
 	}).then(function(){
 			newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
