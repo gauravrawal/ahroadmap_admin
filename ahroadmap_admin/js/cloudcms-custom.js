@@ -225,7 +225,7 @@ var name = $("#txtName").val();
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + uploadFilename.value + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -270,7 +270,7 @@ function myFunction2(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + uploadFilename.value + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -317,7 +317,7 @@ function myFunction3(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + uploadFilename.value + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
