@@ -5,13 +5,13 @@ var password = "63FOdNVwd4TpbGDLvIY6pa73ZMrVZ+Wb6FaYHPiAfkpmkrQG2a63fsBGznMKV9Qn
 var applicationId = "1a24bd197a4f85392969";
 
 roadmap:
-var repositoryId = '08a6d0b854cca496951b';
-var branchId = 'ddf67faa6edc8e3074bb';
+//var repositoryId = '08a6d0b854cca496951b';
+//var branchId = 'ddf67faa6edc8e3074bb';
 
 
 //ahroadmap admin
-//var repositoryId = '254893db0c304ba3295d';
-//var branchId = '1c6332c3a1eeafbfb3a2';
+var repositoryId = '254893db0c304ba3295d';
+var branchId = '1c6332c3a1eeafbfb3a2';
 
 
 
@@ -218,14 +218,14 @@ var name = $("#txtName").val();
 			"date": "01/30/2016",
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm1")[0]);
+			var formData = new FormData($("#frmSubmitForm")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm1");
+            var form = $("#frmSubmitForm");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + uploadFilename1.value + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
                     data: formData,
                     contentType: false,
                     processData: false,
