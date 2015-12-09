@@ -399,7 +399,7 @@ function editportfoliodata(){
 	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData2;
 	nodeToUpdate.customerNotes = ckPortfolioEditorData3;
 	nodeToUpdate.update().then(function(){
-		//alert("portfolio node updatred");
+		alert("portfolio node updatred");
 		newCommentId = nodeToUpdate.getId();
 		var formData = new FormData($("#frmeditSubmitForm4")[0]);
 			
@@ -408,7 +408,7 @@ function editportfoliodata(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEditPortfolio").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -464,36 +464,8 @@ function editplatformdata(){
 	nodeToUpdate.primaryContact = newNodePlatformContact;
 	nodeToUpdate.aonInternalNotes = ckPlatformEditorData3;
 	nodeToUpdate.customerNotes = ckPlatformEditorData2;
-	nodeToUpdate.update().then(function(){
-		//alert("portfolio node updatred");
-		newCommentId = nodeToUpdate.getId();
-		var formData = new FormData($("#frmeditSubmitForm5")[0]);
-			
-			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmeditSubmitForm5");
-			
-			$.ajax({
-                    type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEditPlatform").val() + "/",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    headers: {
-                        authorization: authorizationHeader
-                    }
-                })
-		
-		
-		
-		
-		
-		});
-	
-	
-	
-	
-	
-	
+	nodeToUpdate.update();
+	//alert("Platform Data Updated");
 	$('#Confirmation1').modal('show'); 
 	
 }
@@ -510,35 +482,7 @@ function editreleasedata(){
 	nodeToUpdate.primaryContact = newNodeReleaseContact;
 	nodeToUpdate.aonInternalNotes = ckReleaseEditorData3;
 	nodeToUpdate.customerNotes = ckReleaseEditorData2;
-	nodeToUpdate.update().then(function(){
-		//alert("portfolio node updatred");
-		newCommentId = nodeToUpdate.getId();
-		var formData = new FormData($("#frmeditSubmitForm6")[0]);
-			
-			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmeditSubmitForm6");
-			
-			$.ajax({
-                    type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEditRelease").val() + "/",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    headers: {
-                        authorization: authorizationHeader
-                    }
-                })
-		
-		
-		
-		
-		
-		});
-	
-	
-	
-	
-	
+	nodeToUpdate.update();
 	$('#Confirmation2').modal('show'); 
 	//location.reload(true);
 	
@@ -555,35 +499,7 @@ function editfeaturedata(){
 	nodeToUpdate.primaryContact = newNodeFeatureContact;
 	nodeToUpdate.aonInternalNotes = ckFeatureEditorData3;
 	nodeToUpdate.customerNotes = ckFeatureEditorData2;
-	nodeToUpdate.update().then(function(){
-		//alert("portfolio node updatred");
-		newCommentId = nodeToUpdate.getId();
-		var formData = new FormData($("#frmeditSubmitForm7")[0]);
-			
-			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmeditSubmitForm7");
-			
-			$.ajax({
-                    type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEditFeature").val() + "/",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    headers: {
-                        authorization: authorizationHeader
-                    }
-                })
-		
-		
-		
-		
-		
-		});
-	
-	
-	
-	
-	
+	nodeToUpdate.update();
 	$('#Confirmation3').modal('show'); 
 	
 }
