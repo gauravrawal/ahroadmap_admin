@@ -5,13 +5,13 @@ var password = "63FOdNVwd4TpbGDLvIY6pa73ZMrVZ+Wb6FaYHPiAfkpmkrQG2a63fsBGznMKV9Qn
 var applicationId = "1a24bd197a4f85392969";
 
 roadmap:
-var repositoryId = '08a6d0b854cca496951b';
-var branchId = 'ddf67faa6edc8e3074bb';
+//var repositoryId = '08a6d0b854cca496951b';
+//var branchId = 'ddf67faa6edc8e3074bb';
 
 
 //ahroadmap admin
-//var repositoryId = '254893db0c304ba3295d';
-//var branchId = '1c6332c3a1eeafbfb3a2';
+var repositoryId = '254893db0c304ba3295d';
+var branchId = '1c6332c3a1eeafbfb3a2';
 
 
 
@@ -50,6 +50,12 @@ platform = Gitana.connect({
                     "date": 1
                 }
             };
+			
+			 branch.queryNodes(query, pagination).then(function() {
+                allObjects1 = this;
+            });
+			
+			
 			allObjects = branch.queryNodes(query, pagination).each(function () {
 				//console.log(this.name);
 				//build arrays of similar type objects. this will be used in 'populateuniversaliobject()'
