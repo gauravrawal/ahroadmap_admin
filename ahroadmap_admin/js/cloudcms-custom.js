@@ -45,7 +45,7 @@ platform = Gitana.connect({
 				"content": 'true'
             };
             var pagination = {
-                	//"limit": 100,
+                	
                     "sort": {
                     "date": 1
                 }
@@ -166,7 +166,7 @@ function myFunction(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + uploadFilename.value + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -218,14 +218,14 @@ var name = $("#txtName").val();
 			"date": "01/30/2016",
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm")[0]);
+			var formData = new FormData($("#frmSubmitForm1")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm");
+            var form = $("#frmSubmitForm1");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
