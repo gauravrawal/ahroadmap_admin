@@ -5,13 +5,13 @@ var password = "63FOdNVwd4TpbGDLvIY6pa73ZMrVZ+Wb6FaYHPiAfkpmkrQG2a63fsBGznMKV9Qn
 var applicationId = "1a24bd197a4f85392969";
 
 roadmap:
-var repositoryId = '08a6d0b854cca496951b';
-var branchId = 'ddf67faa6edc8e3074bb';
+//var repositoryId = '08a6d0b854cca496951b';
+//var branchId = 'ddf67faa6edc8e3074bb';
 
 
 //ahroadmap admin
-//var repositoryId = '254893db0c304ba3295d';
-//var branchId = '1c6332c3a1eeafbfb3a2';
+var repositoryId = '254893db0c304ba3295d';
+var branchId = '1c6332c3a1eeafbfb3a2';
 
 
 
@@ -150,7 +150,7 @@ function myFunction(){
 	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
 	branch.createNode({
         	"name": $("#txtName").val(),
-			"videoIds": $("#txtVideoIds").val(),
+			"videoIds": $("#txtVideoIds1").val(),
 			//"_doc": $("#txtName").val(),
 			"primaryContact": $("#primaryContact").val(),
 			"customerNotes" : ckEditorData2,
@@ -211,6 +211,7 @@ var name = $("#txtName").val();
 	var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
 	branch.createNode({
         	"name": $("#txtPlatformName").val(),
+			"videoIds": $("#txtVideoIds2").val(),
 			//"_doc": $("#txtPlatformName").val(),
 			"primaryContact": $("#txtPlatformprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
@@ -257,6 +258,7 @@ function myFunction2(){
 	var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
 	branch.createNode({
         	"name": $("#txtReleaseName").val(),
+			"videoIds": $("#txtVideoIds3").val(),
 			//"_doc": $("#txtReleaseName").val(),
 			"primaryContact": $("#ReleaseprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
@@ -303,7 +305,7 @@ function myFunction3(){
 	branch.createNode({
         	"name": $("#txtFeatureName").val(),
 			//"_doc": $("#txtFeatureName").val(),
-			
+			"videoIds": $("#txtVideoIds4").val(),
 			"primaryContact": $("#FeatureprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
