@@ -234,7 +234,7 @@ var name = $("#txtName").val();
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename1").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -273,14 +273,14 @@ function myFunction2(){
 			"date": $("#releasedate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm")[0]);
+			var formData = new FormData($("#frmSubmitForm2")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm");
+            var form = $("#frmSubmitForm2");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename2").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -320,14 +320,14 @@ function myFunction3(){
 			"date": "01/30/2016",
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm")[0]);
+			var formData = new FormData($("#frmSubmitForm3")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm");
+            var form = $("#frmSubmitForm3");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename3").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
