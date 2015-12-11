@@ -3,30 +3,13 @@
    <head>
       <title>AH Roadmap Admin View</title>
       <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=edge"/>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <link rel="stylesheet" type="text/css" href="css/jquery.steps.css">
       <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
       <link rel="stylesheet" type="text/css" href="css/custom.css">
 	  <link rel="stylesheet" type="text/css" href="css/datepicker.css">
-      <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-      <script type="text/javascript" src="js/Class.create.js"></script>
-      <script type="text/javascript" src="js/jquery.steps.js"></script>
-      <script type="text/javascript" src="js/gitana.min.js"></script>
-      <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-      <script type="text/javascript" src="js/cloudcms-custom.js"></script>
-	    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-	  <script>
- $(document).ready(function(){
-		$("#releasedate").datepicker({
-        dateFormat: "mm/dd/yyyy",
-		startDate: '01/01/2015',
-		//endDate: '12/31/2000',
-		autoclose: true
-    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
-    $('#releasedate').val('');
-							});
-	  </script>
    </head>
    <body>
       <!--[if lt IE 7]>
@@ -127,7 +110,7 @@
                         </p>
                         <p>
                            <textarea name="editor1" id="editor1" rows="10" cols="80">
-                           
+                           <!--This is my textarea to be replaced with CKEditor.-->
                            </textarea>
                         </p>
                         
@@ -137,7 +120,7 @@
                         </p>
                         <p>
                            <textarea name="txtCnotes" id="txtCnotes" rows="10" cols="90">
-                           
+                           <!--Customer Notes-->
                            </textarea>
                         </p>
                         <p>
@@ -146,22 +129,35 @@
                         </p>
                         <p>
                            <textarea name="txtAnotes" id="txtAnotes" rows="10" cols="90">
-                           
+                           <!--Aon Hewitt Notes-->
                            </textarea>
                         </p>
+						<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="portfoliodate" name="portfoliodate" class="form-control">
+						</p>
                         <p>
                            <label>Brightcove Video ID's<br/>
                            <input type="text" name="txtVideoIds1" id="txtVideoIds1" />
                            </label>
                         </p>
                         
+						<!--<p>
+                           <label>Description </label>
+                        </p>-->
+						
                         <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm" id = "frmSubmitForm" target="_self">
                            <div class="form-group">
                               <label for="myFileUpload">Add an optional document as an attachment: </label>
                               <input type="file" id="myFileUpload" name="myFileUpload">
-                              <label>Give your file a user-friendly name<br>
+                              
+                              <!--<label>Give your file a user-friendly name<br>
                               <input type="text" name="uploadFilename" id="uploadFilename">
-                              </label>
+                              </label>-->
+                           
                            </div>
                            <div class="modal-footer">
                               <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
@@ -219,6 +215,13 @@
                            Aon Hewitt Notes
                            </textarea>
                         </p>
+						<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="platformdate" name="platformdate" class="form-control">
+						</p>
                         <p>
                            <label>Brightcove Video ID's<br/>
                            <input type="text" name="txtVideoIds2" id="txtVideoIds2" />
@@ -226,11 +229,11 @@
                         </p>
                         <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm1" id = "frmSubmitForm1" target="_self">
                            <div class="form-group">
-                              <label for="myFileUpload1">Add an optional document as an attachment: </label>
-                              <input type="file" id="myFileUpload1" name="myFileUpload1">
+                              <label for="myFileUpload">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload" name="myFileUpload">
                               
                               <label>Give your file a user-friendly name<br>
-                              <input type="text" name="uploadFilename1" id="uploadFilename1">
+                              <input type="text" name="uploadFilename" id="uploadFilename">
                               </label>
                               
                               
@@ -305,12 +308,8 @@
                         </p>
                         <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm2" id = "frmSubmitForm2" target="_self">
                            <div class="form-group">
-                              <label for="myFileUpload2">Add an optional document as an attachment: </label>
-                              <input type="file" id="myFileUpload2" name="myFileUpload2">
-                              <label>Give your file a user-friendly name<br>
-                              <input type="text" name="uploadFilename2" id="uploadFilename2">
-                              </label>
-                              
+                              <label for="myFileUpload">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload" name="myFileUpload">
                            </div>
                            <div class="modal-footer">
                               <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
@@ -372,6 +371,13 @@
                           Aon Hewitt Notes
                            </textarea>
                         </p>
+							<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="featuredate" name="featuredate" class="form-control">
+						</p>
                         <p>
                            <label>Brightcove Video ID's<br/>
                            <input type="text" name="txtVideoIds4" id="txtVideoIds4" />
@@ -379,11 +385,8 @@
                         </p>
                         <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm3" id = "frmSubmitForm3" target="_self">
                            <div class="form-group">
-                              <label for="myFileUpload3">Add an optional document as an attachment: </label>
-                              <input type="file" id="myFileUpload3" name="myFileUpload3">
-                              <label>Give your file a user-friendly name<br>
-                              <input type="text" name="uploadFilename3" id="uploadFilename3">
-                              </label>
+                              <label for="myFileUpload">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload" name="myFileUpload">
                            </div>
                            <div class="modal-footer">
                               <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
@@ -1026,8 +1029,48 @@
             </div>
          </div>
       </div>
+	  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="js/Class.create.js"></script>
+      <script type="text/javascript" src="js/jquery.steps.js"></script>
+      <script type="text/javascript" src="js/gitana.min.js"></script>
+      <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="js/cloudcms-custom.js"></script>
+	   <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
       <script src="js/bootstrap.min.js"></script>
       <script src="ckeditor/ckeditor.js"></script>
       <script src="js/custom.js"></script>
+	    <script>
+ $(document).ready(function(){
+		$("#releasedate").datepicker({
+        dateFormat: "mm/dd/yyyy",
+		startDate: '01/01/2015',
+		//endDate: '12/31/2000',
+		autoclose: true
+    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+    $('#releasedate').val('');
+		$("#platformdate").datepicker({
+        dateFormat: "mm/dd/yyyy",
+		startDate: '01/01/2015',
+		//endDate: '12/31/2000',
+		autoclose: true
+    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+    $('#platformdate').val('');
+	$("#portfoliodate").datepicker({
+        dateFormat: "mm/dd/yyyy",
+		startDate: '01/01/2015',
+		//endDate: '12/31/2000',
+		autoclose: true
+    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+    $('#portfoliodate').val('');
+		$("#featuredate").datepicker({
+        dateFormat: "mm/dd/yyyy",
+		startDate: '01/01/2015',
+		//endDate: '12/31/2000',
+		autoclose: true
+    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+    $('#featuredate').val('');
+							});
+							
+	  </script>
    </body>
 </html>

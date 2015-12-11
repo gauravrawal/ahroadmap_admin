@@ -137,25 +137,25 @@ $("#frmeditSubmitForm11").submit(function (event) {
 $("#frmeditSubmitForm12").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
 			
-			reload();
+			pagereload();
 
     });
 $("#frmeditSubmitForm13").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
 			
-			reload();
+			pagereload();
 
     });
 $("#frmeditSubmitForm14").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
 			
-			reload();
+			pagereload();
 
     });
 $("#frmeditSubmitForm15").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
 			
-			reload();
+			pagereload();
 
     });
 function populateDropDown() 
@@ -484,7 +484,7 @@ function editreleasedata(){
 	nodeToUpdate.customerNotes = ckReleaseEditorData2;
 	nodeToUpdate.update();
 	$('#Confirmation2').modal('show'); 
-	//location.reload(true);
+	//location.pagereload(true);
 	
 }
 function editfeaturedata(){
@@ -567,7 +567,7 @@ function deletedata(){
 		nodeToUpdate.content = cstatus;
 		nodeToUpdate.update();
 		$('#DeletePortfolio').modal('hide'); 
-		reload();
+		pagereload();
 	}
 }
 
@@ -579,7 +579,7 @@ function deleteplatformdata(){
 		nodeToUpdate.content = cstatus;
 		nodeToUpdate.update();
 		$('#DeleteRelease').modal('hide'); 
-		reload();
+		pagereload();
 	}
 }
 
@@ -591,7 +591,7 @@ function deletereleasedata(){
 		nodeToUpdate.content = cstatus;
 		nodeToUpdate.update();
 		$('#DeleteFeature').modal('hide'); 
-		reload();
+		pagereload();
 	}
 }
 
@@ -604,7 +604,7 @@ function deletefeaturedata(){
 		nodeToUpdate.update();
 	}
 }
-function reload(){
-	
-location.reload(true);
+function pagereload(){
+	setTimeout(function () { location.reload(true); }, 2000);
+
 }

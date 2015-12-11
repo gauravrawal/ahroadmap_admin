@@ -135,23 +135,49 @@ var rows="";
 };
 
 function myFunction(){
-	var name = $("#txtName").val();
+		var name = $("#txtName").val();
+		var ckEditorData1 = CKEDITOR.instances.editor1.getData();
+		
+	var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
 	for (j=0; j < allPortfolioObjects.length; j++) {
 		if(name == allPortfolioObjects[j].name)
 		{
-			alert("Name Already exist");
+			alert("This is already taken as Portfolio name!!");
+			return false;
+		}
+		
+	}
+		for (j=0; j < allPlatformObjects.length; j++) {
+		if(name == allPlatformObjects[j].name)
+		{
+			alert("This is already taken as Platform name!!");
+			return false;
+		}
+		
+	}
+	for (j=0; j < allReleaseObjects.length; j++) {
+		if(name == allReleaseObjects[j].name)
+		{
+			alert("This is already taken as Release name!!");
 			return false;
 		}
 		
 	}
 	
-	var ckEditorData1 = CKEDITOR.instances.editor2.getData();
-	var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
-	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
+		for (j=0; j < allFeatureObjects.length; j++) {
+		if(name == allFeatureObjects[j].name)
+		{
+			alert("This is already taken as Feature name!!");
+			return false;
+		}
+		
+	}
+
 	branch.createNode({
         	"name": $("#txtName").val(),
 			"videoIds": $("#txtVideoIds1").val(),
-			//"_doc": $("#txtName").val(),
+			"_doc": $("#txtName").val(),
 			"primaryContact": $("#primaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -164,7 +190,7 @@ function myFunction(){
 			"content": "true",
 			//"date": "12/10/2015",
 			//"date": moment().format('L')
-			"date": "01/30/2016"
+			"date": $("#portfoliodate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
@@ -197,22 +223,48 @@ function myFunction(){
 };
 
 function myFunction1(){
-var name = $("#txtName").val();
+	var name = $("#txtPlatformName").val();
+		var ckEditorData1 = CKEDITOR.instances.editor2.getData();
+	var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
 	for (j=0; j < allPortfolioObjects.length; j++) {
 		if(name == allPortfolioObjects[j].name)
 		{
-			alert("Name Already exist");
+			alert("This is already taken as Portfolio name!!");
+			return false;
+		}
+		
+	}
+		for (j=0; j < allPlatformObjects.length; j++) {
+		if(name == allPlatformObjects[j].name)
+		{
+			alert("This is already taken as Platform name!!");
+			return false;
+		}
+		
+	}
+	for (j=0; j < allReleaseObjects.length; j++) {
+		if(name == allReleaseObjects[j].name)
+		{
+			alert("This is already taken as Release name!!");
+			return false;
+		}
+		
+	}
+	
+		for (j=0; j < allFeatureObjects.length; j++) {
+		if(name == allFeatureObjects[j].name)
+		{
+			alert("This is already taken as Feature name!!");
 			return false;
 		}
 		
 	}	
-	var ckEditorData1 = CKEDITOR.instances.editor1.getData();
-	var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
-	var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
+
 	branch.createNode({
         	"name": $("#txtPlatformName").val(),
 			"videoIds": $("#txtVideoIds2").val(),
-			//"_doc": $("#txtPlatformName").val(),
+			"_doc": $("#txtPlatformName").val(),
 			"primaryContact": $("#txtPlatformprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -224,7 +276,7 @@ var name = $("#txtName").val();
 			"parent": $("#txtPnName").val(),
 			"content": "true",
 			//"date": "12/10/2015",
-			"date": "01/30/2016",
+			"date": $("#platformdate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm1")[0]);
@@ -234,7 +286,7 @@ var name = $("#txtName").val();
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename1").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -252,14 +304,47 @@ var name = $("#txtName").val();
 };
 
 function myFunction2(){
-	
+	var name = $("#txtReleaseName").val();
 	var ckEditorData1 = CKEDITOR.instances.editor3.getData();
 	var ckEditorData2 = CKEDITOR.instances.txtReleaseCnotes.getData();
 	var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
+	for (j=0; j < allPortfolioObjects.length; j++) {
+		if(name == allPortfolioObjects[j].name)
+		{
+			alert("This is already taken as Portfolio name!!");
+			return false;
+		}
+		
+	}
+		for (j=0; j < allPlatformObjects.length; j++) {
+		if(name == allPlatformObjects[j].name)
+		{
+			alert("This is already taken as Platform name!!");
+			return false;
+		}
+		
+	}
+	for (j=0; j < allReleaseObjects.length; j++) {
+		if(name == allReleaseObjects[j].name)
+		{
+			alert("This is already taken as Release name!!");
+			return false;
+		}
+		
+	}
+	
+		for (j=0; j < allFeatureObjects.length; j++) {
+		if(name == allFeatureObjects[j].name)
+		{
+			alert("This is already taken as Feature name!!");
+			return false;
+		}
+		
+	}	
 	branch.createNode({
         	"name": $("#txtReleaseName").val(),
 			"videoIds": $("#txtVideoIds3").val(),
-			//"_doc": $("#txtReleaseName").val(),
+			"_doc": $("#txtReleaseName").val(),
 			"primaryContact": $("#ReleaseprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -273,14 +358,14 @@ function myFunction2(){
 			"date": $("#releasedate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm2")[0]);
+			var formData = new FormData($("#frmSubmitForm")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm2");
+            var form = $("#frmSubmitForm");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename2").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -298,13 +383,46 @@ function myFunction2(){
 };
 
 function myFunction3(){
-	
+	var name = $("#txtFeatureName").val();
 	var ckEditorData1 = CKEDITOR.instances.editor4.getData();
 	var ckEditorData2 = CKEDITOR.instances.txtFeatureCnotes.getData();
 	var ckEditorData3 = CKEDITOR.instances.txtFeatureAnotes.getData();
+	for (j=0; j < allPortfolioObjects.length; j++) {
+		if(name == allPortfolioObjects[j].name)
+		{
+			alert("This is already taken as Portfolio name!!");
+			return false;
+		}
+		
+	}
+		for (j=0; j < allPlatformObjects.length; j++) {
+		if(name == allPlatformObjects[j].name)
+		{
+			alert("This is already taken as Platform name!!");
+			return false;
+		}
+		
+	}
+	for (j=0; j < allReleaseObjects.length; j++) {
+		if(name == allReleaseObjects[j].name)
+		{
+			alert("This is already taken as Release name!!");
+			return false;
+		}
+		
+	}
+	
+		for (j=0; j < allFeatureObjects.length; j++) {
+		if(name == allFeatureObjects[j].name)
+		{
+			alert("This is already taken as Feature name!!");
+			return false;
+		}
+		
+	}	
 	branch.createNode({
         	"name": $("#txtFeatureName").val(),
-			//"_doc": $("#txtFeatureName").val(),
+			"_doc": $("#txtFeatureName").val(),
 			"videoIds": $("#txtVideoIds4").val(),
 			"primaryContact": $("#FeatureprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
@@ -317,17 +435,17 @@ function myFunction3(){
 			"parent": $("#txtRelease").val(),
 			"content": "true",
 			//"date": "12/10/2015",
-			"date": "01/30/2016",
+			"date": $("#featuredate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm3")[0]);
+			var formData = new FormData($("#frmSubmitForm")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm3");
+            var form = $("#frmSubmitForm");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename3").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
                     data: formData,
                     contentType: false,
                     processData: false,
