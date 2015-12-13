@@ -28,6 +28,17 @@ var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
 
+
+
+/*platform = Gitana.connect({
+	//"clientKey": clientKey,
+	//"clientSecret": clientSecret,
+	"username": username,
+	//"password": password,
+	"baseURL": "/proxy"
+}).then(function () {*/
+
+
 platform = Gitana.connect({
 	"clientKey": clientKey,
 	"clientSecret": clientSecret,
