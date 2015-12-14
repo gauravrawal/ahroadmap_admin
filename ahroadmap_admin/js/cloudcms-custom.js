@@ -30,22 +30,22 @@ var allFeatureObjects = [];
 
 
 
-/*platform = Gitana.connect({
+platform = Gitana.connect({
 	//"clientKey": clientKey,
 	//"clientSecret": clientSecret,
 	"username": username,
 	//"password": password,
 	"baseURL": "/proxy"
-}).then(function () {*/
+}).then(function () {
 
 
-platform = Gitana.connect({
+/*platform = Gitana.connect({
 	"clientKey": clientKey,
 	"clientSecret": clientSecret,
 	"username": username,
 	"password": password,
 	"baseURL": "https://api.cloudcms.com"
-}).then(function () {
+}).then(function () {*/
 
     repository = platform.readRepository(repositoryId).then(function () { 
 
