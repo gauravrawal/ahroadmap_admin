@@ -14,7 +14,6 @@ var repositoryId = '254893db0c304ba3295d';
 var branchId = '1c6332c3a1eeafbfb3a2';
 
 
-//var newUsername = 'dd8947af-e38b-4d9a-8d7d-87de0c1133cb';//belonging to auth grant on application
 
 
 
@@ -28,17 +27,6 @@ var allPortfolioObjects = [];
 var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
-
-
-
-/*platform = Gitana.connect({
-	//"clientKey": clientKey,
-	//"clientSecret": clientSecret,
-	"username": newUsername,
-	//"password": password,
-	"baseURL": "/proxy"
-}).then(function () {*/
-
 
 platform = Gitana.connect({
 	"clientKey": clientKey,
