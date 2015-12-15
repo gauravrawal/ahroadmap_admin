@@ -177,7 +177,7 @@ function myFunction(){
 	branch.createNode({
         	"name": $("#txtName").val(),
 			"videoIds": $("#txtVideoIds1").val(),
-			"_doc": $("#txtName").val(),
+			//"_doc": $("#txtName").val(),
 			"primaryContact": $("#primaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -264,7 +264,7 @@ function myFunction1(){
 	branch.createNode({
         	"name": $("#txtPlatformName").val(),
 			"videoIds": $("#txtVideoIds2").val(),
-			"_doc": $("#txtPlatformName").val(),
+			//"_doc": $("#txtPlatformName").val(),
 			"primaryContact": $("#txtPlatformprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -286,7 +286,7 @@ function myFunction1(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename1").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -344,7 +344,7 @@ function myFunction2(){
 	branch.createNode({
         	"name": $("#txtReleaseName").val(),
 			"videoIds": $("#txtVideoIds3").val(),
-			"_doc": $("#txtReleaseName").val(),
+			//"_doc": $("#txtReleaseName").val(),
 			"primaryContact": $("#ReleaseprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
 			"aonInternalNotes" : ckEditorData3,
@@ -358,14 +358,14 @@ function myFunction2(){
 			"date": $("#releasedate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm")[0]);
+			var formData = new FormData($("#frmSubmitForm2")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm");
+            var form = $("#frmSubmitForm2");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename2").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -422,7 +422,7 @@ function myFunction3(){
 	}	
 	branch.createNode({
         	"name": $("#txtFeatureName").val(),
-			"_doc": $("#txtFeatureName").val(),
+			//"_doc": $("#txtFeatureName").val(),
 			"videoIds": $("#txtVideoIds4").val(),
 			"primaryContact": $("#FeatureprimaryContact").val(),
 			"customerNotes" : ckEditorData2,
@@ -438,14 +438,14 @@ function myFunction3(){
 			"date": $("#featuredate").val(),
 	}).then(function(){
 			newCommentId = this.getId();
-			var formData = new FormData($("#frmSubmitForm")[0]);
+			var formData = new FormData($("#frmSubmitForm3")[0]);
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmSubmitForm");
+            var form = $("#frmSubmitForm3");
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/default/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename3").val() + "/",
                     data: formData,
                     contentType: false,
                     processData: false,

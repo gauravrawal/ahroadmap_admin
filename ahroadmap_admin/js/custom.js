@@ -57,6 +57,7 @@ function nextStep2(m){
 function viewportfolio(portfolio){
 viewPortfolioData(portfolio);
 }
+
  $("#frmSubmitForm").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
 			
@@ -387,45 +388,6 @@ for (j=0; j < allReleaseObjects.length; j++) {
 }
 }
 
-function editportfoliodata(){
-	var ckPortfolioEditorData1 = CKEDITOR.instances.txteditoredit1.getData();
-	var ckPortfolioEditorData2 = CKEDITOR.instances.EdittxtCnotes.getData();
-	var ckPortfolioEditorData3 = CKEDITOR.instances.EdittxtAnotes.getData();
-	var newNodePortfolioName = $("#txtEditName").val();
-	var newNodePortfolioContact = $("#EditprimaryContact").val();
-	nodeToUpdate.name = newNodePortfolioName;
-	nodeToUpdate.description = ckPortfolioEditorData1;
-	nodeToUpdate.primaryContact = newNodePortfolioContact;
-	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData2;
-	nodeToUpdate.customerNotes = ckPortfolioEditorData3;
-	nodeToUpdate.update().then(function(){
-		alert("portfolio node updatred");
-		newCommentId = nodeToUpdate.getId();
-		var formData = new FormData($("#frmeditSubmitForm4")[0]);
-			
-			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmeditSubmitForm4");
-			
-			$.ajax({
-                    type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit").val() + "/",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    headers: {
-                        authorization: authorizationHeader
-                    }
-                })
-		
-		
-		
-		
-		
-		});
-	$('#Confirmation').modal('show'); 
-	
-		
-}
 
 
 function editfeature(feature){
@@ -452,6 +414,44 @@ for (j=0; j < allFeatureObjects.length; j++) {
 }
 }
 
+function editportfoliodata(){
+	var ckPortfolioEditorData1 = CKEDITOR.instances.txteditoredit1.getData();
+	var ckPortfolioEditorData2 = CKEDITOR.instances.EdittxtCnotes.getData();
+	var ckPortfolioEditorData3 = CKEDITOR.instances.EdittxtAnotes.getData();
+	var newNodePortfolioName = $("#txtEditName").val();
+	var newNodePortfolioContact = $("#EditprimaryContact").val();
+	nodeToUpdate.name = newNodePortfolioName;
+	nodeToUpdate.description = ckPortfolioEditorData1;
+	nodeToUpdate.primaryContact = newNodePortfolioContact;
+	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData2;
+	nodeToUpdate.customerNotes = ckPortfolioEditorData3;
+	nodeToUpdate.update().then(function(){
+		//alert("portfolio node updatred");
+		newCommentId = nodeToUpdate.getId();
+		var formData = new FormData($("#frmeditSubmitForm4")[0]);
+			
+			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
+            var form = $("#frmeditSubmitForm4");
+			
+			$.ajax({
+                    type: "POST",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit4").val() + "/",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        authorization: authorizationHeader
+                    }
+                })
+	
+		});
+	$('#Confirmation').modal('show'); 
+	
+		
+}
+
+
+
 function editplatformdata(){
 	var ckPlatformEditorEditorData2 = CKEDITOR.instances.PlatformtxteditorDescription.getData();
 	var ckPlatformEditorData2 = CKEDITOR.instances.PlatformEdittxtCnotes.getData();
@@ -464,8 +464,26 @@ function editplatformdata(){
 	nodeToUpdate.primaryContact = newNodePlatformContact;
 	nodeToUpdate.aonInternalNotes = ckPlatformEditorData3;
 	nodeToUpdate.customerNotes = ckPlatformEditorData2;
-	nodeToUpdate.update();
-	//alert("Platform Data Updated");
+	nodeToUpdate.update().then(function(){
+		//alert("portfolio node updatred");
+		newCommentId = nodeToUpdate.getId();
+		var formData = new FormData($("#frmeditSubmitForm5")[0]);
+			
+			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
+            var form = $("#frmeditSubmitForm5");
+			
+			$.ajax({
+                    type: "POST",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit5").val() + "/",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        authorization: authorizationHeader
+                    }
+                })
+	
+		});
 	$('#Confirmation1').modal('show'); 
 	
 }
@@ -482,7 +500,26 @@ function editreleasedata(){
 	nodeToUpdate.primaryContact = newNodeReleaseContact;
 	nodeToUpdate.aonInternalNotes = ckReleaseEditorData3;
 	nodeToUpdate.customerNotes = ckReleaseEditorData2;
-	nodeToUpdate.update();
+	nodeToUpdate.update().then(function(){
+		//alert("portfolio node updatred");
+		newCommentId = nodeToUpdate.getId();
+		var formData = new FormData($("#frmeditSubmitForm6")[0]);
+			
+			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
+            var form = $("#frmeditSubmitForm6");
+			
+			$.ajax({
+                    type: "POST",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit6").val() + "/",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        authorization: authorizationHeader
+                    }
+                })
+	
+		});
 	$('#Confirmation2').modal('show'); 
 	//location.pagereload(true);
 	
@@ -499,10 +536,40 @@ function editfeaturedata(){
 	nodeToUpdate.primaryContact = newNodeFeatureContact;
 	nodeToUpdate.aonInternalNotes = ckFeatureEditorData3;
 	nodeToUpdate.customerNotes = ckFeatureEditorData2;
-	nodeToUpdate.update();
+	nodeToUpdate.update().then(function(){
+		//alert("portfolio node updatred");
+		newCommentId = nodeToUpdate.getId();
+		var formData = new FormData($("#frmeditSubmitForm7")[0]);
+			
+			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
+            var form = $("#frmeditSubmitForm7");
+			
+			$.ajax({
+                    type: "POST",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit7").val() + "/",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    headers: {
+                        authorization: authorizationHeader
+                    }
+                })
+	
+		});
 	$('#Confirmation3').modal('show'); 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
 
 function deleteportfolio(portfolio){
 	for (j=0; j < allPortfolioObjects.length; j++) {
