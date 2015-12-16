@@ -1,1007 +1,1061 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>AH Roadmap Admin View</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=edge"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.steps.css">
-<link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
-<link rel="stylesheet" type="text/css" href="css/custom.css">
-<link rel="stylesheet" type="text/css" href="css/datepicker.css">
-</head>
-<body>
-<!--[if lt IE 7]>
+   <head>
+      <title>AH Roadmap Admin View</title>
+      <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=edge"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery.steps.css">
+      <link rel="stylesheet" type="text/css" href="css/jquery.dataTables.min.css">
+      <link rel="stylesheet" type="text/css" href="css/custom.css">
+	  <link rel="stylesheet" type="text/css" href="css/datepicker.css">
+   </head>
+   <body>
+   
+      <!--[if lt IE 7]>
       <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
       <![endif]-->
-<div class="container">
-  <div class="row">
-    <div class="col-md-12 header"> <img src="images/aon.png"/><span>Road Map Admin Panel</span> </div>
-    <div id="wizard">
-      <h2><strong>Portfolio</strong></h2>
-      <section> <img src="images/loading.gif" id="loading-image"/>
-        <div id="main-container">
-          <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addPortfolio'>Add Portfolio</button>
-          <table id="example" class="display" cellspacing="0" width="100%" border="1">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </section>
-      <h2>Platform</h2>
-      <section>
-        <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addPlatform'>Add Platform</button>
-        <table id="platformTable" class="display" cellspacing="0" width="100%" border="1">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </section>
-      <h2>Release</h2>
-      <section>
-        <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addRelease'>Add Release</button>
-        <table id="ReleaseTable" class="display" cellspacing="0" width="100%" border="1">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </section>
-      <h2>Feature</h2>
-      <section>
-        <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addFeature'>Add Feature</button>
-        <table id="featureTable" class="display" cellspacing="0" width="100%" border="1">
-          <thead>
-            <tr>
-              <th width="25%">Name</th>
-              <th width="50%">Description</th>
-              <th width="25%">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-          </tbody>
-        </table>
-      </section>
-    </div>
-    <div id="addPortfolio" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create a new Portfolio </h4>
-          </div>
-          <div class="modal-body">
-            <p>
-              <label>Name<br/>
-              <input type="text" name="txtName" id="txtName" />
-              </label>
-            </p>
-            <p>
-              <label>Contact<br/>
-              <input type="text" name="primaryContact" id="primaryContact" />
-              </label>
-            </p>
-            <p>
-              <label>Description </label>
-            </p>
-            <p>
-              <textarea name="editor1" id="editor1" rows="10" cols="80">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12 header"> <img src="images/aon.png"/><span>Road Map Admin Panel</span> </div>
+            <div id="wizard">
+               <h2><strong>Portfolio</strong></h2>
+               <section>
+                  <img src="images/loading.gif" id="loading-image"/>
+                  <div id="main-container">
+                     <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addPortfolio'>Add Portfolio</button>
+                     <table id="example" class="display" cellspacing="0" width="100%" border="1">
+                        <thead>
+                           <tr>
+                              <th>Name</th>
+                              <th>Description</th>
+                              <th>Action</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                     </table>
+                  </div>
+               </section>
+               <h2>Platform</h2>
+               <section>
+                  <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addPlatform'>Add Platform</button>
+                  <table id="platformTable" class="display" cellspacing="0" width="100%" border="1">
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Description</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                  </table>
+               </section>
+               <h2>Release</h2>
+               <section>
+                  <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addRelease'>Add Release</button>
+                  <table id="ReleaseTable" class="display" cellspacing="0" width="100%" border="1">
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Description</th>
+                           <th>Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                  </table>
+               </section>
+               <h2>Feature</h2>
+               <section>
+                  <button type="button" class="btn btn-primary pull-right" data-toggle='modal' data-target='#addFeature'>Add Feature</button>
+                  <table id="featureTable" class="display" cellspacing="0" width="100%" border="1">
+                     <thead>
+                        <tr>
+                           <th width="25%">Name</th>
+                           <th width="50%">Description</th>
+                           <th width="25%">Action</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                  </table>
+               </section>
+            </div>
+            <div class="col-md-12 footer">
+               <h4>&copy; Aon 2015</h4>
+            </div>
+            <div id="addPortfolio" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Create a new Portfolio </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>Name<br/>
+                           <input type="text" name="txtName" id="txtName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="primaryContact" id="primaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="editor1" id="editor1" rows="10" cols="80">
                            <!--This is my textarea to be replaced with CKEditor.-->
                            </textarea>
-            </p>
-            <p>
-              <label>Customer Notes<br/>
-              </label>
-            </p>
-            <p>
-              <textarea name="txtCnotes" id="txtCnotes" rows="10" cols="90">
+                        </p>
+                        
+                        <p>
+                           <label>Customer Notes<br/>
+                           </label>
+                        </p>
+                        <p>
+                           <textarea name="txtCnotes" id="txtCnotes" rows="10" cols="90">
                            <!--Customer Notes-->
                            </textarea>
-            </p>
-            <p>
-              <label>Aon Hewitt Notes<br/>
-              </label>
-            </p>
-            <p>
-              <textarea name="txtAnotes" id="txtAnotes" rows="10" cols="90">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes<br/>
+                           </label>
+                        </p>
+                        <p>
+                           <textarea name="txtAnotes" id="txtAnotes" rows="10" cols="90">
                            <!--Aon Hewitt Notes-->
                            </textarea>
-            </p>
-            <p>
-              <label>Date</label>
-            </p>
-            <p>
-              <input type="text" placeholder="MM/DD/YYYY" id="portfoliodate" name="portfoliodate" class="form-control">
-            </p>
-            <p>
-              <label>Brightcove Video ID's<br/>
-              <input type="text" name="txtVideoIds1" id="txtVideoIds1" />
-              </label>
-            </p>
-            <!--<p>
+                        </p>
+						<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="portfoliodate" name="portfoliodate" class="form-control">
+						</p>
+                        <p>
+                           <label>Brightcove Video ID's<br/>
+                           <input type="text" name="txtVideoIds1" id="txtVideoIds1" />
+                           </label>
+                        </p>
+                        
+						<!--<p>
                            <label>Description </label>
                         </p>-->
-            <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm" id = "frmSubmitForm" target="_self">
-              <div class="form-group">
-                <label for="myFileUpload">Add an optional document as an attachment: </label>
-                <input type="file" id="myFileUpload" name="myFileUpload">
-                <label>Give your file a user-friendly name<br>
-                <input type="text" name="uploadFilename" id="uploadFilename">
-                </label>
-              </div>
-              <div class="modal-footer">
-                <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="addPlatform" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create a new Platform </h4>
-            <p>
-              <label>Portfolio Name<br/>
-              <input type="text" name="txtPname" id="txtPnName" readonly/>
-              </label>
-            </p>
-            <p>
-              <label>Platform Name<br/>
-              <input type="text" name="txtPlatformName" id="txtPlatformName" />
-              </label>
-            </p>
-            <p>
-              <label>Contact<br/>
-              <input type="text" name="txtPlatformprimaryContact" id="txtPlatformprimaryContact" />
-              </label>
-            </p>
-            <p>
-              <label>Description </label>
-            </p>
-            <p>
-              <textarea name="editor2" id="editor2" rows="10" cols="80">
+						
+                        <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm" id = "frmSubmitForm" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload" name="myFileUpload">
+                              
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename" id="uploadFilename">
+                              </label>
+                           
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="addPlatform" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Create a new Platform </h4>
+                        <p>
+                           <label>Portfolio Name<br/>
+                           <input type="text" name="txtPname" id="txtPnName" readonly/>
+                           </label>
+                        </p>
+                        <p>
+                           <label>Platform Name<br/>
+                           <input type="text" name="txtPlatformName" id="txtPlatformName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="txtPlatformprimaryContact" id="txtPlatformprimaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="editor2" id="editor2" rows="10" cols="80">
                            <!--Description-->
                            </textarea>
-            </p>
-            <p>
-              <label>Customer Notes </label>
-            </p>
-            <p>
-              <textarea name="txtPlatformCnotes" id="txtPlatformCnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Customer Notes </label>
+                        </p>
+                        <p>
+                           <textarea name="txtPlatformCnotes" id="txtPlatformCnotes" rows="10" cols="80">
                            Customer Notes
                            </textarea>
-            </p>
-            <p>
-              <label>Aon Hewitt Notes<br/>
-              </label>
-            </p>
-            <p>
-              <textarea name="txtPlatformAnotes" id="txtPlatformAnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes<br/>
+                           </label>
+                        </p>
+                        <p>
+                           <textarea name="txtPlatformAnotes" id="txtPlatformAnotes" rows="10" cols="80">
                            Aon Hewitt Notes
                            </textarea>
-            </p>
-            <p>
-              <label>Date</label>
-            </p>
-            <p>
-              <input type="text" placeholder="MM/DD/YYYY" id="platformdate" name="platformdate" class="form-control">
-            </p>
-            <p>
-              <label>Brightcove Video ID's<br/>
-              <input type="text" name="txtVideoIds2" id="txtVideoIds2" />
-              </label>
-            </p>
-            <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm1" id = "frmSubmitForm1" target="_self">
-              <div class="form-group">
-                <label for="myFileUpload1">Add an optional document as an attachment: </label>
-                <input type="file" id="myFileUpload1" name="myFileUpload1">
-                <label>Give your file a user-friendly name<br>
-                <input type="text" name="uploadFilename1" id="uploadFilename1">
-                </label>
-              </div>
-              <div class="modal-footer">
-                <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="addRelease" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create a new Release </h4>
-            <p>
-              <label>Release Name<br/>
-              <input type="text" name="txtPlatform" id="txtPlatform" readonly/>
-              </label>
-            </p>
-            <p>
-              <label>Release Name<br/>
-              <input type="text" name="txtReleaseName" id="txtReleaseName" />
-              </label>
-            </p>
-            <p>
-              <label>Contact<br/>
-              <input type="text" name="ReleaseprimaryContact" id="ReleaseprimaryContact" />
-              </label>
-            </p>
-            <p>
-              <label>Description </label>
-            </p>
-            <p>
-              <textarea name="editor3" id="editor3" rows="10" cols="80">
+                        </p>
+						<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="platformdate" name="platformdate" class="form-control">
+						</p>
+                        <p>
+                           <label>Brightcove Video ID's<br/>
+                           <input type="text" name="txtVideoIds2" id="txtVideoIds2" />
+                           </label>
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm1" id = "frmSubmitForm1" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload1">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload1" name="myFileUpload1">
+                              
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename1" id="uploadFilename1">
+                              </label>
+                              
+                              
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="addRelease" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Create a new Release </h4>
+                        <p>
+                           <label>Release Name<br/>
+                           <input type="text" name="txtPlatform" id="txtPlatform" readonly/>
+                           </label>
+                        </p>
+                        <p>
+                           <label>Release Name<br/>
+                           <input type="text" name="txtReleaseName" id="txtReleaseName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="ReleaseprimaryContact" id="ReleaseprimaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="editor3" id="editor3" rows="10" cols="80">
                            <!--This is my textarea to be replaced with CKEditor.-->
                            </textarea>
-            </p>
-            <p>
-              <label>Customer Notes </label>
-            </p>
-            <p>
-              <textarea name="txtReleaseCnotes" id="txtReleaseCnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Customer Notes </label>
+                        </p>
+                        <p>
+                           <textarea name="txtReleaseCnotes" id="txtReleaseCnotes" rows="10" cols="80">
                            Customer Notes
                            </textarea>
-            </p>
-            <p>
-              <label>Aon Hewitt Notes </label>
-            </p>
-            <p>
-              <textarea name="txtReleaseAnotes" id="txtReleaseAnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes </label>
+                        </p>
+                        <p>
+                           <textarea name="txtReleaseAnotes" id="txtReleaseAnotes" rows="10" cols="80">
                            Aon Hewitt Notes
                            </textarea>
-            </p>
-            <p>
-              <label>Date</label>
-            </p>
-            <p>
-              <input type="text" placeholder="MM/DD/YYYY" id="releasedate" name="releasedate" class="form-control">
-            </p>
-            <p>
-              <label>Brightcove Video ID's<br/>
-              <input type="text" name="txtVideoIds3" id="txtVideoIds3" />
-              </label>
-            </p>
-            <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm2" id = "frmSubmitForm2" target="_self">
-              <div class="form-group">
-                <label for="myFileUpload2">Add an optional document as an attachment: </label>
-                <input type="file" id="myFileUpload2" name="myFileUpload2">
-                <label>Give your file a user-friendly name<br>
-                <input type="text" name="uploadFilename2" id="uploadFilename2">
-                </label>
-              </div>
-              <div class="modal-footer">
-                <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="addFeature" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Create a new Feature </h4>
-            <p>
-              <label>Release Name<br/>
-              <input type="text" name="txtRelease" id="txtRelease" readonly/>
-              </label>
-            </p>
-            <p>
-              <label>Feature Name<br/>
-              <input type="text" name="txtFeatureName" id="txtFeatureName" />
-              </label>
-            </p>
-            <p>
-              <label>Contact</label>
-            </p>
-            <p>
-              <input type="text" name="FeatureprimaryContact" id="FeatureprimaryContact" />
-            </p>
-            <p>
-              <label>Description </label>
-            </p>
-            <p>
-              <textarea name="editor4" id="editor4" rows="10" cols="80">
+                        </p>
+                        
+						<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="releasedate" name="releasedate" class="form-control">
+						</p>
+                        <p>
+                           <label>Brightcove Video ID's<br/>
+                           <input type="text" name="txtVideoIds3" id="txtVideoIds3" />
+                           </label>
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm2" id = "frmSubmitForm2" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload2">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload2" name="myFileUpload2">
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename2" id="uploadFilename2">
+                              </label>
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="addFeature" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Create a new Feature </h4>
+                        <p>
+                           <label>Release Name<br/>
+                           <input type="text" name="txtRelease" id="txtRelease" readonly/>
+                           </label>
+                        </p>
+                        <p>
+                           <label>Feature Name<br/>
+                           <input type="text" name="txtFeatureName" id="txtFeatureName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact</label>
+						   </p>
+						   <p>
+                           <input type="text" name="FeatureprimaryContact" id="FeatureprimaryContact" />
+                    		
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="editor4" id="editor4" rows="10" cols="80">
                           
                            </textarea>
-            </p>
-            <p>
-              <label>Customer Notes</label>
-            </p>
-            <p>
-              <textarea name="txtFeatureCnotes" id="txtFeatureCnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Customer Notes</label>
+						   </p>
+						   <p>
+                         
+						    <textarea name="txtFeatureCnotes" id="txtFeatureCnotes" rows="10" cols="80">
                           Customer Notes
                            </textarea>
-            </p>
-            <p>
-              <label>Aon Hewitt Notes</label>
-            </p>
-            <p>
-              <textarea name="txtFeatureAnotes" id="txtFeatureAnotes" rows="10" cols="80">
+                         
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes</label>
+						   </p>
+                         
+						 <p>
+						    <textarea name="txtFeatureAnotes" id="txtFeatureAnotes" rows="10" cols="80">
                           Aon Hewitt Notes
                            </textarea>
-            </p>
-            <p>
-              <label>Date</label>
-            </p>
-            <p>
-              <input type="text" placeholder="MM/DD/YYYY" id="featuredate" name="featuredate" class="form-control">
-            </p>
-            <p>
-              <label>Brightcove Video ID's<br/>
-              <input type="text" name="txtVideoIds4" id="txtVideoIds4" />
-              </label>
-            </p>
-            <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm3" id = "frmSubmitForm3" target="_self">
-              <div class="form-group">
-                <label for="myFileUpload3">Add an optional document as an attachment: </label>
-                <input type="file" id="myFileUpload3" name="myFileUpload3">
-                <label>Give your file a user-friendly name<br>
-                <input type="text" name="uploadFilename3" id="uploadFilename3">
-                </label>
-              </div>
-              <div class="modal-footer">
-                <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="viewPortfolio" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">View Portfolio </h4>
-          </div>
-          <div class="modal-body">
-            <div>
-              <label> Name <br/>
-              </label>
+                        </p>
+							<p>
+                           <label>Date</label>
+                        </p>
+						
+						<p>
+						<input type="text" placeholder="MM/DD/YYYY" id="featuredate" name="featuredate" class="form-control">
+						</p>
+                        <p>
+                           <label>Brightcove Video ID's<br/>
+                           <input type="text" name="txtVideoIds4" id="txtVideoIds4" />
+                           </label>
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmSubmitForm3" id = "frmSubmitForm3" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload3">Add an optional document as an attachment: </label>
+                              <input type="file" id="myFileUpload3" name="myFileUpload3">
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename3" id="uploadFilename3">
+                              </label>
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div id="txtViewName" class="margin-bottom-10"></div>
-            <div>
-              <label> Contact <br/>
-              </label>
+            <div id="viewPortfolio" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">View Portfolio </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>
+                              Name<br/>
+                        <div id="txtViewName">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Contact<br/>
+                        <div id="viewprimaryContact">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Customer Notes<br/>
+                        <div id="viewtxtCnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Aon Hewitt Notes<br/>
+                        <div id="viewtxtAnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                        <div id="editor5"></div>
+                        </p>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div id="viewprimaryContact" class="margin-bottom-10"></div>
-            <div>
-              <label> Customer Notes <br/>
-              </label>
-              <div id="viewtxtCnotes" class="margin-bottom-10"></div>
+            <div id="viewPlatform" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">View Platform </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>
+                              Name<br/>
+                        <div id="txtPlatformViewName">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Contact<br/>
+                        <div id="viewPlatformprimaryContact">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Customer Notes<br/>
+                        <div id="viewPlatformtxtCnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Aon Hewitt Notes<br/>
+                        <div id="viewPlatformtxtAnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                        <div id="editor6"></div>
+                        </p>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div>
-              <label> Aon Hewitt Notes<br/>
-              </label>
+            <div id="viewRelease" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">View Release </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>
+                              Name<br/>
+                        <div id="txtReleaseViewName">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Contact<br/>
+                        <div id="viewReleaseprimaryContact">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Customer Notes<br/>
+                        <div id="viewReleasetxtCnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Aon Hewitt Notes<br/>
+                        <div id="viewReleasetxtAnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                        <div id="editor7"></div>
+                        </p>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div id="viewtxtAnotes" class="margin-bottom-10"></div>
-            <div>
-              <label>Description<br/>
-              </label>
+            <div id="viewFeature" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">View Release </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>
+                              Name<br/>
+                        <div id="txtFeatureName">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Contact<br/>
+                        <div id="viewFeatureContact">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Customer Notes<br/>
+                        <div id="viewFeatureCnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>
+                              Aon Hewitt Notes<br/>
+                        <div id="viewFeatureAnotes">
+                        </div>
+                        </label>
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                        <div id="editor8"></div>
+                        </p>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div id="editor5" class="margin-bottom-10"></div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="viewPlatform" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">View Platform </h4>
-          </div>
-          <div class="modal-body">
-            <div>
-              <label> Name<br/>
-              </label>
-            </div>
-            <div id="txtPlatformViewName" class="margin-bottom-10"></div>
-            <div>
-              <label> Contact<br/>
-              </label>
-            </div>
-            <div id="viewPlatformprimaryContact" class="margin-bottom-10"></div>
-            <div>
-              <label> Customer Notes<br/>
-              </label>
-            </div>
-            <div id="viewPlatformtxtCnotes" class="margin-bottom-10"></div>
-            <div>
-              <label> Aon Hewitt Notes<br/>
-              </label>
-            </div>
-            <div id="viewPlatformtxtAnotes" class="margin-bottom-10"></div>
-            <div>
-              <label>Description </label>
-            </div>
-            <div>
-              <div id="editor6" class="margin-bottom-10"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="viewRelease" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">View Release </h4>
-    </div>
-    <div class="modal-body">
-    <div>
-    <label>Name<br/></label>
-	</div>
-    <div id="txtReleaseViewName" class="margin-bottom-10"></div>
-  
-    <div>
-    <label> Contact<br/>
-	</label>
-	</div>
-    <div id="viewReleaseprimaryContact" class="margin-bottom-10"></div>
-    <div>
-    <label> Customer Notes<br/>
-	</label>
-	</div>
-    <div id="viewReleasetxtCnotes" class="margin-bottom-10"></div>
-  
-    <div>
-    <label> Aon Hewitt Notes<br/>
-    </label>
-	</div>
-	<div id="viewReleasetxtAnotes" class="margin-bottom-10"></div>
-  
-    <div>
-      <label>Description </label>
-    </div>
-    
-    <div id="editor7" class="margin-bottom-10"></div>
-  
-    <div class="modal-footer">
-      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<div id="viewFeature" class="modal fade" role="dialog">
-<div class="modal-dialog">
-<!-- Modal content-->
-<div class="modal-content">
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal">&times;</button>
-  <h4 class="modal-title">View Release </h4>
-</div>
-<div class="modal-body">
-<div>
-<label> Name<br/>
-</label>
-</div>
-<div id="txtFeatureName"></div>
-
-<div>
-<label> Contact<br/>
-</label>
-</div>
-<div id="viewFeatureContact" class="margin-bottom-10">
-
-<div>
-<label> Customer Notes<br/>
-</label>
-</div>
-<div id="viewFeatureCnotes" class="margin-bottom-10"></div>
-
-<div>
-<label> Aon Hewitt Notes<br/>
-</label>
-</div>
-<div id="viewFeatureAnotes" class="margin-bottom-10"></div>
-
-<div>
-  <label>Description </label>
-</div>
-<div>
-<div id="editor8" class="margin-bottom-10" class="margin-bottom-10"></div>
-</div>
-<div class="modal-footer">
-  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Modal Dialog box for edit -->
-<div id="editPortfolio" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Portfolio </h4>
-      </div>
-      <div class="modal-body">
-        <p>
-          <label>Name<br/>
-          <input type="text" name="txtEditName" id="txtEditName" />
-          </label>
-        </p>
-        <p>
-          <label>Contact<br/>
-          <input type="text" name="EditprimaryContact" id="EditprimaryContact" />
-          </label>
-        </p>
-        <p>
-          <label>Customer Notes</label>
-        </p>
-        <p>
-          <textarea name="EdittxtCnotes" id="EdittxtCnotes" rows="10" cols="80">
+            <!-- Modal Dialog box for edit -->
+            <div id="editPortfolio" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Portfolio </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>Name<br/>
+                           <input type="text" name="txtEditName" id="txtEditName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="EditprimaryContact" id="EditprimaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Customer Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="EdittxtCnotes" id="EdittxtCnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Aon Hewitt Notes</label>
-        </p>
-        <p>
-          <textarea name="EdittxtAnotes" id="EdittxtAnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="EdittxtAnotes" id="EdittxtAnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Description </label>
-        </p>
-        <p>
-          <textarea name="txteditoredit1" id="txteditoredit1" rows="10" cols="80">
+                        </p>
+                        
+                       
+                        
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="txteditoredit1" id="txteditoredit1" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Brightcove Video ID's<br/>
-          <input type="text" name="txtEditVideoIds1" id="txtEditVideoIds1" />
-          </label>
-        </p>
-        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm4" id = "frmeditSubmitForm4" target="_self">
-          <div class="form-group">
-            <label for="myFileUpload4">Add an optional document or video as an attachment: </label>
-            <input type="file" id="myFileUpload4" name="myFileUpload4">
-            <label>Give your file a user-friendly name<br>
-            <input type="text" name="uploadFilename4" id="uploadFilenameEdit4">
-            </label>
-          </div>
-          <div class="modal-footer">
-            <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="editPlatform" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Platform </h4>
-      </div>
-      <div class="modal-body">
-        <p>
-          <label>Name<br/>
-          <input type="text" name="txtPlatformEditName" id="txtPlatformEditName" />
-          </label>
-        </p>
-        <p>
-          <label>Contact<br/>
-          <input type="text" name="PlatformEditprimaryContact" id="PlatformEditprimaryContact" />
-          </label>
-        </p>
-        <p>
-          <label>Customer Notes</label>
-        </p>
-        <p>
-          <textarea name="PlatformEdittxtCnotes" id="PlatformEdittxtCnotes" rows="10" cols="80">
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm4" id = "frmeditSubmitForm4" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload4">Add an optional document or video as an attachment: </label>
+                              <input type="file" id="myFileUpload4" name="myFileUpload4">
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename4" id="uploadFilenameEdit4">
+                              </label>
+                              
+                              
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="editPlatform" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Platform </h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>Name<br/>
+                           <input type="text" name="txtPlatformEditName" id="txtPlatformEditName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="PlatformEditprimaryContact" id="PlatformEditprimaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Customer Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="PlatformEdittxtCnotes" id="PlatformEdittxtCnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Aon Hewitt Notes</label>
-        </p>
-        <p>
-          <textarea name="PlatformEdittxtAnotes" id="PlatformEdittxtAnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="PlatformEdittxtAnotes" id="PlatformEdittxtAnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Description </label>
-        </p>
-        <p>
-          <textarea name="PlatformtxteditorDescription" id="PlatformtxteditorDescription" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="PlatformtxteditorDescription" id="PlatformtxteditorDescription" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Brightcove Video ID's<br/>
-          <input type="text" name="txtEditVideoIds2" id="txtEditVideoIds2" />
-          </label>
-        </p>
-        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm5" id = "frmeditSubmitForm5" target="_self">
-          <div class="form-group">
-            <label for="myFileUpload5">Add an optional document or video as an attachment: </label>
-            <input type="file" id="myFileUpload5" name="myFileUpload5">
-            <label>Give your file a user-friendly name<br>
-            <input type="text" name="uploadFilename5" id="uploadFilenameEdit5">
-            </label>
-          </div>
-          <div class="modal-footer">
-            <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="editRelease" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Release</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-          <label>Name<br/>
-          <input type="text" name="txtReleaseEditName" id="txtReleaseEditName" />
-          </label>
-        </p>
-        <p>
-          <label>Contact<br/>
-          <input type="text" name="ReleaseEditprimaryContact" id="ReleaseEditprimaryContact" />
-          </label>
-        </p>
-        <p>
-          <label>Customer Notes</label>
-        </p>
-        <p>
-          <textarea name="ReleaseEdittxtCnotes" id="ReleaseEdittxtCnotes" rows="10" cols="80">
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm5" id = "frmeditSubmitForm5" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload5">Add an optional document or video as an attachment: </label>
+                              <input type="file" id="myFileUpload5" name="myFileUpload5">
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename5" id="uploadFilenameEdit5">
+                              </label>
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div id="editRelease" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Release</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>Name<br/>
+                           <input type="text" name="txtReleaseEditName" id="txtReleaseEditName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="ReleaseEditprimaryContact" id="ReleaseEditprimaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Customer Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="ReleaseEdittxtCnotes" id="ReleaseEdittxtCnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Aon Hewitt Notes</label>
-        </p>
-        <p>
-          <textarea name="ReleaseEdittxtAnotes" id="ReleaseEdittxtAnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="ReleaseEdittxtAnotes" id="ReleaseEdittxtAnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Description </label>
-        </p>
-        <p>
-          <textarea name="ReleasetxteditorDescription" id="ReleasetxteditorDescription" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="ReleasetxteditorDescription" id="ReleasetxteditorDescription" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Brightcove Video ID's<br/>
-          <input type="text" name="txtEditVideoIds3" id="txtEditVideoIds3" />
-          </label>
-        </p>
-        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm6" id = "frmeditSubmitForm6" target="_self">
-          <div class="form-group">
-            <label for="myFileUpload6">Add an optional document or video as an attachment: </label>
-            <input type="file" id="myFileUpload6" name="myFileUpload6">
-            <label>Give your file a user-friendly name<br>
-            <input type="text" name="uploadFilename6" id="uploadFilenameEdit6">
-            </label>
-          </div>
-          <div class="modal-footer">
-            <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<div id="editFeature" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Feature</h4>
-      </div>
-      <div class="modal-body">
-        <p>
-          <label>Name<br/>
-          <input type="text" name="txtFeatureEditName" id="txtFeatureEditName" />
-          </label>
-        </p>
-        <p>
-          <label>Contact<br/>
-          <input type="text" name="FeatureEditprimaryContact" id="FeatureEditprimaryContact" />
-          </label>
-        </p>
-        <p>
-          <label>Customer Notes</label>
-        </p>
-        <p>
-          <textarea name="FeatureEdittxtCnotes" id="FeatureEdittxtCnotes" rows="10" cols="80">
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm6" id = "frmeditSubmitForm6" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload6">Add an optional document or video as an attachment: </label>
+                              <input type="file" id="myFileUpload6" name="myFileUpload6">
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename6" id="uploadFilenameEdit6">
+                              </label>
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+			<div id="editFeature" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Feature</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>
+                           <label>Name<br/>
+                           <input type="text" name="txtFeatureEditName" id="txtFeatureEditName" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Contact<br/>
+                           <input type="text" name="FeatureEditprimaryContact" id="FeatureEditprimaryContact" />
+                           </label>
+                        </p>
+                        <p>
+                           <label>Customer Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="FeatureEdittxtCnotes" id="FeatureEdittxtCnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Aon Hewitt Notes</label>
-        </p>
-        <p>
-          <textarea name="FeatureEdittxtAnotes" id="FeatureEdittxtAnotes" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Aon Hewitt Notes</label>
+                        </p>
+                        <p>
+                           <textarea name="FeatureEdittxtAnotes" id="FeatureEdittxtAnotes" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Description </label>
-        </p>
-        <p>
-          <textarea name="FeaturetxteditorDescription" id="FeaturetxteditorDescription" rows="10" cols="80">
+                        </p>
+                        <p>
+                           <label>Description </label>
+                        </p>
+                        <p>
+                           <textarea name="FeaturetxteditorDescription" id="FeaturetxteditorDescription" rows="10" cols="80">
                            </textarea>
-        </p>
-        <p>
-          <label>Brightcove Video ID's<br/>
-          <input type="text" name="txtEditVideoIds4" id="txtEditVideoIds4" />
-          </label>
-        </p>
-        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm7" id = "frmeditSubmitForm7" target="_self">
-          <div class="form-group">
-            <label for="myFileUpload7">Add an optional document or video as an attachment: </label>
-            <input type="file" id="myFileUpload7" name="myFileUpload7">
-            <label>Give your file a user-friendly name<br>
-            <input type="text" name="uploadFilename7" id="uploadFilenameEdit7">
-            </label>
-          </div>
-          <div class="modal-footer">
-            <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </form>
+                        </p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm7" id = "frmeditSubmitForm7" target="_self">
+                           <div class="form-group">
+                              <label for="myFileUpload7">Add an optional document or video as an attachment: </label>
+                              <input type="file" id="myFileUpload7" name="myFileUpload7">
+                              <label>Give your file a user-friendly name<br>
+                              <input type="text" name="uploadFilename7" id="uploadFilenameEdit7">
+                              </label>
+                           </div>
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Submit" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+			
+			<div id="DeletePortfolio" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Feature</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Portfolio</label>
+                        </p>
+                        <p>
+						<input type="text" name="txtdelstatus" id="txtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm8" id = "frmeditSubmitForm8" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			   <div id="DeletePlatform" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Feature</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Platform</label>
+                        </p>
+                        <p>
+						<input type="text" name="platformtxtdelstatus" id="platformtxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm9" id = "frmeditSubmitForm9" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			   <div id="DeleteRelease" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Feature</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Release</label>
+                        </p>
+                        <p>
+						<input type="text" name="releasetxtdelstatus" id="releasetxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm10" id = "frmeditSubmitForm10" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			   
+			   <div id="DeleteFeature" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Feature</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Release</label>
+                        </p>
+                        <p>
+						<input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm11" id = "frmeditSubmitForm11" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			   
+			   <!-- Model Dialog box for Confirmation -->
+			   <div id="Confirmation" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmation</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
+                        </p>
+                        <p>
+						<input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm12" id = "frmeditSubmitForm12" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			   <div id="Confirmation1" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmation</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
+                        </p>
+                        <p>
+						<input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm13" id = "frmeditSubmitForm13" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			<div id="Confirmation2" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmation</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
+                        </p>
+                        <p>
+						<input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm14" id = "frmeditSubmitForm14" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+			   <div id="Confirmation3" class="modal fade" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirmation</h4>
+                     </div>
+                     
+                        <p>
+                           <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
+                        </p>
+                        <p>
+						<input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
+						</p>
+                        <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm15" id = "frmeditSubmitForm15" target="_self">
+                           
+                           <div class="modal-footer">
+                              <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
+                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
       </div>
-    </div>
-  </div>
-</div>
-<div id="DeletePortfolio" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete Feature</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Portfolio</label>
-      </p>
-      <p>
-        <input type="text" name="txtdelstatus" id="txtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm8" id = "frmeditSubmitForm8" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="DeletePlatform" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete Feature</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Platform</label>
-      </p>
-      <p>
-        <input type="text" name="platformtxtdelstatus" id="platformtxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm9" id = "frmeditSubmitForm9" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="DeleteRelease" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete Feature</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Release</label>
-      </p>
-      <p>
-        <input type="text" name="releasetxtdelstatus" id="releasetxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm10" id = "frmeditSubmitForm10" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="DeleteFeature" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Delete Feature</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Delete the Feature</label>
-      </p>
-      <p>
-        <input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm11" id = "frmeditSubmitForm11" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Delete" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<!-- Model Dialog box for Confirmation -->
-<div id="Confirmation" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Confirmation</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
-      </p>
-      <p>
-        <input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm12" id = "frmeditSubmitForm12" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="Confirmation1" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Confirmation</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
-      </p>
-      <p>
-        <input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm13" id = "frmeditSubmitForm13" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="Confirmation2" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Confirmation</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
-      </p>
-      <p>
-        <input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm14" id = "frmeditSubmitForm14" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div id="Confirmation3" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Confirmation</h4>
-      </div>
-      <p>
-        <label for="myFileUpload" style="margin-left:10px;">Are You Sure You want to Update?</label>
-      </p>
-      <p>
-        <input type="text" name="featuretxtdelstatus" id="featuretxtdelstatus" style="display:none;"/>
-      </p>
-      <form action="" method="" enctype="multipart/form-data" name="frmeditSubmitForm15" id = "frmeditSubmitForm15" target="_self">
-        <div class="modal-footer">
-          <input id="mySubmitButton" name="mySubmit" type="submit" value="Update" class="btn btn-success">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript" src="js/Class.create.js"></script>
-<script type="text/javascript" src="js/jquery.steps.js"></script>
-<script type="text/javascript" src="js/gitana.min.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="js/cloudcms-custom.js"></script>
-<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="ckeditor/ckeditor.js"></script>
-<script src="js/custom.js"></script>
-<script>
+	  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+      <script type="text/javascript" src="js/Class.create.js"></script>
+      <script type="text/javascript" src="js/jquery.steps.js"></script>
+      <script type="text/javascript" src="js/gitana.min.js"></script>
+      <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript" src="js/cloudcms-custom.js"></script>
+	   <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+      <script src="ckeditor/ckeditor.js"></script>
+      <script src="js/custom.js"></script>
+	    <script>
  $(document).ready(function(){
 		$("#releasedate").datepicker({
         dateFormat: "mm/dd/yyyy",
@@ -1034,5 +1088,5 @@
 							});
 							
 	  </script>
-</body>
+   </body>
 </html>

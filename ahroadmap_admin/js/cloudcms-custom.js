@@ -197,11 +197,6 @@ function myFunction(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm");
-			$( '#addPortfolio input' ).attr ( 'disabled', true );
-			CKEDITOR.instances.editor1.setReadOnly(true);
-			CKEDITOR.instances.txtCnotes.setReadOnly(true);
-			CKEDITOR.instances.txtAnotes.setReadOnly(true);
-			form.html('<img src="images/loading_2.gif"  alt="loading..." id="loading-image-modal"/> ');
 			
 			$.ajax({
                     type: "POST",
@@ -213,8 +208,7 @@ function myFunction(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					//$('#loading-image').css("display", "none");
-					$('#loading-image-modal').css("display", "none");
+					
 					alert("Your media has been successfully uploaded");
 					$("#txtName").val("");
 					$("#primaryContact").val("");
@@ -289,10 +283,7 @@ function myFunction1(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm1");
-			CKEDITOR.instances.editor2.setReadOnly(true);
-			CKEDITOR.instances.txtPlatformCnotes.setReadOnly(true);
-			CKEDITOR.instances.txtPlatformAnotes.setReadOnly(true);
-			form.html('<img src="images/loading_2.gif"  alt="loading..." id="loading-image-modal"/> ');
+			
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename1").val() + "/",
@@ -303,7 +294,7 @@ function myFunction1(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					$('#loading-image-modal').css("display", "none");
+					
 					alert("Your media has been successfully uploaded");
 					location.reload(true);
 					}).fail(function(){
@@ -371,10 +362,7 @@ function myFunction2(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm2");
-			CKEDITOR.instances.editor3.setReadOnly(true);
-			CKEDITOR.instances.txtReleaseCnotes.setReadOnly(true);
-			CKEDITOR.instances.txtReleaseAnotes.setReadOnly(true);
-			form.html('<img src="images/loading_2.gif"  alt="loading..." id="loading-image-modal"/> ');
+			
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename2").val() + "/",
@@ -385,7 +373,7 @@ function myFunction2(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					$('#loading-image-modal').css("display", "none");
+					
 					alert("Your media has been successfully uploaded");
 					location.reload(true);
 					}).fail(function(){
@@ -454,10 +442,7 @@ function myFunction3(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm3");
-			CKEDITOR.instances.editor4.setReadOnly(true);
-			CKEDITOR.instances.txtFeatureCnotes.setReadOnly(true);
-			CKEDITOR.instances.txtFeatureAnotes.setReadOnly(true);
-			form.html('<img src="images/loading_2.gif"  alt="loading..." id="loading-image-modal"/> ');
+			
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename3").val() + "/",
@@ -468,7 +453,7 @@ function myFunction3(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					$('#loading-image-modal').css("display", "none");
+					
 					alert("Your media has been successfully uploaded");
 					location.reload(true);
 					}).fail(function(){
