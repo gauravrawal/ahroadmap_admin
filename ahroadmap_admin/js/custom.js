@@ -350,7 +350,7 @@ for (j=0; j < allPlatformObjects.length; j++) {
 		CKEDITOR.instances.PlatformEdittxtCnotes.setData( allPlatformObjects[j].customerNotes );
 		CKEDITOR.instances.PlatformEdittxtAnotes.setData( allPlatformObjects[j].aonInternalNotes );
 		CKEDITOR.instances.PlatformtxteditorDescription.setData( allPlatformObjects[j].description );
-		$("#txtEditVideoIds2").val(allPortfolioObjects[j].videoIds);
+		$("#txtEditVideoIds2").val(allPlatformObjects[j].videoIds);
 		var Platformid = allPlatformObjects[j].name;
 		var Platformname= allPlatformObjects[j].name;
 		var Platformtcontact = allPlatformObjects[j].primaryContact;
@@ -374,7 +374,7 @@ for (j=0; j < allReleaseObjects.length; j++) {
 		CKEDITOR.instances.ReleaseEdittxtCnotes.setData( allReleaseObjects[j].customerNotes );
 		CKEDITOR.instances.ReleaseEdittxtAnotes.setData( allReleaseObjects[j].aonInternalNotes );
 		CKEDITOR.instances.ReleasetxteditorDescription.setData( allReleaseObjects[j].description );
-		$("#txtEditVideoIds3").val(allPortfolioObjects[j].videoIds);
+		$("#txtEditVideoIds3").val(allReleaseObjects[j].videoIds);
 		var Releaseid = allReleaseObjects[j].name;
 		var Releasename= allReleaseObjects[j].name;
 		var Releasecontact = allReleaseObjects[j].primaryContact;
@@ -401,7 +401,7 @@ for (j=0; j < allFeatureObjects.length; j++) {
 		CKEDITOR.instances.FeatureEdittxtCnotes.setData( allFeatureObjects[j].customerNotes );
 		CKEDITOR.instances.FeatureEdittxtAnotes.setData( allFeatureObjects[j].aonInternalNotes );
 		CKEDITOR.instances.FeaturetxteditorDescription.setData( allFeatureObjects[j].description );
-		$("#txtEditVideoIds4").val(allPortfolioObjects[j].videoIds);
+		$("#txtEditVideoIds4").val(allFeatureObjects[j].videoIds);
 		var Featureid = allFeatureObjects[j].name;
 		var Featurename= allFeatureObjects[j].name;
 		var Featurecontact = allFeatureObjects[j].primaryContact;
