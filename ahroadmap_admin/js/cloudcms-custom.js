@@ -137,9 +137,9 @@ var rows="";
 function myFunction(){
 		var name = $("#txtName").val();
 		var ckEditorData1 = CKEDITOR.instances.editor1.getData();
-		
-	var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
-	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
+		var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
+	var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();		
+
 	for (j=0; j < allPortfolioObjects.length; j++) {
 		if(name == allPortfolioObjects[j].name)
 		{
@@ -197,7 +197,22 @@ function myFunction(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm");
-			
+			$( '#addPortfolio input' ).attr ( 'disabled', true );
+			CKEDITOR.instances.editor1.setReadOnly(true);
+			CKEDITOR.instances.txtCnotes.setReadOnly(true);
+			CKEDITOR.instances.txtAnotes.setReadOnly(true);
+			 form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+			var lastScrollTop = 0;
+			$("#addPortfolio").scroll(function (event) {
+			var st = $(this).scrollTop();
+	//alert(st);
+   			 if (st > lastScrollTop) {
+        $('.loading-image-modal').animate({top: '+=10'}, 10);
+    	} else {
+        $('.loading-image-modal').animate({top: '-=10'}, 10);
+   	 	}
+    	lastScrollTop = st;
+		});
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
@@ -208,7 +223,8 @@ function myFunction(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					
+					//$('#loading-image').css("display", "none");
+					$('#loading-image-modal').css("display", "none");
 					alert("Your media has been successfully uploaded");
 					$("#txtName").val("");
 					$("#primaryContact").val("");
@@ -283,7 +299,21 @@ function myFunction1(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm1");
-			
+			CKEDITOR.instances.editor2.setReadOnly(true);
+			CKEDITOR.instances.txtPlatformCnotes.setReadOnly(true);
+			CKEDITOR.instances.txtPlatformAnotes.setReadOnly(true);
+			form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+			var lastScrollTop = 0;
+			$("#addPlatform").scroll(function (event) {
+			var st = $(this).scrollTop();
+	//alert(st);
+   			 if (st > lastScrollTop) {
+        $('.loading-image-modal').animate({top: '+=10'}, 10);
+    	} else {
+        $('.loading-image-modal').animate({top: '-=10'}, 10);
+   	 	}
+    	lastScrollTop = st;
+		});
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename1").val() + "/",
@@ -294,7 +324,7 @@ function myFunction1(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					
+					$('#loading-image-modal').css("display", "none");
 					alert("Your media has been successfully uploaded");
 					location.reload(true);
 					}).fail(function(){
@@ -362,7 +392,21 @@ function myFunction2(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm2");
-			
+			CKEDITOR.instances.editor3.setReadOnly(true);
+			CKEDITOR.instances.txtReleaseCnotes.setReadOnly(true);
+			CKEDITOR.instances.txtReleaseAnotes.setReadOnly(true);
+			form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+			var lastScrollTop = 0;
+			$("#addRelease").scroll(function (event) {
+			var st = $(this).scrollTop();
+	//alert(st);
+   			 if (st > lastScrollTop) {
+        $('.loading-image-modal').animate({top: '+=10'}, 10);
+    	} else {
+        $('.loading-image-modal').animate({top: '-=10'}, 10);
+   	 	}
+    	lastScrollTop = st;
+		});
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename2").val() + "/",
@@ -373,7 +417,7 @@ function myFunction2(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					
+					$('#loading-image-modal').css("display", "none");
 					alert("Your media has been successfully uploaded");
 					location.reload(true);
 					}).fail(function(){
@@ -442,7 +486,21 @@ function myFunction3(){
 			
 			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
             var form = $("#frmSubmitForm3");
-			
+			CKEDITOR.instances.editor4.setReadOnly(true);
+			CKEDITOR.instances.txtFeatureCnotes.setReadOnly(true);
+			CKEDITOR.instances.txtFeatureAnotes.setReadOnly(true);
+			form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+			var lastScrollTop = 0;
+			$("#addFeature").scroll(function (event) {
+			var st = $(this).scrollTop();
+	//alert(st);
+   			 if (st > lastScrollTop) {
+        $('.loading-image-modal').animate({top: '+=10'}, 10);
+    	} else {
+        $('.loading-image-modal').animate({top: '-=10'}, 10);
+   	 	}
+    	lastScrollTop = st;
+		});
 			$.ajax({
                     type: "POST",
                     url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename3").val() + "/",
@@ -453,7 +511,7 @@ function myFunction3(){
                         authorization: authorizationHeader
                     }
                 }).done(function () {
-					
+					$('#loading-image-modal').css("display", "none");
 					alert("Your media has been successfully uploaded");
 					location.reload(true);
 					}).fail(function(){
@@ -486,3 +544,4 @@ $(function (){
 		transitionEffect: "slideLeft"
 	});
 });
+

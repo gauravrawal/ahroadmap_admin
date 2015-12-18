@@ -9,6 +9,11 @@ body{
 	margin-left:45%; 
 	margin-top:10%;
 }
+.loading-image-modal{
+	position: absolute;
+    top:900px;
+    left:245px;
+}
 #main-container{
 	display:none;
 }
@@ -55,4 +60,9 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 }
 .wizard > .content > .body ul > li {
                 margin-left:20px;
+}
+
+.margin-bottom-10{
+margin-bottom:10px;
+
 }
