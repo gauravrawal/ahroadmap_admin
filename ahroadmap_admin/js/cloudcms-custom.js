@@ -42,7 +42,7 @@ platform = Gitana.connect({
     branch = repository.readBranch(branchId).then(function() {
 		branch.readNode("1a2f75f3cfb52e97b794").then(function(){
 		version = this;
-		console.log("Admin retrieved version " + this.number);
+		//console.log("Admin retrieved version " + this.number);
 		
       var query = {
         "content": 'true'
@@ -189,19 +189,19 @@ function myFunction() {
     //"date": moment().format('L')
     "date": $("#portfoliodate").val(),
   }).then(function() {
-	  		console.log("Admin creating new portfolio. Version number was " + version.number);
+	  		//console.log("Admin creating new portfolio. Version number was " + version.number);
 		  version.number = version.number + 1;
-		  console.log("Admin creating new portfolio. Version number is now " + version.number);
-		  console.log("Admin will now update the version on cloudcms...");
+		  //console.log("Admin creating new portfolio. Version number is now " + version.number);
+		  //console.log("Admin will now update the version on cloudcms...");
 		  version.update().then(function(){
-			  console.log("version updated on cloudCMS");
+			  //console.log("version updated on cloudCMS");
 			  //console.log("setting new version number " + version.number + "into localStorage");
 			  //localStorage.setItem('version', version.number);
 			  //console.log("new version set in local storage. This concluded creating the object.");
 		  
 
 	  if ($("#uploadFilename").val()!=="") {
-		  console.log("Attachment present uploading...");
+		  //console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
 		
@@ -247,7 +247,7 @@ function myFunction() {
 			  alert("Your media has NOT been successfully uploaded. Please try again.");
 			})
 	  } else {
-		  console.log("Attachment NOT present");
+		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
@@ -313,7 +313,7 @@ function myFunction1() {
     "date": $("#platformdate").val(),
   }).then(function() {
 	   if ($("#uploadFilename1").val()!=="") {
-		  console.log("Attachment present uploading...");
+		  //console.log("Attachment present uploading...");
 		   newCommentId = this.getId();
     var formData = new FormData($("#frmSubmitForm1")[0]);
 
@@ -357,7 +357,7 @@ function myFunction1() {
     })
 	
 	  } else {
-		  console.log("Attachment NOT present");
+		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
@@ -421,7 +421,7 @@ function myFunction2() {
     "date": $("#releasedate").val(),
   }).then(function() {
 	   if ($("#uploadFilename2").val()!=="") {
-		  console.log("Attachment present uploading...");
+		  //console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
     var formData = new FormData($("#frmSubmitForm2")[0]);
 
@@ -463,7 +463,7 @@ function myFunction2() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
     })
 	   } else {
-		  console.log("Attachment NOT present");
+		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
@@ -527,7 +527,7 @@ function myFunction3() {
     "date": $("#featuredate").val(),
   }).then(function() {
 	  if ($("#uploadFilename3").val()!=="") {
-		  console.log("Attachment present uploading...");
+		  //console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
     var formData = new FormData($("#frmSubmitForm3")[0]);
 
@@ -569,7 +569,7 @@ function myFunction3() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
     })
 	   } else {
-		  console.log("Attachment NOT present");
+		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
