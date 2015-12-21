@@ -431,7 +431,6 @@ function editportfoliodata(){
 	nodeToUpdate.customerNotes = ckPortfolioEditorData3;
 	nodeToUpdate.videoIds = VideoIds1;
 	nodeToUpdate.update().then(function(){
-		//alert("portfolio node updatred");
 		newCommentId = nodeToUpdate.getId();
 		var formData = new FormData($("#frmeditSubmitForm4")[0]);
 			

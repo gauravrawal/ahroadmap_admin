@@ -27,6 +27,7 @@ var allPortfolioObjects = [];
 var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
+var version;
 
 platform = Gitana.connect({
   "clientKey": clientKey,
@@ -39,8 +40,10 @@ platform = Gitana.connect({
   repository = platform.readRepository(repositoryId).then(function() {
 
     branch = repository.readBranch(branchId).then(function() {
-      //////////////////////////////////////
-      //find only nodes that have content set to 'true' : these are guarenteed to be Portfolio, platform, release or feature nodes					
+		branch.readNode("1a2f75f3cfb52e97b794").then(function(){
+		version = this;
+		console.log("Admin retrieved version " + this.number);
+		
       var query = {
         "content": 'true'
       };
@@ -52,12 +55,7 @@ platform = Gitana.connect({
         "limit": 9999
       };
 
-      branch.queryNodes(query, pagination).then(function() {
-        allObjects1 = this;
-      });
-
-
-      allObjects = branch.queryNodes(query, pagination).each(function() {
+      branch.queryNodes(query, pagination).each(function() {
           //console.log(this.name);
           //build arrays of similar type objects. this will be used in 'populateuniversaliobject()'
           nodes[counter] = this;
@@ -85,21 +83,15 @@ platform = Gitana.connect({
           //populateUniversalObject(function(){buildPage(function(){$( "#myPortfolio1" ).on( "click", function() {alert("hello");});	});});
           populateUniversalObject(function() {
               //use te universal object to build the page structure
-              populateDropDown(function() {
-                //show the first portfolio by default
-                //$( "#" + allPortfolioObjects[0].idName ).trigger( "click" );
+              populateDropDown(function() {				
               })
             })
-            //buildPage()
 
-          //buildPage();
-        }); //}).then(function(){		
+        });
+		});
     });
-
-    //////////////////////////////////////
-
   });
-});;
+});
 
 function populateUniversalObject(callback) {
   var rows = "";
@@ -135,7 +127,11 @@ function populateUniversalObject(callback) {
 };
 
 function myFunction() {
+  
+  
   var name = $("#txtName").val();
+  //$.encoder.encodeForHTML($("#commentTextArea").val()),
+  
   var ckEditorData1 = CKEDITOR.instances.editor1.getData();
   var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
@@ -144,7 +140,10 @@ function myFunction() {
     if (name == allPortfolioObjects[j].name) {
       alert("This is already taken as Portfolio name!!");
       return false;
-    }
+    } else if (name.indexOf("$") != -1) {
+		alert("Dissallowed characer  in name - $");
+		return false;
+	}
 
   }
   for (j = 0; j < allPlatformObjects.length; j++) {
@@ -171,7 +170,9 @@ function myFunction() {
   }
   branch.createNode({
 
-    "name": $("#txtName").val(),
+    //"name": $("#txtName").val(),
+	 "name": $("#txtName").val(),
+	
     "videoIds": $("#txtVideoIds1").val(),
     //"_doc": $("#txtName").val(),
     "primaryContact": $("#primaryContact").val(),
@@ -188,6 +189,17 @@ function myFunction() {
     //"date": moment().format('L')
     "date": $("#portfoliodate").val(),
   }).then(function() {
+	  		console.log("Admin creating new portfolio. Version number was " + version.number);
+		  version.number = version.number + 1;
+		  console.log("Admin creating new portfolio. Version number is now " + version.number);
+		  console.log("Admin will now update the version on cloudcms...");
+		  version.update().then(function(){
+			  console.log("version updated on cloudCMS");
+			  //console.log("setting new version number " + version.number + "into localStorage");
+			  //localStorage.setItem('version', version.number);
+			  //console.log("new version set in local storage. This concluded creating the object.");
+		  
+
 	  if ($("#uploadFilename").val()!=="") {
 		  console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
@@ -224,7 +236,6 @@ function myFunction() {
 				authorization: authorizationHeader
 			  }
 			}).done(function() {
-			  //$('#loading-image').css("display", "none");
 			  $('#loading-image-modal').css("display", "none");
 			  alert("Your media has been successfully uploaded");
 			  $("#txtName").val("");
@@ -241,11 +252,12 @@ function myFunction() {
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
-      $("#txtAnotes").val("");
+      $("#txtAnotes").val(""); 
       location.reload(true);
 	  }
-  });
-
+	  
+	  });
+  })
 };
 
 function myFunction1() {
@@ -570,7 +582,7 @@ function myFunction3() {
   });
 };
 
-function populateDropDown() {
+function populateDropDown(callback) {
   var rows = "";
   for (j = 0; j < allPortfolioObjects.length; j++) {
     rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
@@ -585,6 +597,7 @@ function populateDropDown() {
     $('#main-container').css("display", "block");
     $("#example_paginate").hide();
   }
+  callback && callback();
 }
 
 $(function() {
