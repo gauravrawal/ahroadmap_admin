@@ -427,8 +427,8 @@ function editportfoliodata(){
 	nodeToUpdate.name = newNodePortfolioName;
 	nodeToUpdate.description = ckPortfolioEditorData1;
 	nodeToUpdate.primaryContact = newNodePortfolioContact;
-	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData2;
-	nodeToUpdate.customerNotes = ckPortfolioEditorData3;
+	nodeToUpdate.customerNotes = ckPortfolioEditorData2;
+	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData3;
 	nodeToUpdate.videoIds = VideoIds1;
 	nodeToUpdate.update().then(function(){
 		newCommentId = nodeToUpdate.getId();
