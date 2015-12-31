@@ -1,19 +1,19 @@
-/*var clientKey = "ff4da8c2-bc2d-44d3-9cd7-4d748e22b611";
-var clientSecret = "eZkuPFS0/cJLy4BnFmzozmmR46yGAoevHYxxgA+Uru5OJIp/JSmnftDaRAY8/jhZbhfdR55AhamcqXhMkt3ydCIcZ+/Sp7K12ymoVFRA2B8=";
-var username = "4a4bc608-cc4e-45c7-abaf-925502230a4f";
-var password = "63FOdNVwd4TpbGDLvIY6pa73ZMrVZ+Wb6FaYHPiAfkpmkrQG2a63fsBGznMKV9QnpLrwn0QB4qRXMji19oO7tYGuiia0p+hT1pDyGLxmKUs=";
-var applicationId = "1a24bd197a4f85392969";
-*/
+var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
+var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
+var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
+var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
+
+/*
 //roadmapAdmin2:
 var clientKey = "1c358827-d778-4265-a890-2f582f00cd0c";
 var clientSecret = "ze/d/wMuNCP7SO0xVj+ZPqGA1aPoRE2kKl8HF48/dpR28lzZNwjbr08WCksQwDJmoAoNMkWEKmY1IVzTjRQF65KIjcv8zlNkOTnJVqnLaoc=";
 var username = "dd8947af-e38b-4d9a-8d7d-87de0c1133cb";
 var password = "EhQYGFkkwWgRuh7Bl5Mvp8fGpQ5alVj4NTXN29xWf1gKvd3qGPvAK+ok5I9jwOKvKmkYDUQZXnuPW3OqX75DUnn4K4NP7TMGrFnFBjDgPpI=";
+*/
 
 
 
-
-roadmap:
+//roadmap:
   //var repositoryId = '08a6d0b854cca496951b';
   //var branchId = 'ddf67faa6edc8e3074bb';
 
