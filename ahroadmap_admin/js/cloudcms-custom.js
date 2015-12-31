@@ -5,13 +5,8 @@ var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3Mo
 var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
 var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
 
-
 var repositoryId = '254893db0c304ba3295d';
 var branchId = '1c6332c3a1eeafbfb3a2';
-
-
-
-
 
 var platform;
 var repository;
