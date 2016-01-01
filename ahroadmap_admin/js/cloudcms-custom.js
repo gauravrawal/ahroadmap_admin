@@ -18,28 +18,25 @@ var allPortfolioObjects = [];
 var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
-var version;
 
-/*platform = Gitana.connect({
+
+platform = Gitana.connect({
   "clientKey": clientKey,
   "clientSecret": clientSecret,
   "username": username,
   "password": password,
   "baseURL": "https://api.cloudcms.com"
 }).then(function() {
-	*/
 	
-platform = Gitana.connect({
+	
+/*platform = Gitana.connect({
   "username": username,
   "baseURL": "/proxy"
-}).then(function() {
+}).then(function() {*/
 
   repository = platform.readRepository(repositoryId).then(function() {
 
     branch = repository.readBranch(branchId).then(function() {
-		branch.readNode("1a2f75f3cfb52e97b794").then(function(){
-		version = this;
-		//console.log("Admin retrieved version " + this.number);
 		
       var query = {
         "content": 'true'
@@ -88,7 +85,7 @@ platform = Gitana.connect({
 		});
     });
   });
-});
+
 
 function populateUniversalObject(callback) {
   var rows = "";
@@ -186,19 +183,9 @@ function myFunction() {
     //"date": moment().format('L')
     "date": $("#portfoliodate").val(),
   }).then(function() {
-	  		//console.log("Admin creating new portfolio. Version number was " + version.number);
-		  version.number = version.number + 1;
-		  //console.log("Admin creating new portfolio. Version number is now " + version.number);
-		  //console.log("Admin will now update the version on cloudcms...");
-		  version.update().then(function(){
-			  //console.log("version updated on cloudCMS");
-			  //console.log("setting new version number " + version.number + "into localStorage");
-			  //localStorage.setItem('version', version.number);
-			  //console.log("new version set in local storage. This concluded creating the object.");
-		  
-
+	  	
+			
 	  if ($("#uploadFilename").val()!=="") {
-		  //console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
 			var formData = new FormData($("#frmSubmitForm")[0]);
 		
@@ -208,7 +195,9 @@ function myFunction() {
 			CKEDITOR.instances.editor1.setReadOnly(true);
 			CKEDITOR.instances.txtCnotes.setReadOnly(true);
 			CKEDITOR.instances.txtAnotes.setReadOnly(true);
-			//$("#johnsModal.html").html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+			$(".loadingClass").css('display','block');
+			//form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+    
 			var lastScrollTop = 0;
 			$("#addPortfolio").scroll(function(event) {
 			  var st = $(this).scrollTop();
@@ -234,7 +223,8 @@ function myFunction() {
 			  }
 			}).done(function() {
 			  $('#loading-image-modal').css("display", "none");
-			  alert("Your media has been successfully uploaded");
+			  $(".loadingClass").css('display','none');
+			  //alert("Your media has been successfully uploaded");
 			  $("#txtName").val("");
 			  $("#primaryContact").val("");
 			  $("#txtCnotes").val("");
@@ -244,7 +234,6 @@ function myFunction() {
 			  alert("Your media has NOT been successfully uploaded. Please try again.");
 			})
 	  } else {
-		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
@@ -254,7 +243,7 @@ function myFunction() {
 	  }
 	  
 	  });
-  })
+  //})
 };
 
 function myFunction1() {
@@ -295,22 +284,17 @@ function myFunction1() {
   branch.createNode({
     "name": $("#txtPlatformName").val(),
     "videoIds": $("#txtVideoIds2").val(),
-    //"_doc": $("#txtPlatformName").val(),
     "primaryContact": $("#txtPlatformprimaryContact").val(),
     "customerNotes": ckEditorData2,
     "aonInternalNotes": ckEditorData3,
-    //"description": $("#txtDescription").val(),
     "description": ckEditorData1,
     "_type": "custom:platform0", //change as needed
     "type": "platform", //chnage this as needed
-    //"parent": "my upoint release",//change as needed
     "parent": $("#txtPnName").val(),
     "content": "true",
-    //"date": "12/10/2015",
     "date": $("#platformdate").val(),
   }).then(function() {
 	   if ($("#uploadFilename1").val()!=="") {
-		  //console.log("Attachment present uploading...");
 		   newCommentId = this.getId();
     var formData = new FormData($("#frmSubmitForm1")[0]);
 
@@ -319,6 +303,7 @@ function myFunction1() {
     CKEDITOR.instances.editor2.setReadOnly(true);
     CKEDITOR.instances.txtPlatformCnotes.setReadOnly(true);
     CKEDITOR.instances.txtPlatformAnotes.setReadOnly(true);
+	$(".loadingClass").css('display','block');
     //form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
     var lastScrollTop = 0;
     $("#addPlatform").scroll(function(event) {
@@ -347,14 +332,14 @@ function myFunction1() {
       }
     }).done(function() {
       $('#loading-image-modal').css("display", "none");
-      alert("Your media has been successfully uploaded");
+	  $(".loadingClass").css('display','none')
+      //alert("Your media has been successfully uploaded");
       location.reload(true);
     }).fail(function() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
     })
 	
 	  } else {
-		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
@@ -418,7 +403,6 @@ function myFunction2() {
     "date": $("#releasedate").val(),
   }).then(function() {
 	   if ($("#uploadFilename2").val()!=="") {
-		  //console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
     var formData = new FormData($("#frmSubmitForm2")[0]);
 
@@ -427,6 +411,7 @@ function myFunction2() {
     CKEDITOR.instances.editor3.setReadOnly(true);
     CKEDITOR.instances.txtReleaseCnotes.setReadOnly(true);
     CKEDITOR.instances.txtReleaseAnotes.setReadOnly(true);
+	$(".loadingClass").css('display','block');
     //form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
     var lastScrollTop = 0;
     $("#addRelease").scroll(function(event) {
@@ -454,7 +439,8 @@ function myFunction2() {
       }
     }).done(function() {
       $('#loading-image-modal').css("display", "none");
-      alert("Your media has been successfully uploaded");
+	  $(".loadingClass").css('display','none')
+      //alert("Your media has been successfully uploaded");
       location.reload(true);
     }).fail(function() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
@@ -508,23 +494,18 @@ function myFunction3() {
   }
   branch.createNode({
     "name": $("#txtFeatureName").val(),
-    //"_doc": $("#txtFeatureName").val(),
     "videoIds": $("#txtVideoIds4").val(),
     "primaryContact": $("#FeatureprimaryContact").val(),
     "customerNotes": ckEditorData2,
     "aonInternalNotes": ckEditorData3,
-    //"description": $("#txtDescription").val(),
     "description": ckEditorData1,
-    "_type": "custom:feature0", //change as needed
-    "type": "feature", //chnage this as needed
-    //"parent": "my upoint release",//change as needed
+    "_type": "custom:feature0", 
+    "type": "feature", 
     "parent": $("#txtRelease").val(),
     "content": "true",
-    //"date": "12/10/2015",
     "date": $("#featuredate").val(),
   }).then(function() {
 	  if ($("#uploadFilename3").val()!=="") {
-		  //console.log("Attachment present uploading...");
 		  newCommentId = this.getId();
     var formData = new FormData($("#frmSubmitForm3")[0]);
 
@@ -533,6 +514,7 @@ function myFunction3() {
     CKEDITOR.instances.editor4.setReadOnly(true);
     CKEDITOR.instances.txtFeatureCnotes.setReadOnly(true);
     CKEDITOR.instances.txtFeatureAnotes.setReadOnly(true);
+	$(".loadingClass").css('display','block');
     //form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
     var lastScrollTop = 0;
     $("#addFeature").scroll(function(event) {
@@ -560,13 +542,13 @@ function myFunction3() {
       }
     }).done(function() {
       $('#loading-image-modal').css("display", "none");
-      alert("Your media has been successfully uploaded");
+	  $(".loadingClass").css('display','none')
+      //alert("Your media has been successfully uploaded");
       location.reload(true);
     }).fail(function() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
     })
 	   } else {
-		  //console.log("Attachment NOT present");
 		  alert("Your media has been successfully uploaded");
       $("#txtName").val("");
       $("#primaryContact").val("");
