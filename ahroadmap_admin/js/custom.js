@@ -439,7 +439,7 @@ function editportfoliodata(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit4").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit4").val()).replace(" ", "_") + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -479,7 +479,7 @@ function editplatformdata(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit5").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit5").val()).replace(" ", "_") + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -516,7 +516,7 @@ function editreleasedata(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit6").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit6").val()).replace(" ", "_") + "/",
                     data: formData,
                     contentType: false,
                     processData: false,
@@ -553,7 +553,7 @@ function editfeaturedata(){
 			
 			$.ajax({
                     type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilenameEdit7").val() + "/",
+                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit7").val()).replace(" ", "_") + "/",
                     data: formData,
                     contentType: false,
                     processData: false,

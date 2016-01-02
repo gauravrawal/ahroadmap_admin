@@ -23,8 +23,10 @@ var allFeatureObjects = [];
 platform = Gitana.connect({
   "clientKey": clientKey,
   "clientSecret": clientSecret,
-  "username": username,
-  "password": password,
+  /*"username": username,
+  "password": password,*/
+  "username":"johnvogen",
+  "password":"x24ya99",
   "baseURL": "https://api.cloudcms.com"
 }).then(function() {
 	
@@ -134,10 +136,7 @@ function myFunction() {
     if (name == allPortfolioObjects[j].name) {
       alert("This is already taken as Portfolio name!!");
       return false;
-    } else if (name.indexOf("$") != -1) {
-		alert("Dissallowed characer  in name - $");
-		return false;
-	}
+    } 
 
   }
   for (j = 0; j < allPlatformObjects.length; j++) {
@@ -212,9 +211,13 @@ function myFunction() {
 			  }
 			  lastScrollTop = st;
 			});
+			//var myFilenameArray = ($("#myFileUpload").val()).split("\\");
+			//var myFilename = myFilenameArray[myFilenameArray.length-1];
 			$.ajax({
 			  type: "POST",
-			  url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename").val() + "/",
+			  url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilename").val()).replace(" ", "_") + "/",
+			  //url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + myFilename + "/",
+			  
 			  data: formData,
 			  contentType: false,
 			  processData: false,
@@ -323,7 +326,7 @@ function myFunction1() {
 
     $.ajax({
       type: "POST",
-      url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename1").val() + "/",
+      url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilename1").val()).replace(" ", "_") + "/",
       data: formData,
       contentType: false,
       processData: false,
@@ -430,7 +433,7 @@ function myFunction2() {
     });
     $.ajax({
       type: "POST",
-      url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename2").val() + "/",
+      url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilename2").val()).replace(" ", "_") + "/",
       data: formData,
       contentType: false,
       processData: false,
@@ -533,7 +536,7 @@ function myFunction3() {
     });
     $.ajax({
       type: "POST",
-      url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + $("#uploadFilename3").val() + "/",
+      url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilename3").val()).replace(" ", "_") + "/",
       data: formData,
       contentType: false,
       processData: false,
