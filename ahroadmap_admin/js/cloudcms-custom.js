@@ -1,6 +1,11 @@
 
-
 var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
+var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
+var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
+var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
+
+//var username = "roadmapAdmin";
+//var password = "aonhewitt1";
 
 
 var repositoryId = '254893db0c304ba3295d';
@@ -17,76 +22,84 @@ var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
 
+/*function login(){
+	$("#logonScreen").css("display","none");
+	username = $("#txtUsername").val();
+	password = $("#txtPassword").val();
+	begin();
+	$("#loading-image").show();
+}*/
 
+//function begin(){
 
-/*platform = Gitana.connect({
-  "clientKey": clientKey,
-  "clientSecret": clientSecret,
-  "username": username,
-  "password": password,
-  "baseURL": "https://api.cloudcms.com"
-}).then(function() {*/
-
-	
-	
-platform = Gitana.connect({
-  "username": username,
-  "baseURL": "/proxy"
-}).then(function() {
-
-  repository = platform.readRepository(repositoryId).then(function() {
-
-    branch = repository.readBranch(branchId).then(function() {
+		platform = Gitana.connect({
+		  "clientKey": clientKey,
+		  "clientSecret": clientSecret,
+		  "username": username,
+		  "password": password,
+			"baseURL": "https://api.cloudcms.com"
+		}).then(function() {
 		
-      var query = {
-        "content": 'true'
-      };
-      var pagination = {
+			
+			
+		//platform = Gitana.connect({
+		// "username": username,
+		// "baseURL": "/proxy"
+		//}).then(function() {
+		
+		  repository = platform.readRepository(repositoryId).then(function() {
+		
+			branch = repository.readBranch(branchId).then(function() {
+				
+			  var query = {
+				"content": 'true'
+			  };
+			  var pagination = {
+		
+				"sort": {
+				  "date": 1
+				},
+				"limit": 9999
+			  };
+		
+			  branch.queryNodes(query, pagination).each(function() {
+				  //console.log(this.name);
+				  //build arrays of similar type objects. this will be used in 'populateuniversaliobject()'
+				  nodes[counter] = this;
+				  if (nodes[counter].type == 'portfolio') {
+					allPortfolioObjects.push(this);
+					//add a property array to each object to hold its children. 
+					allPortfolioObjects[(allPortfolioObjects.length - 1)].platforms = []; //give the portfolio object a property called platforms which is an array to hold its child platforms
+					allPortfolioObjects[(allPortfolioObjects.length - 1)].idName = allPortfolioObjects[(allPortfolioObjects.length - 1)].name.replace(/\s+/g, '');
+				  } else if (nodes[counter].type == 'platform') {
+					allPlatformObjects.push(this);
+					allPlatformObjects[(allPlatformObjects.length - 1)].releases = [];
+					allPlatformObjects[(allPlatformObjects.length - 1)].idName = allPlatformObjects[(allPlatformObjects.length - 1)].name.replace(/\s+/g, '');
+				  } else if (nodes[counter].type == 'release') {
+					allReleaseObjects.push(this);
+					allReleaseObjects[(allReleaseObjects.length - 1)].features = [];
+					allReleaseObjects[(allReleaseObjects.length - 1)].idName = allReleaseObjects[(allReleaseObjects.length - 1)].name.replace(/\s+/g, '');
+				  } else if (nodes[counter].type == 'feature') {
+					allFeatureObjects.push(this);
+					allFeatureObjects[(allFeatureObjects.length - 1)].idName = allFeatureObjects[(allFeatureObjects.length - 1)].name.replace(/\s+/g, '');
+		
+				  }; //} else if (nodes[counter].type == 'feature') {
+				  counter = counter + 1;
+				}) //allObjects = branch.queryNodes(query, pagination).each(function () {
+				.then(function() {
+				  //populateUniversalObject(function(){buildPage(function(){$( "#myPortfolio1" ).on( "click", function() {alert("hello");});	});});
+				  populateUniversalObject(function() {
+					  //use te universal object to build the page structure
+					  populateDropDown(function() {				
+					  })
+					})
+		
+				});
+				});
+			});
+		  });
 
-        "sort": {
-          "date": 1
-        },
-        "limit": 9999
-      };
-
-      branch.queryNodes(query, pagination).each(function() {
-          //console.log(this.name);
-          //build arrays of similar type objects. this will be used in 'populateuniversaliobject()'
-          nodes[counter] = this;
-          if (nodes[counter].type == 'portfolio') {
-            allPortfolioObjects.push(this);
-            //add a property array to each object to hold its children. 
-            allPortfolioObjects[(allPortfolioObjects.length - 1)].platforms = []; //give the portfolio object a property called platforms which is an array to hold its child platforms
-            allPortfolioObjects[(allPortfolioObjects.length - 1)].idName = allPortfolioObjects[(allPortfolioObjects.length - 1)].name.replace(/\s+/g, '');
-          } else if (nodes[counter].type == 'platform') {
-            allPlatformObjects.push(this);
-            allPlatformObjects[(allPlatformObjects.length - 1)].releases = [];
-            allPlatformObjects[(allPlatformObjects.length - 1)].idName = allPlatformObjects[(allPlatformObjects.length - 1)].name.replace(/\s+/g, '');
-          } else if (nodes[counter].type == 'release') {
-            allReleaseObjects.push(this);
-            allReleaseObjects[(allReleaseObjects.length - 1)].features = [];
-            allReleaseObjects[(allReleaseObjects.length - 1)].idName = allReleaseObjects[(allReleaseObjects.length - 1)].name.replace(/\s+/g, '');
-          } else if (nodes[counter].type == 'feature') {
-            allFeatureObjects.push(this);
-            allFeatureObjects[(allFeatureObjects.length - 1)].idName = allFeatureObjects[(allFeatureObjects.length - 1)].name.replace(/\s+/g, '');
-
-          }; //} else if (nodes[counter].type == 'feature') {
-          counter = counter + 1;
-        }) //allObjects = branch.queryNodes(query, pagination).each(function () {
-        .then(function() {
-          //populateUniversalObject(function(){buildPage(function(){$( "#myPortfolio1" ).on( "click", function() {alert("hello");});	});});
-          populateUniversalObject(function() {
-              //use te universal object to build the page structure
-              populateDropDown(function() {				
-              })
-            })
-
-        });
-		});
-    });
-  });
-
-
+//}
 function populateUniversalObject(callback) {
   var rows = "";
   // now build the tree structure for the objects.
