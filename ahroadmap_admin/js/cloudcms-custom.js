@@ -20,7 +20,7 @@ var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
 
-
+//Use this block for code hosted on NON-CloudCMS servers
 function begin(){
 	var username = $("#txtUsername").val();
 	var password = $("#txtPassword").val();
@@ -49,7 +49,7 @@ function begin(){
 
 		
 			
-			
+//Use this code block for code hosted on CloudCMS servers			
 		/*platform = Gitana.connect({
 		 "username": username,
 
