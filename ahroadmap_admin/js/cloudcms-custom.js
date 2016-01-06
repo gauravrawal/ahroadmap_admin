@@ -1,20 +1,9 @@
 
 
-var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2*";
+var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
 var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
 var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
 var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
-
-var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
-//var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
-//var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
-//var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
-
-
-
-
-
-
 
 
 var repositoryId = '254893db0c304ba3295d';
@@ -32,19 +21,18 @@ var allReleaseObjects = [];
 var allFeatureObjects = [];
 
 
-
 function begin(){
 	var username = $("#txtUsername").val();
 	var password = $("#txtPassword").val();
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
-		/*platform = Gitana.connect({
+		platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
 		  "username": username,
 		  "password": password,
-			"baseURL": "https://api.cloudcms.com"
+		  "baseURL": "https://api.cloudcms.com"
 		},function(err){
 			if (err) {
 				console.log("Error: " + err + window.location.href);
@@ -55,20 +43,14 @@ function begin(){
 				return;
 
 			}
-			}).then(function() {*/
+			}).then(function() {
 
-		//platform = Gitana.connect({
-		//  "clientKey": clientKey,
-		//  "clientSecret": clientSecret,
-		//  "username": username,
-		//  "password": password,
-		//	"baseURL": "https://api.cloudcms.com"
-		//}).then(function() {
+		
 
 		
 			
 			
-		platform = Gitana.connect({
+		/*platform = Gitana.connect({
 		 "username": username,
 
 		 "password": password,
@@ -83,7 +65,7 @@ function begin(){
 				return;
 
 			}
-			}).then(function() {
+			}).then(function() {*/
 		
 		  repository = platform.readRepository(repositoryId).then(function() {
 		
