@@ -1,11 +1,13 @@
 
-var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
+/*var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2*";
 var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
 var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
 var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
+*/
 
-//var username = "roadmapAdmin";
-//var password = "aonhewitt1";
+
+
+
 
 
 var repositoryId = '254893db0c304ba3295d';
@@ -22,30 +24,37 @@ var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
 
-/*function login(){
-	$("#logonScreen").css("display","none");
-	username = $("#txtUsername").val();
-	password = $("#txtPassword").val();
-	begin();
-	$("#loading-image").show();
-}*/
 
-//function begin(){
-
+function begin(){
+	var username = $("#txtUsername").val();
+	var password = $("#txtPassword").val();
+	$( "#dialog" ).dialog( "close" );
+	$("#loading-image").css('display','block');
 		platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
 		  "username": username,
 		  "password": password,
 			"baseURL": "https://api.cloudcms.com"
-		}).then(function() {
+		},function(err){
+			if (err) {
+				console.log("Error: " + err + window.location.href);
+				$("#loading-image").css('display','none');
+				
+				$("#lblLoginLable").html("Username or password are incorrect. Please try again.");
+				$( "#dialog" ).dialog( "open" );
+				return;
+
+			}
+			}).then(function() {
 		
 			
 			
-		//platform = Gitana.connect({
-		// "username": username,
-		// "baseURL": "/proxy"
-		//}).then(function() {
+		/*platform = Gitana.connect({
+		 "username": username,
+		 "password": password,
+		 "baseURL": "/proxy"
+		}).then(function() {*/
 		
 		  repository = platform.readRepository(repositoryId).then(function() {
 		
@@ -90,7 +99,8 @@ var allFeatureObjects = [];
 				  //populateUniversalObject(function(){buildPage(function(){$( "#myPortfolio1" ).on( "click", function() {alert("hello");});	});});
 				  populateUniversalObject(function() {
 					  //use te universal object to build the page structure
-					  populateDropDown(function() {				
+					  populateDropDown(function() {	
+					  		$("#loading-image").css('display','none');	
 					  })
 					})
 		
@@ -98,8 +108,8 @@ var allFeatureObjects = [];
 				});
 			});
 		  });
+		}
 
-//}
 function populateUniversalObject(callback) {
   var rows = "";
   // now build the tree structure for the objects.
