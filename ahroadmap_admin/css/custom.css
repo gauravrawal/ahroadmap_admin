@@ -65,3 +65,10 @@ table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.
 .margin-bottom-10{
 margin-bottom:10px;
 
+
+}
+#lblLoginLable {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	color: #F00;
+}
