@@ -44,20 +44,12 @@
            <div id="wizard">
              <h2><strong>Portfolio</strong></h2>
              <div class="col-md-12 header">
-             <div class="col-md-12 header">
-               <div id="dialog" title="Please Log In.">
                <div class="col-md-12 header">
-                 <div class="col-md-12 header">
-                   <img src="images/aon.png"/><span>Road Map Admin Panel</span>
-                   <div id="dialog2" title="Please Log In.">
-                     <label>Username:</label>
-                     <input id="txtUsername" name="txtUsername" type="text">
-                     <label>Password:</label>
-                     <input id="txtPassword" name="txtPassword" type="password">
-                     <input id="submitButton" onClick="begin()" name="Submit" type="button" value="Submit">
-                     <label id="lblLoginLable"></label>
-                   </div>
-                   <script>
+                 <img src="images/aon.png"/><span>Road Map Admin Panel</span>
+                 
+                 <div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="begin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>
+ 
+				 <script>
                     $( "#dialog" ).dialog({ 
 					autoOpen: true , 
 					modal:true, 
@@ -72,10 +64,9 @@
 					});
                     
                     </script>
-                 </div>
+                                     
+
                </div>
-               <label></label></div>
-             </div>
              </div>
              <section>
 			   <img src="images/loading.gif"  style="display:none" id="loading-image"/>
@@ -510,13 +501,12 @@
                         </p>
                         
                         <p>
-                        <label>Aon Hewitt Notes<br/></label>
-                        </p>
-                        <p>
+                           <label>
+                              Aon Hewitt Notes<br/>
                         <div id="viewtxtAnotes">
                         </div>
+                        </label>
                         </p>
-                        
                         
                         <p>
                            <label>Description </label>
@@ -1146,9 +1136,7 @@
                      </div>
                   </div>
                </div>
-			   
-               
-               <div id="Confirmation1" class="modal fade" role="dialog">
+			   <div id="Confirmation1" class="modal fade" role="dialog">
                <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
@@ -1174,9 +1162,7 @@
                      </div>
                   </div>
                </div>
-			
-            
-            <div id="Confirmation2" class="modal fade" role="dialog">
+			<div id="Confirmation2" class="modal fade" role="dialog">
                <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
@@ -1202,9 +1188,7 @@
                      </div>
                   </div>
                </div>
-			   
-               
-               <div id="Confirmation3" class="modal fade" role="dialog">
+			   <div id="Confirmation3" class="modal fade" role="dialog">
                <div class="modal-dialog">
                   <!-- Modal content-->
                   <div class="modal-content">
