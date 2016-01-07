@@ -302,8 +302,8 @@ function viewrelease(release){
 function viewfeature(feature){
 		for (j=0; j < allFeatureObjects.length; j++) {
 		if(feature == allFeatureObjects[j].name){
-		$("#txtFeatureName").html(allFeatureObjects[j].name);
-		$("#viewFeatureContact").html(allFeatureObjects[j].primaryContact);
+		$("#txtFeatureViewName").html(allFeatureObjects[j].name);
+		$("#viewFeatureprimaryContact").html(allFeatureObjects[j].primaryContact);
 		$("#viewFeatureDate").html(allFeatureObjects[j].date);
 		$("#viewFeatureCnotes").html(allFeatureObjects[j].customerNotes);
 		$("#viewFeatureAnotes").html(allFeatureObjects[j].aonInternalNotes);
