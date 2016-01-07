@@ -21,9 +21,41 @@ var allReleaseObjects = [];
 var allFeatureObjects = [];
 
 //Use this block for code hosted on NON-CloudCMS servers
-function begin(){
+
+
+
+//on page load the page will run this function. If a cookie is found it will use it.
+function checkCookie() {
+    var user = getCookie("username");
+	var pswd = getCookie("password");
+    if (user != "" && pswd != "") {
+        console.log("Welcome again " + user);
+		$("#txtUsername").val() = user;
+		$("#txtPassword").val() = pswd;
+		begin();
+    } else {
+        $("#dialog").css("display","block");
+    }
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+
+
+
+function begin(usr,pswd){
 	var username = $("#txtUsername").val();
 	var password = $("#txtPassword").val();
+	
+	
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
@@ -66,6 +98,9 @@ function begin(){
 
 			}
 			}).then(function() {*/
+			
+			document.cookie="username" + username;
+			document.cookie="password" + password;
 		
 		  repository = platform.readRepository(repositoryId).then(function() {
 		
