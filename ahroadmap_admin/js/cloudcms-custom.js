@@ -1,5 +1,6 @@
 
-
+var username;
+var password;
 //var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
 //var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
 var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
@@ -30,11 +31,13 @@ function checkCookie() {
 	var pswd = getCookie("password");
     if (user != "" && pswd != "") {
         console.log("Welcome again " + user);
-		$("#txtUsername").val() = user;
-		$("#txtPassword").val() = pswd;
+		username = user;
+		password = pswd;
 		begin();
     } else {
-        $("#dialog").css("display","block");
+        
+		$( ".selector" ).dialog( "open" );
+		//$("#dialog").css("display","block");
     }
 }
 
@@ -49,12 +52,13 @@ function getCookie(cname) {
     return "";
 }
 
-
+function setCredentialsFromLogin(){
+	username = $("#txtUsername").val();
+	password = $("#txtPassword").val();
+	begin();
+}
 
 function begin(usr,pswd){
-	var username = $("#txtUsername").val();
-	var password = $("#txtPassword").val();
-	
 	
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
@@ -99,8 +103,8 @@ function begin(usr,pswd){
 			}
 			}).then(function() {*/
 			
-			document.cookie="username" + username;
-			document.cookie="password" + password;
+			document.cookie="username=" + username;
+			document.cookie="password=" + password;
 		
 		  repository = platform.readRepository(repositoryId).then(function() {
 		
@@ -193,6 +197,10 @@ function myFunction() {
   
   
   var name = $("#txtName").val();
+  if (name == "") {
+	  alert("Please give this portfolio a valid name");
+	  return false;
+  }
   //$.encoder.encodeForHTML($("#commentTextArea").val()),
   
   var ckEditorData1 = CKEDITOR.instances.editor1.getData();
@@ -318,6 +326,12 @@ function myFunction() {
 
 function myFunction1() {
   var name = $("#txtPlatformName").val();
+  
+  if (name == "") {
+	  alert("Please give this platform a valid name");
+	  return false;
+  }
+  
   var ckEditorData1 = CKEDITOR.instances.editor2.getData();
   var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
@@ -424,6 +438,12 @@ function myFunction1() {
 
 function myFunction2() {
   var name = $("#txtReleaseName").val();
+  if (name == "") {
+	  alert("Please give this release a valid name");
+	  return false;
+  }
+  
+  
   var ckEditorData1 = CKEDITOR.instances.editor3.getData();
   var ckEditorData2 = CKEDITOR.instances.txtReleaseCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
@@ -530,6 +550,13 @@ function myFunction2() {
 
 function myFunction3() {
   var name = $("#txtFeatureName").val();
+  
+  if (name == "") {
+	  alert("Please give this feature a valid name");
+	  return false;
+  }
+  
+  
   var ckEditorData1 = CKEDITOR.instances.editor4.getData();
   var ckEditorData2 = CKEDITOR.instances.txtFeatureCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtFeatureAnotes.getData();

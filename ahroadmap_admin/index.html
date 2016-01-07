@@ -47,11 +47,12 @@
                <div class="col-md-12 header">
                  <img src="images/aon.png"/><span>Road Map Admin Panel</span>
                  
-                 <div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="begin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>
+                 <div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="setCredentialsFromLogin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>
  
 				 <script>
                     $( "#dialog" ).dialog({ 
-					autoOpen: true , 
+					//autoOpen: true, 
+					hide: false,
 					modal:true, 
 					draggable: false,
 					width: "auto",
@@ -466,51 +467,51 @@
                      </div>
                      <div class="modal-body">
                         
-                        <p>
+                        
                            <label>
-                              Name<br/>
+                              Name</label>
                         <div id="txtViewName">
                         </div>
-                        </label>
-                        </p>
                         
-                        <p>
+                        
+                        
+                        
                            <label>
-                              Contact<br/>
+                              Contact</label>
                         <div id="viewprimaryContact">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         
                         <!----------------->
-                        <p>
+                        
                            <label>
-                              Date<br/>
+                              Date</label>
                         <div id="viewDate">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <!-------------------->
                         
-                        <p>
+                        
                            <label>
-                              Customer Notes<br/>
+                              Customer Notes</label>
                         <div id="viewtxtCnotes">
                         </div>
-                        </label>
-                        </p>
                         
-                        <p>
+                        
+                        
+                        
                            <label>
-                              Aon Hewitt Notes<br/>
+                              Aon Hewitt Notes</label>
                         <div id="viewtxtAnotes">
                         </div>
-                        </label>
-                        </p>
                         
-                        <p>
+                       
+                        
+                        
                            <label>Description </label>
-                        </p>
+                        
                         <p>
                         <div id="editor5"></div>
                         </p>
@@ -532,43 +533,43 @@
                      <div class="modal-body">
                         <p>
                            <label>
-                              Name<br/>
+                              Name</label></p>
                         <div id="txtPlatformViewName">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <p>
                            <label>
-                              Contact<br/>
+                              Contact</label></p>
                         <div id="viewPlatformprimaryContact">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <!----------------->
                         <p>
                            <label>
-                              Date<br/>
+                              Date</label></p>
                         <div id="viewPlatformDate">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <!-------------------->
                         
                         
                         <p>
                            <label>
-                              Customer Notes<br/>
+                              Customer Notes</label></p>
                         <div id="viewPlatformtxtCnotes">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <p>
                            <label>
-                              Aon Hewitt Notes<br/>
+                              Aon Hewitt Notes</label></p>
                         <div id="viewPlatformtxtAnotes">
                         </div>
-                        </label>
-                        </p>
+                        
+                       
                         <p>
                            <label>Description </label>
                         </p>
@@ -593,42 +594,42 @@
                      <div class="modal-body">
                         <p>
                            <label>
-                              Name<br/>
+                              Name</label></p>
                         <div id="txtReleaseViewName">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <p>
                            <label>
-                              Contact<br/>
+                              Contact</label></p>
                         <div id="viewReleaseprimaryContact">
                         </div>
-                        </label>
-                        </p>
+                        
+                       
                         <!----------------->
                         <p>
                            <label>
-                              Date<br/>
-                        <div id="viewReleaseDate">
+                              Date</label>
+                        <div id="viewReleaseDate"></p>
                         </div>
-                        </label>
-                        </p>
+                        
+                       
                         <!-------------------->
                         
                         
                         <p>
                            <label>
-                              Customer Notes<br/>
+                              Customer Notes</label></p>
                         <div id="viewReleasetxtCnotes">
                         </div>
-                        </label>
-                        </p>
+                        
+                        
                         <p>
                            <label>
-                              Aon Hewitt Notes<br/>
+                              Aon Hewitt Notes</label></p><p>
                         <div id="viewReleasetxtAnotes">
                         </div>
-                        </label>
+                        
                         </p>
                         <p>
                            <label>Description </label>
@@ -654,46 +655,46 @@
                      <div class="modal-body">
                         <p>
                            <label>
-                              Name<br/> </label>
+                              Name </label>
                         </p>
-                        <p>
+                        
                         <div id="txtFeatureViewName">
                         </div>
-                       </p>
+                      
                         <p>
                            <label>
-                              Contact<br/></label>
+                              Contact</label>
                         </p>
-                        <p>
-                        <div id="viewReleaseprimaryContact">
+                       
+                        <div id="viewFeatureprimaryContact">
                         </div>
-                        </p>
+                        
                        
                         <p>
                            <label>
-                              Date<br/> </label>
+                              Date </label>
                         </p>
-                        <p>
+                        
                         <div id="viewFeatureDate">
                         </div>
-                       </p>
+                       
                         
                         <p>
                            <label>
-                              Customer Notes<br/> </label>
+                              Customer Notes </label>
                         </p>
-                        <p>
+                        
                         <div id="viewFeatureCnotes">
                         </div>
-                       </p>
+                       
                         <p>
                            <label>
-                              Aon Hewitt Notes<br/></label>
+                              Aon Hewitt Notes</label>
                         </p>
-                        <p>
+                        
                         <div id="viewFeatureAnotes">
                         </div>
-                        </p>
+                        
                         <p>
                            <label>Description </label>
                         </p>
