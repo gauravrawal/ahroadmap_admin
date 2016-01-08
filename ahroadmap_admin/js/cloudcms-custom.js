@@ -35,8 +35,23 @@ function checkCookie() {
 		password = pswd;
 		begin();
     } else {
+        $("#loginContainer").append('<div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="setCredentialsFromLogin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>');
+		$( "#dialog" ).dialog({ 
+					//autoOpen: true, 
+					//hide: false,
+					modal:true, 
+					draggable: false,
+					width: "auto",
+					position: { my: "top", at: "center", of: window },
+					create: function( event, ui ) {
+						// Set maxWidth
+						$(this).css("maxWidth", "300px");
+						}
+					
+					});
         
-		$( ".selector" ).dialog( "open" );
+        
+        $( ".selector" ).dialog( "open" );
 		//$("#dialog").css("display","block");
     }
 }
@@ -309,10 +324,10 @@ function myFunction() {
 			  $("#txtAnotes").val("");
 			  location.reload(true);
 			}).fail(function() {
-			  alert("Your media has NOT been successfully uploaded. Please try again.");
+			  alert("Your document has NOT been successfully uploaded. Please try again.");
 			})
 	  } else {
-		  alert("Your media has been successfully uploaded");
+		  alert("Your portfolio has been created.");
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
@@ -424,7 +439,7 @@ function myFunction1() {
     })
 	
 	  } else {
-		  alert("Your media has been successfully uploaded");
+		  alert("Your platform has been created.");
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
@@ -537,7 +552,7 @@ function myFunction2() {
     })
 	   } else {
 		  //console.log("Attachment NOT present");
-		  alert("Your media has been successfully uploaded");
+		  alert("Your release has been created.");
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
@@ -646,7 +661,7 @@ function myFunction3() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
     })
 	   } else {
-		  alert("Your media has been successfully uploaded");
+		  alert("Your feature has been created.");
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");

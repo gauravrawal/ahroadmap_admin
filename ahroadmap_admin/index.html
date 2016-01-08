@@ -13,21 +13,7 @@
       <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
       <link rel="icon" type="image/png" href="images/favicon.ico">
 	  <link rel="icon" type="image/png" href="images/favicon.ico">
-	    <style type="text/css">
 	    
-        #dialog #submitButton {
-	margin-top: 15px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-}
-        #dialog {
-	width: 400px;
-	margin-right: auto;
-	margin-left: auto;
-	display: none;
-}
-        </style>
         
     	  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
           <script src="js/jquery-ui.js"></script> 
@@ -46,13 +32,13 @@
              <div class="col-md-12 header">
                <div class="col-md-12 header">
                  <img src="images/aon.png"/><span>Road Map Admin Panel</span>
-                 
-                 <div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="setCredentialsFromLogin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>
- 
-				 <script>
+                 <div id="loginContainer">
+                    <!--<div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="setCredentialsFromLogin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>-->
+                 </div>
+				 <!--<script>
                     $( "#dialog" ).dialog({ 
 					//autoOpen: true, 
-					hide: false,
+					//hide: false,
 					modal:true, 
 					draggable: false,
 					width: "auto",
@@ -64,7 +50,7 @@
 					
 					});
                     
-                    </script>
+                    </script>-->
                                      
 
                </div>
@@ -471,7 +457,7 @@
                            <label>
                               Name</label>
                         <div id="txtViewName">
-                        </div>
+                        </div><hr />
                         
                         
                         
@@ -479,7 +465,7 @@
                            <label>
                               Contact</label>
                         <div id="viewprimaryContact">
-                        </div>
+                        </div><hr />
                         
                         
                         
@@ -488,7 +474,7 @@
                            <label>
                               Date</label>
                         <div id="viewDate">
-                        </div>
+                        </div><hr />
                         
                         
                         <!-------------------->
@@ -497,7 +483,7 @@
                            <label>
                               Customer Notes</label>
                         <div id="viewtxtCnotes">
-                        </div>
+                        </div><hr />
                         
                         
                         
@@ -505,16 +491,16 @@
                            <label>
                               Aon Hewitt Notes</label>
                         <div id="viewtxtAnotes">
-                        </div>
+                        </div><hr />
                         
                        
                         
                         
                            <label>Description </label>
                         
-                        <p>
+                        
                         <div id="editor5"></div>
-                        </p>
+                        
                         <div class="modal-footer">
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -531,51 +517,51 @@
                         <h4 class="modal-title">View Platform </h4>
                      </div>
                      <div class="modal-body">
-                        <p>
+                      
                            <label>
-                              Name</label></p>
+                              Name</label>
                         <div id="txtPlatformViewName">
-                        </div>
+                        </div><hr />
                         
                         
-                        <p>
+                 
                            <label>
-                              Contact</label></p>
+                              Contact</label>
                         <div id="viewPlatformprimaryContact">
-                        </div>
+                        </div><hr />
                         
                         
                         <!----------------->
-                        <p>
+                        
                            <label>
-                              Date</label></p>
+                              Date</label>
                         <div id="viewPlatformDate">
-                        </div>
+                        </div><hr />
                         
                         
                         <!-------------------->
                         
                         
-                        <p>
+                        
                            <label>
-                              Customer Notes</label></p>
+                              Customer Notes</label>
                         <div id="viewPlatformtxtCnotes">
-                        </div>
+                        </div><hr />
                         
-                        
-                        <p>
-                           <label>
-                              Aon Hewitt Notes</label></p>
-                        <div id="viewPlatformtxtAnotes">
-                        </div>
                         
                        
-                        <p>
+                           <label>
+                              Aon Hewitt Notes</label>
+                        <div id="viewPlatformtxtAnotes">
+                        </div><hr />
+                        
+                       
+                        
                            <label>Description </label>
-                        </p>
-                        <p>
+                        
+                        
                         <div id="editor6"></div>
-                        </p>
+                        
                         <div class="modal-footer">
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -592,51 +578,51 @@
                         <h4 class="modal-title">View Release </h4>
                      </div>
                      <div class="modal-body">
-                        <p>
+                        
                            <label>
-                              Name</label></p>
+                              Name</label>
                         <div id="txtReleaseViewName">
-                        </div>
+                        </div><hr />
                         
                         
-                        <p>
+                        
                            <label>
-                              Contact</label></p>
+                              Contact</label>
                         <div id="viewReleaseprimaryContact">
-                        </div>
+                        </div><hr />
                         
                        
-                        <!----------------->
-                        <p>
+                        
+                        
                            <label>
                               Date</label>
-                        <div id="viewReleaseDate"></p>
-                        </div>
+                        <div id="viewReleaseDate">
+                        </div><hr />
                         
                        
-                        <!-------------------->
                         
                         
-                        <p>
+                        
+                        
                            <label>
-                              Customer Notes</label></p>
+                              Customer Notes</label>
                         <div id="viewReleasetxtCnotes">
-                        </div>
+                        </div><hr />
                         
                         
-                        <p>
+                        
                            <label>
-                              Aon Hewitt Notes</label></p><p>
+                              Aon Hewitt Notes</label>
                         <div id="viewReleasetxtAnotes">
-                        </div>
+                        </div><hr />
                         
-                        </p>
-                        <p>
+                        
+                        
                            <label>Description </label>
-                        </p>
-                        <p>
+                        
+                        
                         <div id="editor7"></div>
-                        </p>
+                        
                         <div class="modal-footer">
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -653,54 +639,54 @@
                         <h4 class="modal-title">View Release </h4>
                      </div>
                      <div class="modal-body">
-                        <p>
+                        
                            <label>
                               Name </label>
-                        </p>
+                        
                         
                         <div id="txtFeatureViewName">
-                        </div>
+                        </div><hr />
                       
-                        <p>
+                        
                            <label>
                               Contact</label>
-                        </p>
+                        
                        
                         <div id="viewFeatureprimaryContact">
-                        </div>
+                        </div><hr />
                         
                        
-                        <p>
+                        
                            <label>
                               Date </label>
-                        </p>
+                        
                         
                         <div id="viewFeatureDate">
-                        </div>
+                        </div><hr />
                        
                         
-                        <p>
+                        
                            <label>
                               Customer Notes </label>
-                        </p>
+                        
                         
                         <div id="viewFeatureCnotes">
-                        </div>
+                        </div><hr />
                        
-                        <p>
+                        
                            <label>
                               Aon Hewitt Notes</label>
-                        </p>
+                        
                         
                         <div id="viewFeatureAnotes">
-                        </div>
+                        </div><hr />
                         
-                        <p>
+                        
                            <label>Description </label>
-                        </p>
-                        <p>
+                        
+                        
                         <div id="editor8"></div>
-                        </p>
+                        
                         <div class="modal-footer">
                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         </div>
@@ -720,7 +706,7 @@
                      <div class="modal-body">
                         <p>
                            <label>Name<br/>
-                           <input type="text" name="txtEditName" id="txtEditName" />
+                           <input type="text" name="txtEditName" id="txtEditName" readonly style="background-color:#CCCCCC"/>
                            </label>
                         </p>
                         <p>
@@ -798,7 +784,7 @@
                      <div class="modal-body">
                         <p>
                            <label>Name<br/>
-                           <input type="text" name="txtPlatformEditName" id="txtPlatformEditName" />
+                           <input type="text" name="txtPlatformEditName" id="txtPlatformEditName" readonly style="background-color:#CCCCCC" />
                            </label>
                         </p>
                         <p>
@@ -872,7 +858,7 @@
                      <div class="modal-body">
                         <p>
                            <label>Name<br/>
-                           <input type="text" name="txtReleaseEditName" id="txtReleaseEditName" />
+                           <input type="text" name="txtReleaseEditName" id="txtReleaseEditName" readonly style="background-color:#CCCCCC"/>
                            </label>
                         </p>
                         <p>
@@ -946,7 +932,7 @@
                      <div class="modal-body">
                         <p>
                            <label>Name<br/>
-                           <input type="text" name="txtFeatureEditName" id="txtFeatureEditName" />
+                           <input type="text" name="txtFeatureEditName" id="txtFeatureEditName" readonly style="background-color:#CCCCCC"/>
                            </label>
                         </p>
                         <p>
