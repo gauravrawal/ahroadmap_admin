@@ -78,7 +78,7 @@ function begin(usr,pswd){
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
-		/*platform = Gitana.connect({
+		platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
 		  "username": username,
@@ -94,14 +94,14 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {*/
+			}).then(function() {
 
 		
 
 		
 			
 //Use this code block for code hosted on CloudCMS servers			
-		platform = Gitana.connect({
+		/*platform = Gitana.connect({
 		 "username": username,
 
 		 "password": password,
@@ -116,7 +116,7 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {
+			}).then(function() {*/
 			
 			document.cookie="username=" + username;
 			document.cookie="password=" + password;
@@ -216,6 +216,11 @@ function myFunction() {
 	  alert("Please give this portfolio a valid name");
 	  return false;
   }
+  if (name.indexOf("/") != -1) {
+	  alert("The slash character(/) is not allowed in a portfolio name.");
+	  return false;
+  }
+
   //$.encoder.encodeForHTML($("#commentTextArea").val()),
   
   var ckEditorData1 = CKEDITOR.instances.editor1.getData();
@@ -346,6 +351,10 @@ function myFunction1() {
 	  alert("Please give this platform a valid name");
 	  return false;
   }
+  if (name.indexOf("/") != -1) {
+	  alert("The slash character(/) is not allowed in a platform name.");
+	  return false;
+  }
   
   var ckEditorData1 = CKEDITOR.instances.editor2.getData();
   var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
@@ -457,7 +466,10 @@ function myFunction2() {
 	  alert("Please give this release a valid name");
 	  return false;
   }
-  
+  if (name.indexOf("/") != -1) {
+	  alert("The slash character(/) is not allowed in a release name.");
+	  return false;
+  }
   
   var ckEditorData1 = CKEDITOR.instances.editor3.getData();
   var ckEditorData2 = CKEDITOR.instances.txtReleaseCnotes.getData();
@@ -569,8 +581,11 @@ function myFunction3() {
   if (name == "") {
 	  alert("Please give this feature a valid name");
 	  return false;
+  } 
+  if (name.indexOf("/") != -1) {
+	  alert("The slash character(/) is not allowed in a feature name.");
+	  return false;
   }
-  
   
   var ckEditorData1 = CKEDITOR.instances.editor4.getData();
   var ckEditorData2 = CKEDITOR.instances.txtFeatureCnotes.getData();
