@@ -1,15 +1,8 @@
 
 var username;
 var password;
-//var username = "fecfaef7-01a6-4ca4-b786-91315a3d2fe2";
-//var password = "FV4CSsu78NUmpfzO7xpNvh4GbKVjaeBiilatYkBETQoKiHCbOx81gjbbtuIGyQXwVYJ35Y5B0b8qBlA4pOMiAAQMXvs1fIptaVYmW/EEMvM=";
-var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
-var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
-
-
 var repositoryId = '254893db0c304ba3295d';
 var branchId = '1c6332c3a1eeafbfb3a2';
-
 var platform;
 var repository;
 var branch;
@@ -21,11 +14,6 @@ var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
 
-//Use this block for code hosted on NON-CloudCMS servers
-
-
-
-//on page load the page will run this function. If a cookie is found it will use it.
 function checkCookie() {
     var user = getCookie("username");
 	var pswd = getCookie("password");
@@ -78,6 +66,7 @@ function begin(usr,pswd){
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
+
 		platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
@@ -99,6 +88,9 @@ function begin(usr,pswd){
 		
 
 		
+
+
+
 			
 //Use this code block for code hosted on CloudCMS servers			
 		/*platform = Gitana.connect({
