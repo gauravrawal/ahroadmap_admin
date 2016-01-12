@@ -78,7 +78,7 @@ function begin(usr,pswd){
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
-		platform = Gitana.connect({
+		/*platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
 		  "username": username,
@@ -94,14 +94,14 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {
+			}).then(function() {*/
 
 		
 
 		
 			
 //Use this code block for code hosted on CloudCMS servers			
-		/*platform = Gitana.connect({
+		platform = Gitana.connect({
 		 "username": username,
 
 		 "password": password,
@@ -116,7 +116,7 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {*/
+			}).then(function() {
 			
 			document.cookie="username=" + username;
 			document.cookie="password=" + password;
