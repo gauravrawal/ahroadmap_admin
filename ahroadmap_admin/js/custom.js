@@ -460,25 +460,30 @@ function editportfoliodata(){
 	nodeToUpdate.customerNotes = ckPortfolioEditorData2;
 	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData3;
 	nodeToUpdate.videoIds = VideoIds1;
-	nodeToUpdate.update().then(function(){
-		newCommentId = nodeToUpdate.getId();
-		var formData = new FormData($("#frmeditSubmitForm4")[0]);
-			
-			var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-            var form = $("#frmeditSubmitForm4");
-			
-			$.ajax({
-                    type: "POST",
-                    url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit4").val()).replace(" ", "_") + "/",
-                    data: formData,
-                    contentType: false,
-                    processData: false,
-                    headers: {
-                        authorization: authorizationHeader
-                    }
-                })
-	
-		});
+	nodeToUpdate.update().then(function () {
+
+
+    
+	    newCommentId = nodeToUpdate.getId();
+	    console.log("File Upload routine is being processed");
+        var formData = new FormData($("#frmeditSubmitForm4")[0]);
+
+	    var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
+	    var form = $("#frmeditSubmitForm4");
+
+	    $.ajax({
+	        type: "POST",
+	        url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit4").val()).replace(" ", "_") + "/",
+	        data: formData,
+	        contentType: false,
+	        processData: false,
+	        headers: {
+	            authorization: authorizationHeader
+	        }
+
+	    });
+        
+	});
 	$('#Confirmation').modal('show'); 
 	
 		
