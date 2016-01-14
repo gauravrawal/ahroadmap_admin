@@ -226,21 +226,21 @@ function myFunction() {
 
   for (j = 0; j < allPortfolioObjects.length; j++) {
     if (name == allPortfolioObjects[j].name) {
-      alert("This is already taken as Portfolio name!!");
+      alert("This is already taken as Portfolio name.");
       return false;
     } 
 
   }
   for (j = 0; j < allPlatformObjects.length; j++) {
     if (name == allPlatformObjects[j].name) {
-      alert("This is already taken as Platform name!!");
+      alert("This is already taken as Platform name.");
       return false;
     }
 
   }
   for (j = 0; j < allReleaseObjects.length; j++) {
     if (name == allReleaseObjects[j].name) {
-      alert("This is already taken as Release name!!");
+      alert("This is already taken as Release name.");
       return false;
     }
 
@@ -248,7 +248,7 @@ function myFunction() {
 
   for (j = 0; j < allFeatureObjects.length; j++) {
     if (name == allFeatureObjects[j].name) {
-      alert("This is already taken as Feature name!!");
+      alert("This is already taken as Feature name.");
       return false;
     }
 

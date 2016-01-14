@@ -446,7 +446,11 @@ function editportfoliodata() {
 	var ckPortfolioEditorData1 = CKEDITOR.instances.txteditoredit1.getData();
 	var ckPortfolioEditorData2 = CKEDITOR.instances.EdittxtCnotes.getData();
 	var ckPortfolioEditorData3 = CKEDITOR.instances.EdittxtAnotes.getData();
+    /////
+    var oldNodePortfolioName = nodeToUpdate.name;
+    /////
 	var newNodePortfolioName = $("#txtEditName").val();
+
 	var newNodePortfolioContact = $("#EditprimaryContact").val();
 	
 	var newNodePortfolioDate = $("#EditDate").val();
@@ -462,29 +466,44 @@ function editportfoliodata() {
 	nodeToUpdate.aonInternalNotes = ckPortfolioEditorData3;
 	nodeToUpdate.videoIds = VideoIds1;
 	nodeToUpdate.update().then(function () {
-	    
-	    /////////////
+	    /////////Test for name change
+	    if (oldNodePortfolioName != newNodePortfolioName) {
+	        console.log("portfolio name has been changed");
+	        updateParentsOfPortfolioChildren(oldNodePortfolioName, newNodePortfolioName);
+
+	    } else {
+	        console.log("portfolio name has NOT been changed");
+	    }
+
+	    ///////////////
+
+
+
+
+
+
+	    /////////////conditional uploading of attachments
 	    if ($("#uploadFilenameEdit4").val() !== "") {
 
-	            newCommentId = nodeToUpdate.getId();
-	            console.log("File Upload routine is being processed");
-	            var formData = new FormData($("#frmeditSubmitForm4")[0]);
+	        newCommentId = nodeToUpdate.getId();
+	        console.log("File Upload routine is being processed. Put process should have completed by now");
+	        var formData = new FormData($("#frmeditSubmitForm4")[0]);
 
-	            var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
-	            var form = $("#frmeditSubmitForm4");
+	        var authorizationHeader = platform.getDriver().getHttpHeaders()["Authorization"];
+	        var form = $("#frmeditSubmitForm4");
 
-	            $.ajax({
+	        $.ajax({
 	            type: "POST",
 	            url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilenameEdit4").val()).replace(" ", "_") + "/",
 	            data: formData,
 	            contentType: false,
 	            processData: false,
 	            headers: {
-	            authorization: authorizationHeader
+	                authorization: authorizationHeader
 	            }
 
-	            });
-	            
+	        });
+
 	    }
 	    ///////////////   
 	});
@@ -502,6 +521,9 @@ function editplatformdata() {
 	var ckPlatformEditorEditorData2 = CKEDITOR.instances.PlatformtxteditorDescription.getData();
 	var ckPlatformEditorData2 = CKEDITOR.instances.PlatformEdittxtCnotes.getData();
 	var ckPlatformEditorData3 = CKEDITOR.instances.PlatformEdittxtAnotes.getData();
+	/////
+	var oldNodePlatformName = nodeToUpdate.name;
+	/////
 	var newNodePlatformName = $("#txtPlatformEditName").val();
 	var newNodePlatformContact = $("#PlatformEditprimaryContact").val();
 	
@@ -518,7 +540,16 @@ function editplatformdata() {
 	nodeToUpdate.customerNotes = ckPlatformEditorData2;
 	nodeToUpdate.videoIds = VideoIds2;
 	nodeToUpdate.update().then(function () {
-	    //alert("portfolio node updatred");
+	    /////////Test for name change
+	    if (oldNodePlatformName != newNodePlatformName) {
+	        console.log("platform name has been changed");
+	        updateParentsOfPlatformChildren(oldNodePlatformName, newNodePlatformName);
+
+	    } else {
+	        console.log("platform name has NOT been changed");
+	    }
+
+	    ///////////////
 
 	    if ($("#uploadFilenameEdit5").val() !== "") {
 
@@ -549,6 +580,11 @@ function editreleasedata() {
 	var ckReleaseEditorEditorData = CKEDITOR.instances.ReleasetxteditorDescription.getData();
 	var ckReleaseEditorData2 = CKEDITOR.instances.ReleaseEdittxtCnotes.getData();
 	var ckReleaseEditorData3 = CKEDITOR.instances.ReleaseEdittxtAnotes.getData();
+
+	/////
+	var oldNodeReleaseName = nodeToUpdate.name;
+	/////
+
 	var newNodeReleaseName = $("#txtReleaseEditName").val();
 	var newNodeReleaseContact = $("#ReleaseEditprimaryContact").val();
 	
@@ -565,7 +601,21 @@ function editreleasedata() {
 	nodeToUpdate.customerNotes = ckReleaseEditorData2;
 	nodeToUpdate.videoIds = VideoIds3;
 	nodeToUpdate.update().then(function () {
-	    //alert("portfolio node updatred");
+	  
+
+	    /////////Test for name change
+	    if (oldNodeReleaseName != newNodeReleaseName) {
+	        console.log("release name has been changed");
+	        updateParentsOfReleaseChildren(oldNodeReleaseName, newNodeReleaseName);
+
+	    } else {
+	        console.log("release name has NOT been changed");
+	    }
+
+	    ///////////////
+
+
+
 	    if ($("#uploadFilenameEdit6").val() !== "") {
 	        newCommentId = nodeToUpdate.getId();
 	        var formData = new FormData($("#frmeditSubmitForm6")[0]);
@@ -594,6 +644,9 @@ function editfeaturedata() {
 	var ckFeatureEditorEditorData = CKEDITOR.instances.FeaturetxteditorDescription.getData();
 	var ckFeatureEditorData2 = CKEDITOR.instances.FeatureEdittxtCnotes.getData();
 	var ckFeatureEditorData3 = CKEDITOR.instances.FeatureEdittxtAnotes.getData();
+
+	
+
 	var newNodeFeatureName = $("#txtFeatureEditName").val();
 	var newNodeFeatureContact = $("#FeatureEditprimaryContact").val();
 	
@@ -610,7 +663,8 @@ function editfeaturedata() {
 	nodeToUpdate.customerNotes = ckFeatureEditorData2;
 	nodeToUpdate.videoIds = VideoIds4;
 	nodeToUpdate.update().then(function () {
-	    //alert("portfolio node updatred");
+
+
 	    if ($("#uploadFilenameEdit7").val() !== "") {
 	        newCommentId = nodeToUpdate.getId();
 	        var formData = new FormData($("#frmeditSubmitForm7")[0]);
@@ -749,4 +803,34 @@ function deletefeaturedata(){
 function pagereload(){
 	setTimeout(function () { location.reload(true); }, 2000);
 
+}
+
+
+function updateParentsOfReleaseChildren(oldNodeReleaseName, newNodeReleaseName){
+    for (j = 0; j < allFeatureObjects.length; j++) {
+        if (allFeatureObjects[j].parent == oldNodeReleaseName) {
+            console.log(allFeatureObjects[j].name + " has a parent of " + allFeatureObjects[j].parent + " and needs to be changed to " + newNodeReleaseName);
+            allFeatureObjects[j].parent = newNodeReleaseName;
+            allFeatureObjects[j].update();
+        }
+    }
+}
+function updateParentsOfPlatformChildren(oldNodePlatformName, newNodePlatformName) {
+    for (j = 0; j < allReleaseObjects.length; j++) {
+        if (allReleaseObjects[j].parent == oldNodePlatformName) {
+            console.log(allReleaseObjects[j].name + " has a parent of " + allReleaseObjects[j].parent + " and needs to be changed to " + newNodePlatformName);
+            allReleaseObjects[j].parent = newNodePlatformName;
+            allReleaseObjects[j].update();
+        }
+    }
+
+}
+function updateParentsOfPortfolioChildren(oldNodePortfolioName, newNodePortfolioName) {
+    for (j = 0; j < allPlatformObjects.length; j++) {
+        if (allPlatformObjects[j].parent == oldNodePortfolioName) {
+            console.log(allPlatformObjects[j].name + " has a parent of " + allPlatformObjects[j].parent + " and needs to be changed to " + newNodePortfolioName);
+            allPlatformObjects[j].parent = newNodePortfolioName;
+            allPlatformObjects[j].update();
+        }
+    }
 }
