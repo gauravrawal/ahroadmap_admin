@@ -449,7 +449,65 @@ function editportfoliodata() {
     /////
     var oldNodePortfolioName = nodeToUpdate.name;
     /////
-	var newNodePortfolioName = $("#txtEditName").val();
+    var newNodePortfolioName = $("#txtEditName").val();
+
+
+
+    ///Check to see if the name is changed and if it is taken
+    //////////////////////////
+    if (oldNodePortfolioName != newNodePortfolioName) {
+        if (newNodePortfolioName == "") {
+            alert("Please give this object a valid name");
+            $(".loadingClass").css('display', 'none');
+            return false;
+        }
+        if (newNodePortfolioName.indexOf("/") != -1) {
+            alert("The slash character(/) is not allowed in a name.");
+            $(".loadingClass").css('display', 'none');
+            return false;
+        }
+
+        for (j = 0; j < allPortfolioObjects.length; j++) {
+            if (newNodePortfolioName == allPortfolioObjects[j].name) {
+                alert("This is already taken as Portfolio name.");
+                $(".loadingClass").css('display', 'none');
+                return false;
+            }
+
+        }
+        for (j = 0; j < allPlatformObjects.length; j++) {
+            if (newNodePortfolioName == allPlatformObjects[j].name) {
+                alert("This is already taken as Platform name.");
+                $(".loadingClass").css('display', 'none');
+                return false;
+            }
+
+        }
+        for (j = 0; j < allReleaseObjects.length; j++) {
+            if (newNodePortfolioName == allReleaseObjects[j].name) {
+                alert("This is already taken as Release name.");
+                $(".loadingClass").css('display', 'none');
+                return false;
+            }
+
+        }
+
+        for (j = 0; j < allFeatureObjects.length; j++) {
+            if (newNodePortfolioName == allFeatureObjects[j].name) {
+                alert("This is already taken as Feature name.");
+                $(".loadingClass").css('display', 'none');
+                return false;
+            }
+
+        }
+
+    }
+
+    //////////////////////////////////
+
+
+
+
 
 	var newNodePortfolioContact = $("#EditprimaryContact").val();
 	
@@ -525,6 +583,60 @@ function editplatformdata() {
 	var oldNodePlatformName = nodeToUpdate.name;
 	/////
 	var newNodePlatformName = $("#txtPlatformEditName").val();
+
+	///Check to see if the name is changed and if it is taken
+	//////////////////////////
+	if (oldNodePlatformName != newNodePlatformName) {
+	    if (newNodePlatformName == "") {
+	        alert("Please give this object a valid name");
+	        $(".loadingClass").css('display', 'none');
+	        return false;
+	    }
+	    if (newNodePlatformName.indexOf("/") != -1) {
+	        alert("The slash character(/) is not allowed in a name.");
+	        $(".loadingClass").css('display', 'none');
+	        return false;
+	    }
+
+	    for (j = 0; j < allPortfolioObjects.length; j++) {
+	        if (newNodePlatformName == allPortfolioObjects[j].name) {
+	            alert("This is already taken as Portfolio name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+	    for (j = 0; j < allPlatformObjects.length; j++) {
+	        if (newNodePlatformName == allPlatformObjects[j].name) {
+	            alert("This is already taken as Platform name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+	    for (j = 0; j < allReleaseObjects.length; j++) {
+	        if (newNodePlatformName == allReleaseObjects[j].name) {
+	            alert("This is already taken as Release name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+
+	    for (j = 0; j < allFeatureObjects.length; j++) {
+	        if (newNodePlatformName == allFeatureObjects[j].name) {
+	            alert("This is already taken as Feature name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+
+	}
+
+	//////////////////////////////////
+
+
 	var newNodePlatformContact = $("#PlatformEditprimaryContact").val();
 	
 	var newNodePlatformDate = $("#EditPlatformDate").val();
@@ -586,6 +698,60 @@ function editreleasedata() {
 	/////
 
 	var newNodeReleaseName = $("#txtReleaseEditName").val();
+
+	///Check to see if the name is changed and if it is taken
+	//////////////////////////
+	if (oldNodeReleaseName != newNodeReleaseName) {
+	    if (newNodeReleaseName == "") {
+	        alert("Please give this object a valid name");
+	        $(".loadingClass").css('display', 'none');
+	        return false;
+	    }
+	    if (newNodeReleaseName.indexOf("/") != -1) {
+	        alert("The slash character(/) is not allowed in a name.");
+	        $(".loadingClass").css('display', 'none');
+	        return false;
+	    }
+
+	    for (j = 0; j < allPortfolioObjects.length; j++) {
+	        if (newNodeReleaseName == allPortfolioObjects[j].name) {
+	            alert("This is already taken as Portfolio name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+	    for (j = 0; j < allPlatformObjects.length; j++) {
+	        if (newNodeReleaseName == allPlatformObjects[j].name) {
+	            alert("This is already taken as Platform name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+	    for (j = 0; j < allReleaseObjects.length; j++) {
+	        if (newNodeReleaseName == allReleaseObjects[j].name) {
+	            alert("This is already taken as Release name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+
+	    for (j = 0; j < allFeatureObjects.length; j++) {
+	        if (newNodeReleaseName == allFeatureObjects[j].name) {
+	            alert("This is already taken as Feature name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+
+	}
+
+	//////////////////////////////////
+
+
 	var newNodeReleaseContact = $("#ReleaseEditprimaryContact").val();
 	
 	var newNodeReleaseDate = $("#EditReleaseDate").val();
@@ -645,9 +811,65 @@ function editfeaturedata() {
 	var ckFeatureEditorData2 = CKEDITOR.instances.FeatureEdittxtCnotes.getData();
 	var ckFeatureEditorData3 = CKEDITOR.instances.FeatureEdittxtAnotes.getData();
 
-	
 
+	/////
+	var oldNodeFeatureName = nodeToUpdate.name;
+	/////
 	var newNodeFeatureName = $("#txtFeatureEditName").val();
+
+	///Check to see if the name is changed and if it is taken
+	//////////////////////////
+	if (oldNodeFeatureName != newNodeFeatureName) {
+	    if (newNodeFeatureName == "") {
+	        alert("Please give this object a valid name");
+	        $(".loadingClass").css('display', 'none');
+	        return false;
+	    }
+	    if (newNodeFeatureName.indexOf("/") != -1) {
+	        alert("The slash character(/) is not allowed in a name.");
+	        $(".loadingClass").css('display', 'none');
+	        return false;
+	    }
+
+	    for (j = 0; j < allPortfolioObjects.length; j++) {
+	        if (newNodeFeatureName == allPortfolioObjects[j].name) {
+	            alert("This is already taken as Portfolio name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+	    for (j = 0; j < allPlatformObjects.length; j++) {
+	        if (newNodeFeatureName == allPlatformObjects[j].name) {
+	            alert("This is already taken as Platform name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+	    for (j = 0; j < allReleaseObjects.length; j++) {
+	        if (newNodeFeatureName == allReleaseObjects[j].name) {
+	            alert("This is already taken as Release name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+
+	    for (j = 0; j < allFeatureObjects.length; j++) {
+	        if (newNodeFeatureName == allFeatureObjects[j].name) {
+	            alert("This is already taken as Feature name.");
+	            $(".loadingClass").css('display', 'none');
+	            return false;
+	        }
+
+	    }
+
+	}
+
+	//////////////////////////////////
+
+
 	var newNodeFeatureContact = $("#FeatureEditprimaryContact").val();
 	
 	var newNodeFeatureDate = $("#EditFeatureDate").val();

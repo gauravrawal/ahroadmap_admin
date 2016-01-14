@@ -209,6 +209,8 @@ function myFunction() {
   
   
   var name = $("#txtName").val();
+
+  //////////////////////////
   if (name == "") {
 	  alert("Please give this portfolio a valid name");
 	  return false;
@@ -253,6 +255,9 @@ function myFunction() {
     }
 
   }
+
+  ///////////////////////////////
+
   branch.createNode({
 
     //"name": $("#txtName").val(),
