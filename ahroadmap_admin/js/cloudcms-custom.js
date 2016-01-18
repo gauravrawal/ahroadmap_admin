@@ -70,27 +70,8 @@ function begin(usr,pswd){
 	$("#loading-image").css('display','block');
 	
 
-/*
-		platform = Gitana.connect({
-		  "clientKey": clientKey,
-		  "clientSecret": clientSecret,
-		  "username": username,
-		  "password": password,
-		  "baseURL": "https://api.cloudcms.com"
-		},function(err){
-			if (err) {
-				console.log("Error: " + err + window.location.href);
-				$("#loading-image").css('display','none');
-				
-				$("#lblLoginLable").html("Username or password are incorrect. Please try again.");
-				$( "#dialog" ).dialog( "open" );
-				return;
 
-			}
-			}).then(function() {
-*/
 			
-//Use this code block for code hosted on CloudCMS servers			
 		
         platform = Gitana.connect({
 		 "username": username,
