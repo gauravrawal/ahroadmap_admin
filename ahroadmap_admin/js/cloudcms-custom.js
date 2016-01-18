@@ -210,7 +210,10 @@ function myFunction() {
 	  alert("The slash character(/) is not allowed in a portfolio name.");
 	  return false;
   }
-
+  if (name.indexOf("^") != -1) {
+	  alert("The caret character(^) is not allowed in a portfolio name.");
+	  return false;
+  }
 
   
   var ckEditorData1 = CKEDITOR.instances.editor1.getData();
@@ -340,6 +343,10 @@ function myFunction1() {
 	  alert("The slash character(/) is not allowed in a platform name.");
 	  return false;
   }
+   if (name.indexOf("^") != -1) {
+	  alert("The caret character(^) is not allowed in a platform name.");
+	  return false;
+  }
   
   var ckEditorData1 = CKEDITOR.instances.editor2.getData();
   var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
@@ -458,6 +465,10 @@ function myFunction2() {
 	  alert("The slash character(/) is not allowed in a release name.");
 	  return false;
   }
+   if (name.indexOf("^") != -1) {
+	  alert("The caret character(^) is not allowed in a release name.");
+	  return false;
+  }
   
   var ckEditorData1 = CKEDITOR.instances.editor3.getData();
   var ckEditorData2 = CKEDITOR.instances.txtReleaseCnotes.getData();
@@ -570,6 +581,10 @@ function myFunction3() {
   } 
   if (name.indexOf("/") != -1) {
 	  alert("The slash character(/) is not allowed in a feature name.");
+	  return false;
+  }
+   if (name.indexOf("^") != -1) {
+	  alert("The caret character(^) is not allowed in a feature name.");
 	  return false;
   }
   
