@@ -31,14 +31,11 @@ function checkCookie() {
     } else {
         $("#loginContainer").append('<div id="dialog" title="Please Log In."><label>Username:</label><input id="txtUsername" name="txtUsername" type="text"><label>Password:</label><input id="txtPassword" name="txtPassword" type="password"><input id="submitButton" onclick="setCredentialsFromLogin()" name="Submit" type="button" value="Submit"><label id="lblLoginLable"></label></div>');
 		$( "#dialog" ).dialog({ 
-					//autoOpen: true, 
-					//hide: false,
 					modal:true, 
 					draggable: false,
 					width: "auto",
 					position: { my: "top", at: "center", of: window },
 					create: function( event, ui ) {
-						// Set maxWidth
 						$(this).css("maxWidth", "300px");
 						}
 					
@@ -46,7 +43,6 @@ function checkCookie() {
         
         
         $( ".selector" ).dialog( "open" );
-		//$("#dialog").css("display","block");
     }
 }
 
@@ -92,12 +88,6 @@ function begin(usr,pswd){
 			}
 			}).then(function() {*/
 
-		
-
-		
-
-
-
 			
 //Use this code block for code hosted on CloudCMS servers			
 		platform = Gitana.connect({
@@ -135,12 +125,9 @@ function begin(usr,pswd){
 			  };
 		
 			  branch.queryNodes(query, pagination).each(function() {
-				  //console.log(this.name);
-				  //build arrays of similar type objects. this will be used in 'populateuniversaliobject()'
 				  nodes[counter] = this;
 				  if (nodes[counter].type == 'portfolio') {
 					allPortfolioObjects.push(this);
-					//add a property array to each object to hold its children. 
 					allPortfolioObjects[(allPortfolioObjects.length - 1)].platforms = []; 
 					allPortfolioObjects[(allPortfolioObjects.length - 1)].idName = "po_" + allPortfolioObjects[(allPortfolioObjects.length - 1)]._doc + "_" + allPortfolioObjects[(allPortfolioObjects.length - 1)].name.replace(/\s+/g, '');
 				  } else if (nodes[counter].type == 'platform') {
@@ -155,13 +142,11 @@ function begin(usr,pswd){
 					allFeatureObjects.push(this);
 					allFeatureObjects[(allFeatureObjects.length - 1)].idName = "fe_" + allFeatureObjects[(allFeatureObjects.length - 1)]._doc + "_" + allFeatureObjects[(allFeatureObjects.length - 1)].name.replace(/\s+/g, '');
 		
-				  }; //} else if (nodes[counter].type == 'feature') {
+				  };
 				  counter = counter + 1;
-				}) //allObjects = branch.queryNodes(query, pagination).each(function () {
-				.then(function() {
-				  //populateUniversalObject(function(){buildPage(function(){$( "#myPortfolio1" ).on( "click", function() {alert("hello");});	});});
+				})
+				.then(function() {				 
 				  populateUniversalObject(function() {
-					  //use te universal object to build the page structure
 					  populateDropDown(function() {	
 					  		$("#loading-image").css('display','none');	
 					  })
@@ -175,8 +160,6 @@ function begin(usr,pswd){
 
 function populateUniversalObject(callback) {
   var rows = "";
-  // now build the tree structure for the objects.
-  //add features to their parent releases
   for (j = 0; j < allReleaseObjects.length; j++) {
     for (i = 0; i < allFeatureObjects.length; i++) {
 
@@ -186,7 +169,6 @@ function populateUniversalObject(callback) {
 
     };
   };
-  //add releases to their parent platforms
   for (j = 0; j < allPlatformObjects.length; j++) {
     for (i = 0; i < allReleaseObjects.length; i++) {
 
@@ -196,7 +178,6 @@ function populateUniversalObject(callback) {
 
     };
   };
-  //add platforms to their parent portfolios
   for (j = 0; j < allPortfolioObjects.length; j++) {
     for (i = 0; i < allPlatformObjects.length; i++) {
 
@@ -215,7 +196,7 @@ function myFunction() {
   
   var name = $("#txtName").val();
 
-  //////////////////////////
+
   if (name == "") {
 	  alert("Please give this portfolio a valid name");
 	  return false;
@@ -225,7 +206,7 @@ function myFunction() {
 	  return false;
   }
 
-  //$.encoder.encodeForHTML($("#commentTextArea").val()),
+
   
   var ckEditorData1 = CKEDITOR.instances.editor1.getData();
   var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
@@ -270,25 +251,17 @@ function myFunction() {
   
 
   branch.createNode({
-
-    //"name": $("#txtName").val(),
-	 "name": $("#txtName").val(),
-	
+	 "name": $("#txtName").val(),	
     "videoIds": $("#txtVideoIds1").val(),
-    //"_doc": $("#txtName").val(),
     "primaryContact": $("#primaryContact").val(),
     "customerNotes": ckEditorData2,
     "aonInternalNotes": ckEditorData3,
-    //"description": $("#txtDescription").val(),
     "description": ckEditorData1,
-    "_type": "custom:portfolio0", //change as needed
-    "type": "portfolio", //chnage this as needed
-    //"parent": "my upoint release",//change as needed
+    "_type": "custom:portfolio0", 
+    "type": "portfolio", 
     "parent": "application",
     "parentId": "application",
     "content": "true",
-    //"date": "12/10/2015",
-    //"date": moment().format('L')
     "date": $("#portfoliodate").val(),
   }).then(function() {
 	  	
@@ -304,7 +277,6 @@ function myFunction() {
 			CKEDITOR.instances.txtCnotes.setReadOnly(true);
 			CKEDITOR.instances.txtAnotes.setReadOnly(true);
 			$(".loadingClass").css('display','block');
-			//form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
     
 			var lastScrollTop = 0;
 			$("#addPortfolio").scroll(function(event) {
@@ -320,13 +292,9 @@ function myFunction() {
 			  }
 			  lastScrollTop = st;
 			});
-			//var myFilenameArray = ($("#myFileUpload").val()).split("\\");
-			//var myFilename = myFilenameArray[myFilenameArray.length-1];
 			$.ajax({
 			  type: "POST",
-			  url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilename").val()).replace(" ", "_") + "/",
-			  //url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + myFilename + "/",
-			  
+			  url: "https://api.cloudcms.com/repositories/" + repositoryId + "/branches/" + branchId + "/nodes/" + newCommentId + "/attachments/" + ($("#uploadFilename").val()).replace(" ", "_") + "/",	  
 			  data: formData,
 			  contentType: false,
 			  processData: false,
@@ -336,7 +304,6 @@ function myFunction() {
 			}).done(function() {
 			  $('#loading-image-modal').css("display", "none");
 			  $(".loadingClass").css('display','none');
-			  //alert("Your media has been successfully uploaded");
 			  $("#txtName").val("");
 			  $("#primaryContact").val("");
 			  $("#txtCnotes").val("");
@@ -355,7 +322,6 @@ function myFunction() {
 	  }
 	  
 	  });
-  //})
 };
 
 function myFunction1() {
@@ -412,8 +378,8 @@ function myFunction1() {
     "customerNotes": ckEditorData2,
     "aonInternalNotes": ckEditorData3,
     "description": ckEditorData1,
-    "_type": "custom:platform0", //change as needed
-    "type": "platform", //chnage this as needed
+    "_type": "custom:platform0",
+    "type": "platform",
     "parent": $("#txtPnName").val(),
     "parentId": activeParentIdForPlatform,
     "content": "true",
@@ -429,11 +395,11 @@ function myFunction1() {
     CKEDITOR.instances.txtPlatformCnotes.setReadOnly(true);
     CKEDITOR.instances.txtPlatformAnotes.setReadOnly(true);
 	$(".loadingClass").css('display','block');
-    //form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
+
     var lastScrollTop = 0;
     $("#addPlatform").scroll(function(event) {
       var st = $(this).scrollTop();
-      //alert(st);
+
       if (st > lastScrollTop) {
         $('.loading-image-modal').animate({
           top: '+=10'
@@ -458,7 +424,7 @@ function myFunction1() {
     }).done(function() {
       $('#loading-image-modal').css("display", "none");
 	  $(".loadingClass").css('display','none')
-      //alert("Your media has been successfully uploaded");
+
       location.reload(true);
     }).fail(function() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
@@ -527,15 +493,12 @@ function myFunction2() {
   branch.createNode({
     "name": $("#txtReleaseName").val(),
     "videoIds": $("#txtVideoIds3").val(),
-    //"_doc": $("#txtReleaseName").val(),
     "primaryContact": $("#ReleaseprimaryContact").val(),
     "customerNotes": ckEditorData2,
     "aonInternalNotes": ckEditorData3,
-    //"description": $("#txtDescription").val(),
     "description": ckEditorData1,
-    "_type": "custom:release0", //change as needed
-    "type": "release", //chnage this as needed
-    //"parent": "my upoint release",//change as needed
+    "_type": "custom:release0",
+    "type": "release",
     "parent": $("#txtPlatform").val(),
     "parentId": activeParentIdForRelease,
     "content": "true",
@@ -551,11 +514,9 @@ function myFunction2() {
     CKEDITOR.instances.txtReleaseCnotes.setReadOnly(true);
     CKEDITOR.instances.txtReleaseAnotes.setReadOnly(true);
 	$(".loadingClass").css('display','block');
-    //form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
     var lastScrollTop = 0;
     $("#addRelease").scroll(function(event) {
       var st = $(this).scrollTop();
-      //alert(st);
       if (st > lastScrollTop) {
         $('.loading-image-modal').animate({
           top: '+=10'
@@ -579,13 +540,11 @@ function myFunction2() {
     }).done(function() {
       $('#loading-image-modal').css("display", "none");
 	  $(".loadingClass").css('display','none')
-      //alert("Your media has been successfully uploaded");
       location.reload(true);
     }).fail(function() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
     })
 	   } else {
-		  //console.log("Attachment NOT present");
 		  alert("Your release has been created.");
       $("#txtName").val("");
       $("#primaryContact").val("");
@@ -668,11 +627,9 @@ function myFunction3() {
     CKEDITOR.instances.txtFeatureCnotes.setReadOnly(true);
     CKEDITOR.instances.txtFeatureAnotes.setReadOnly(true);
 	$(".loadingClass").css('display','block');
-    //form.html('<img src="images/loading.gif"  alt="loading..." id="load1" class="loading-image-modal"/> ');
     var lastScrollTop = 0;
     $("#addFeature").scroll(function(event) {
       var st = $(this).scrollTop();
-      //alert(st);
       if (st > lastScrollTop) {
         $('.loading-image-modal').animate({
           top: '+=10'
@@ -696,7 +653,6 @@ function myFunction3() {
     }).done(function() {
       $('#loading-image-modal').css("display", "none");
 	  $(".loadingClass").css('display','none')
-      //alert("Your media has been successfully uploaded");
       location.reload(true);
     }).fail(function() {
       alert("Your media has NOT been successfully uploaded. Please try again.");
@@ -722,7 +678,6 @@ function populateDropDown(callback) {
 
   }
   $(rows).appendTo("#example tbody");
-  //alert(rows);
   if (rows != "") {
     $('#example').DataTable();
     $('#loading-image').css("display", "none");
