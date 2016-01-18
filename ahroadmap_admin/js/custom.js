@@ -182,7 +182,12 @@ function populatePlatform(m){
 	var rows="";
 	for (j=0; j < allPortfolioObjects.length; j++) {
 		if(allPortfolioObjects[j].name === m){
-		$("#txtPnName").val(allPortfolioObjects[j].name);
+		    $("#txtPnName").val(allPortfolioObjects[j].name);
+
+		    //for creating the new parentId property
+		    activeParentId = allPortfolioObjects[j]._doc;
+
+
 			for (k=0; k < allPortfolioObjects[j].platforms.length; k++) {
 				rows += "<tr><td>" + allPortfolioObjects[j].platforms[k].name + "</td><td>" + allPortfolioObjects[j].platforms[k].description + "</td>\
                            <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPlatform' onclick='javascript:viewplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPlatform' onclick='javascript:editplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePlatform' onclick='javascript:deleteplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep1(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Release</a> \</tr>";
@@ -206,7 +211,13 @@ function populateRelease(m){
 	for (j=0; j < allPlatformObjects.length; j++) {
 		if(allPlatformObjects[j].name === m){
 		//inatalert(allPlatformObjects[j].name);
-			$("#txtPlatform").val(allPlatformObjects[j].name);
+		    $("#txtPlatform").val(allPlatformObjects[j].name);
+
+
+		    //for creating the new parentId property
+		    activeParentId = allPlatformObjects[j]._doc;
+
+
 			for (k=0; k < allPlatformObjects[j].releases.length; k++) {
 				rows += "<tr><td>" + allPlatformObjects[j].releases[k].name + "</td><td>" + allPlatformObjects[j].releases[k].description + "</td>\
                            <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewRelease' onclick='javascript:viewrelease(\""+allPlatformObjects[j].releases[k].name+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editRelease'  onclick='javascript:editrelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteRelease' onclick='javascript:deleterelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep2(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Feature</a> \</tr>";
@@ -227,7 +238,11 @@ function populateFeature(m){
 	for (j=0; j < allReleaseObjects.length; j++) {
 		if(allReleaseObjects[j].name === m){
 		//alert(allReleaseObjects[j].name);
-		$("#txtRelease").val(allReleaseObjects[j].name);
+		    $("#txtRelease").val(allReleaseObjects[j].name);
+
+            //for creating the new parentId property
+		    activeParentId = allReleaseObjects[j]._doc;
+
 			for (k=0; k < allReleaseObjects[j].features.length; k++) {
 				rows += "<tr><td>" + allReleaseObjects[j].features[k].name + "</td><td>" + allReleaseObjects[j].features[k].description + "</td>\
                            <td><a class='btn btn-primary btn-xs' data-toggle='modal'  data-target='#viewFeature' onclick='javascript:viewfeature(\""+allReleaseObjects[j].features[k].name+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editFeature' onclick='javascript:editfeature(\""+allReleaseObjects[j].features[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteFeature' onclick='javascript:deletefeature(\""+allReleaseObjects[j].features[k].name+"\");' href='javascript:void(0)'>Delete</a>\</tr>";
@@ -243,9 +258,7 @@ function populateFeature(m){
 		}
 }
 
-// View function
 
-// View function
 
 function viewPortfolioData(portfolio){
 		for (j=0; j < allPortfolioObjects.length; j++) {

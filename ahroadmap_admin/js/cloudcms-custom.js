@@ -18,6 +18,7 @@ var allPortfolioObjects = [];
 var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
+var activeParentId;
 
 function checkCookie() {
     var user = getCookie("username");
@@ -631,6 +632,7 @@ function myFunction3() {
     "_type": "custom:feature0", 
     "type": "feature", 
     "parent": $("#txtRelease").val(),
+    "parentId":activeParentId,
     "content": "true",
     "date": $("#featuredate").val(),
   }).then(function() {
