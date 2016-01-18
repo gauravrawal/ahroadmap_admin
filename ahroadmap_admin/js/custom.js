@@ -24,23 +24,27 @@ CKEDITOR.replace( 'PlatformEdittxtCnotes');
  CKEDITOR.replace( 'FeatureEdittxtAnotes');
  CKEDITOR.replace( 'FeaturetxteditorDescription');
 
-$(document).ready(function () {
-	populateDropDown();	
-	$(".actions").css("visibility", "hidden");
-	$("#wizard-t-0").click(function(){
-		$('li:eq(1)').removeClass("done").addClass("disabled");
-		$('li:eq(2)').removeClass("done").addClass("disabled");
-		$('li:eq(3)').removeClass("done").addClass("disabled");
-	});
-	$("#wizard-t-1").click(function(){
-		$('li:eq(2)').removeClass("done").addClass("disabled");
-		$('li:eq(3)').removeClass("done").addClass("disabled");
-	});
-	$("#wizard-t-2").click(function(){
-		$('li:eq(3)').removeClass("done").addClass("disabled");
-	});
-	
-});
+ $(document).ready(function () {
+     populateDropDown();
+     $(".actions").css("visibility", "hidden");
+     $("#wizard-t-0").click(function () {
+        
+         $('li:eq(1)').removeClass("done").addClass("disabled");
+         $('li:eq(2)').removeClass("done").addClass("disabled");
+         $('li:eq(3)').removeClass("done").addClass("disabled");
+     });
+     $("#wizard-t-1").click(function () {
+         
+         $('li:eq(2)').removeClass("done").addClass("disabled");
+         $('li:eq(3)').removeClass("done").addClass("disabled");
+     });
+     $("#wizard-t-2").click(function () {
+        
+         $('li:eq(3)').removeClass("done").addClass("disabled");
+     });
+
+
+ });
 
 function nextStep(m){
 	populatePlatform(m);
@@ -162,7 +166,9 @@ $("#frmeditSubmitForm15").submit(function (event) {
 
     });
 function populateDropDown() 
+
 	{
+	    activeParentId = "application";
 	 	var rows="";
 		for (j=0; j < allPortfolioObjects.length; j++) {
  	  	rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
@@ -185,7 +191,7 @@ function populatePlatform(m){
 		    $("#txtPnName").val(allPortfolioObjects[j].name);
 
 		    //for creating the new parentId property
-		    activeParentId = allPortfolioObjects[j]._doc;
+		    activeParentIdForPlatform = allPortfolioObjects[j]._doc;
 
 
 			for (k=0; k < allPortfolioObjects[j].platforms.length; k++) {
@@ -215,7 +221,7 @@ function populateRelease(m){
 
 
 		    //for creating the new parentId property
-		    activeParentId = allPlatformObjects[j]._doc;
+		    activeParentIdForRelease = allPlatformObjects[j]._doc;
 
 
 			for (k=0; k < allPlatformObjects[j].releases.length; k++) {
@@ -241,7 +247,7 @@ function populateFeature(m){
 		    $("#txtRelease").val(allReleaseObjects[j].name);
 
             //for creating the new parentId property
-		    activeParentId = allReleaseObjects[j]._doc;
+		    activeParentIdForFeature = allReleaseObjects[j]._doc;
 
 			for (k=0; k < allReleaseObjects[j].features.length; k++) {
 				rows += "<tr><td>" + allReleaseObjects[j].features[k].name + "</td><td>" + allReleaseObjects[j].features[k].description + "</td>\
@@ -480,6 +486,8 @@ function editportfoliodata() {
             return false;
         }
 
+
+        //Do not allow two portfolios with the same name
         for (j = 0; j < allPortfolioObjects.length; j++) {
             if (newNodePortfolioName == allPortfolioObjects[j].name) {
                 alert("This is already taken as Portfolio name.");
@@ -488,6 +496,8 @@ function editportfoliodata() {
             }
 
         }
+
+        /*
         for (j = 0; j < allPlatformObjects.length; j++) {
             if (newNodePortfolioName == allPlatformObjects[j].name) {
                 alert("This is already taken as Platform name.");
@@ -514,9 +524,11 @@ function editportfoliodata() {
 
         }
 
+        */
+
     }
 
-    //////////////////////////////////
+   
 
 
 
@@ -598,9 +610,11 @@ function editplatformdata() {
 	var newNodePlatformName = $("#txtPlatformEditName").val();
 
 	///Check to see if the name is changed and if it is taken
-	//////////////////////////
+
 	if (oldNodePlatformName != newNodePlatformName) {
-	    if (newNodePlatformName == "") {
+	    
+        
+        if (newNodePlatformName == "") {
 	        alert("Please give this object a valid name");
 	        $(".loadingClass").css('display', 'none');
 	        return false;
@@ -611,6 +625,7 @@ function editplatformdata() {
 	        return false;
 	    }
 
+        /*
 	    for (j = 0; j < allPortfolioObjects.length; j++) {
 	        if (newNodePlatformName == allPortfolioObjects[j].name) {
 	            alert("This is already taken as Portfolio name.");
@@ -619,6 +634,7 @@ function editplatformdata() {
 	        }
 
 	    }
+
 	    for (j = 0; j < allPlatformObjects.length; j++) {
 	        if (newNodePlatformName == allPlatformObjects[j].name) {
 	            alert("This is already taken as Platform name.");
@@ -644,10 +660,11 @@ function editplatformdata() {
 	        }
 
 	    }
+        */
 
 	}
 
-	//////////////////////////////////
+	
 
 
 	var newNodePlatformContact = $("#PlatformEditprimaryContact").val();
@@ -726,6 +743,8 @@ function editreleasedata() {
 	        return false;
 	    }
 
+
+        /*
 	    for (j = 0; j < allPortfolioObjects.length; j++) {
 	        if (newNodeReleaseName == allPortfolioObjects[j].name) {
 	            alert("This is already taken as Portfolio name.");
@@ -759,6 +778,7 @@ function editreleasedata() {
 	        }
 
 	    }
+        */
 
 	}
 
@@ -844,6 +864,8 @@ function editfeaturedata() {
 	        return false;
 	    }
 
+
+        /*
 	    for (j = 0; j < allPortfolioObjects.length; j++) {
 	        if (newNodeFeatureName == allPortfolioObjects[j].name) {
 	            alert("This is already taken as Portfolio name.");
@@ -877,10 +899,11 @@ function editfeaturedata() {
 	        }
 
 	    }
+        */
 
 	}
 
-	//////////////////////////////////
+
 
 
 	var newNodeFeatureContact = $("#FeatureEditprimaryContact").val();

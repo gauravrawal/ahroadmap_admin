@@ -19,6 +19,10 @@ var allPlatformObjects = [];
 var allReleaseObjects = [];
 var allFeatureObjects = [];
 var activeParentId;
+var activeParentIdForPlatform;
+var activeParentIdForRelease;
+var activeParentIdForFeature;
+
 
 function checkCookie() {
     var user = getCookie("username");
@@ -141,19 +145,19 @@ function begin(usr,pswd){
 				  if (nodes[counter].type == 'portfolio') {
 					allPortfolioObjects.push(this);
 					//add a property array to each object to hold its children. 
-					allPortfolioObjects[(allPortfolioObjects.length - 1)].platforms = []; //give the portfolio object a property called platforms which is an array to hold its child platforms
-					allPortfolioObjects[(allPortfolioObjects.length - 1)].idName = allPortfolioObjects[(allPortfolioObjects.length - 1)].name.replace(/\s+/g, '');
+					allPortfolioObjects[(allPortfolioObjects.length - 1)].platforms = []; 
+					allPortfolioObjects[(allPortfolioObjects.length - 1)].idName = "po_" + allPortfolioObjects[(allPortfolioObjects.length - 1)]._doc + "_" + allPortfolioObjects[(allPortfolioObjects.length - 1)].name.replace(/\s+/g, '');
 				  } else if (nodes[counter].type == 'platform') {
 					allPlatformObjects.push(this);
 					allPlatformObjects[(allPlatformObjects.length - 1)].releases = [];
-					allPlatformObjects[(allPlatformObjects.length - 1)].idName = allPlatformObjects[(allPlatformObjects.length - 1)].name.replace(/\s+/g, '');
+					allPlatformObjects[(allPlatformObjects.length - 1)].idName = "pl_" + allPlatformObjects[(allPlatformObjects.length - 1)]._doc +"_" + allPlatformObjects[(allPlatformObjects.length - 1)].name.replace(/\s+/g, '');
 				  } else if (nodes[counter].type == 'release') {
 					allReleaseObjects.push(this);
 					allReleaseObjects[(allReleaseObjects.length - 1)].features = [];
-					allReleaseObjects[(allReleaseObjects.length - 1)].idName = allReleaseObjects[(allReleaseObjects.length - 1)].name.replace(/\s+/g, '');
+					allReleaseObjects[(allReleaseObjects.length - 1)].idName = "re_"  + allReleaseObjects[(allReleaseObjects.length - 1)]._doc + "_" + allReleaseObjects[(allReleaseObjects.length - 1)].name.replace(/\s+/g, '');
 				  } else if (nodes[counter].type == 'feature') {
 					allFeatureObjects.push(this);
-					allFeatureObjects[(allFeatureObjects.length - 1)].idName = allFeatureObjects[(allFeatureObjects.length - 1)].name.replace(/\s+/g, '');
+					allFeatureObjects[(allFeatureObjects.length - 1)].idName = "fe_" + allFeatureObjects[(allFeatureObjects.length - 1)]._doc + "_" + allFeatureObjects[(allFeatureObjects.length - 1)].name.replace(/\s+/g, '');
 		
 				  }; //} else if (nodes[counter].type == 'feature') {
 				  counter = counter + 1;
@@ -179,27 +183,31 @@ function populateUniversalObject(callback) {
   //add features to their parent releases
   for (j = 0; j < allReleaseObjects.length; j++) {
     for (i = 0; i < allFeatureObjects.length; i++) {
-      if (allFeatureObjects[i].parent == allReleaseObjects[j].name) {
+
+      if (allFeatureObjects[i].parentId == allReleaseObjects[j]._doc) {
         allReleaseObjects[j].features.push(allFeatureObjects[i]);
       };
+
     };
   };
   //add releases to their parent platforms
   for (j = 0; j < allPlatformObjects.length; j++) {
     for (i = 0; i < allReleaseObjects.length; i++) {
-      if (allReleaseObjects[i].parent == allPlatformObjects[j].name) {
+
+      if (allReleaseObjects[i].parentId == allPlatformObjects[j]._doc) {
         allPlatformObjects[j].releases.push(allReleaseObjects[i]);
       };
+
     };
   };
   //add platforms to their parent portfolios
   for (j = 0; j < allPortfolioObjects.length; j++) {
     for (i = 0; i < allPlatformObjects.length; i++) {
-      if (allPlatformObjects[i].parent == allPortfolioObjects[j].name) {
-        allPortfolioObjects[j].platforms.push(allPlatformObjects[i]);
 
-        //This object array holds the entire site structure now. It is used as a utility object throughout the application		
+      if (allPlatformObjects[i].parentId == allPortfolioObjects[j]._doc) {
+        allPortfolioObjects[j].platforms.push(allPlatformObjects[i]);	
       };
+
     };
   };
 
@@ -227,6 +235,9 @@ function myFunction() {
   var ckEditorData2 = CKEDITOR.instances.txtCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtAnotes.getData();
 
+
+
+  /*
   for (j = 0; j < allPortfolioObjects.length; j++) {
     if (name == allPortfolioObjects[j].name) {
       alert("This is already taken as Portfolio name.");
@@ -256,8 +267,11 @@ function myFunction() {
     }
 
   }
+  */
 
-  ///////////////////////////////
+
+
+  
 
   branch.createNode({
 
@@ -274,7 +288,8 @@ function myFunction() {
     "_type": "custom:portfolio0", //change as needed
     "type": "portfolio", //chnage this as needed
     //"parent": "my upoint release",//change as needed
-    "parent": "Application",
+    "parent": "application",
+    "parentId": "application",
     "content": "true",
     //"date": "12/10/2015",
     //"date": moment().format('L')
@@ -362,6 +377,8 @@ function myFunction1() {
   var ckEditorData1 = CKEDITOR.instances.editor2.getData();
   var ckEditorData2 = CKEDITOR.instances.txtPlatformCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtPlatformAnotes.getData();
+  
+  /*
   for (j = 0; j < allPortfolioObjects.length; j++) {
     if (name == allPortfolioObjects[j].name) {
       alert("This is already taken as Portfolio name!!");
@@ -390,7 +407,7 @@ function myFunction1() {
       return false;
     }
 
-  }
+  }*/
 
   branch.createNode({
     "name": $("#txtPlatformName").val(),
@@ -402,6 +419,7 @@ function myFunction1() {
     "_type": "custom:platform0", //change as needed
     "type": "platform", //chnage this as needed
     "parent": $("#txtPnName").val(),
+    "parentId": activeParentIdForPlatform,
     "content": "true",
     "date": $("#platformdate").val(),
   }).then(function() {
@@ -477,6 +495,8 @@ function myFunction2() {
   var ckEditorData1 = CKEDITOR.instances.editor3.getData();
   var ckEditorData2 = CKEDITOR.instances.txtReleaseCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtReleaseAnotes.getData();
+ 
+ /*
   for (j = 0; j < allPortfolioObjects.length; j++) {
     if (name == allPortfolioObjects[j].name) {
       alert("This is already taken as Portfolio name!!");
@@ -506,6 +526,8 @@ function myFunction2() {
     }
 
   }
+  */
+
   branch.createNode({
     "name": $("#txtReleaseName").val(),
     "videoIds": $("#txtVideoIds3").val(),
@@ -519,6 +541,7 @@ function myFunction2() {
     "type": "release", //chnage this as needed
     //"parent": "my upoint release",//change as needed
     "parent": $("#txtPlatform").val(),
+    "parentId": activeParentIdForRelease,
     "content": "true",
     "date": $("#releasedate").val(),
   }).then(function() {
@@ -593,6 +616,8 @@ function myFunction3() {
   var ckEditorData1 = CKEDITOR.instances.editor4.getData();
   var ckEditorData2 = CKEDITOR.instances.txtFeatureCnotes.getData();
   var ckEditorData3 = CKEDITOR.instances.txtFeatureAnotes.getData();
+  
+  /*
   for (j = 0; j < allPortfolioObjects.length; j++) {
     if (name == allPortfolioObjects[j].name) {
       alert("This is already taken as Portfolio name!!");
@@ -622,6 +647,7 @@ function myFunction3() {
     }
 
   }
+  */
   branch.createNode({
     "name": $("#txtFeatureName").val(),
     "videoIds": $("#txtVideoIds4").val(),
@@ -632,7 +658,7 @@ function myFunction3() {
     "_type": "custom:feature0", 
     "type": "feature", 
     "parent": $("#txtRelease").val(),
-    "parentId":activeParentId,
+    "parentId": activeParentIdForFeature,
     "content": "true",
     "date": $("#featuredate").val(),
   }).then(function() {
