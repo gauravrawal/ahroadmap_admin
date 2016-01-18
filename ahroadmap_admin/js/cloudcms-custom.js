@@ -2,9 +2,6 @@
 var username;
 var password;
 
-var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
-var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
-
 var repositoryId = '254893db0c304ba3295d';
 var branchId = '1c6332c3a1eeafbfb3a2';
 var platform;
@@ -76,7 +73,7 @@ function begin(usr,pswd){
 	$("#loading-image").css('display','block');
 	
 
-
+/*
 		platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
@@ -93,7 +90,7 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {
+			}).then(function() {*/
 
 		
 
@@ -103,7 +100,7 @@ function begin(usr,pswd){
 
 			
 //Use this code block for code hosted on CloudCMS servers			
-		/*platform = Gitana.connect({
+		platform = Gitana.connect({
 		 "username": username,
 		 "password": password,
 		 "baseURL": "/proxy"
@@ -117,7 +114,7 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {*/
+			}).then(function() {
 			
 			document.cookie="username=" + username;
 			document.cookie="password=" + password;
