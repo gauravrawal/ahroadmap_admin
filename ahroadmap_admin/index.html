@@ -700,11 +700,13 @@
                         <!---------------------->
                         <p>
                            <label>Date<br/>
-                           <input type="text" name="EditDate" id="EditDate" />
-                           
-                           
-
+                           <!--<input type="text" name="EditDate" id="EditDate" />-->
                            </label>
+                           
+                           <p>
+                           <input type="text" placeholder="MM/DD/YYYY" id="editportfoliodate" name="editportfoliodate" class="form-control">
+                           </p>
+
                         </p>
                         <!---------------------->
                         
@@ -785,9 +787,15 @@
                         <!---------------------->
                         <p>
                            <label>Date<br/>
-                           <input type="text" name="EditPlatformDate" id="EditPlatformDate" />
+                           <!--<input type="text" name="EditPlatformDate" id="EditPlatformDate" />-->
                            </label>
+                           <p>
+                           <input type="text" placeholder="MM/DD/YYYY" id="editplatformdate" name="editplatformdate" class="form-control">
+                           </p>
+                           
                         </p>
+
+
                         <!---------------------->
                         
                         
@@ -861,8 +869,12 @@
                         <!---------------------->
                         <p>
                            <label>Date<br/>
-                           <input type="text" name="EditReleaseDate" id="EditReleaseDate" />
+                           <!--<input type="text" name="EditReleaseDate" id="EditReleaseDate" />-->
                            </label>
+                           <p>
+                           <input type="text" placeholder="MM/DD/YYYY" id="editreleasedate" name="editreleasedate" class="form-control">
+                           </p>
+                           
                         </p>
                         <!---------------------->
                         
@@ -939,8 +951,11 @@
                         <!---------------------->
                         <p>
                            <label>Date<br/>
-                           <input type="text" name="EditFeatureDate" id="EditFeatureDate" />
+                           <!--<input type="text" name="EditFeatureDate" id="EditFeatureDate" />-->
                            </label>
+                           <p>
+                           <input type="text" placeholder="MM/DD/YYYY" id="editfeaturedate" name="editfeaturedate" class="form-control">
+                           </p>
                         </p>
                         <!---------------------->
                         
@@ -1224,13 +1239,13 @@
 	    <script>
 	        $(document).ready(function () {
 
-	            $("#releasedate").datepicker({
+	            $("#portfoliodate").datepicker({
 	                dateFormat: "mm/dd/yyyy",
 	                startDate: '01/01/2016',
 	                autoclose: true
-                    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+	            }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
 
-	            $('#releasedate').val('');
+	            $('#portfoliodate').val('');
 
 	            $("#platformdate").datepicker({
 	                dateFormat: "mm/dd/yyyy",
@@ -1240,25 +1255,59 @@
 
 	            $('#platformdate').val('');
 
+	            $("#releasedate").datepicker({
+	                dateFormat: "mm/dd/yyyy",
+	                startDate: '01/01/2016',
+	                autoclose: true
+                    }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
 
-	$("#portfoliodate").datepicker({
-        dateFormat: "mm/dd/yyyy",
-		startDate: '01/01/2016',
-		autoclose: true
-}).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+	            $('#releasedate').val('');
 
-$('#portfoliodate').val('');
+	            $("#featuredate").datepicker({
+	                dateFormat: "mm/dd/yyyy",
+	                startDate: '01/01/2016',
+	                autoclose: true
+	            }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+
+	            $('#featuredate').val('');
 
 
-		$("#featuredate").datepicker({
-        dateFormat: "mm/dd/yyyy",
-		startDate: '01/01/2016',
-		autoclose: true
-}).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+	            //////////////////////////////////////////////////////////////////////////////
 
-    $('#featuredate').val('');
-							
-                            });
+	            $("#editportfoliodate").datepicker({
+	                dateFormat: "mm/dd/yyyy",
+	                startDate: '01/01/2016',
+	                autoclose: true
+	            }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+
+	            $('#editportfoliodate').val('');
+
+	            $("#editplatformdate").datepicker({
+	                dateFormat: "mm/dd/yyyy",
+	                startDate: '01/01/2016',
+	                autoclose: true
+	            }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+
+	            $('#editplatformdate').val('');
+
+	            $("#editreleasedate").datepicker({
+	                dateFormat: "mm/dd/yyyy",
+	                startDate: '01/01/2016',
+	                autoclose: true
+	            }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+
+	            $('#editreleasedate').val('');
+
+	            $("#editfeaturedate").datepicker({
+	                dateFormat: "mm/dd/yyyy",
+	                startDate: '01/01/2016',
+	                autoclose: true
+	            }).datepicker('setDate', new Date(1964, 00, 01)).datepicker('update');
+
+	            $('#editfeaturedate').val('');
+
+                /////////////////////////////////////////////////////////////////////////////////
+          });
 							
 	  </script>
    </body>

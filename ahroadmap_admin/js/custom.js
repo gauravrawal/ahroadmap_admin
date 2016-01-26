@@ -343,7 +343,8 @@ for (j=0; j < allPortfolioObjects.length; j++) {
 		if(portfolio == allPortfolioObjects[j].name){
 		$("#txtEditName").val(allPortfolioObjects[j].name);
 		$("#EditprimaryContact").val(allPortfolioObjects[j].primaryContact);
-		$("#EditDate").val(allPortfolioObjects[j].date);
+		//$("#EditDate").val(allPortfolioObjects[j].date);
+		$("#editportfoliodate").val(allPortfolioObjects[j].date);
 		//alert(htmlentities(allPortfolioObjects[j].customerNotes));
 		CKEDITOR.instances.EdittxtCnotes.setData( allPortfolioObjects[j].customerNotes );
 		//var value = editor.getData();
@@ -375,8 +376,8 @@ for (j=0; j < allPlatformObjects.length; j++) {
 		$("#txtPlatformEditName").val(allPlatformObjects[j].name);
 		$("#PlatformEditprimaryContact").val(allPlatformObjects[j].primaryContact);
 		
-		$("#EditPlatformDate").val(allPlatformObjects[j].date);
-
+		//$("#EditPlatformDate").val(allPlatformObjects[j].date);
+		$("#editplatformdate").val(allPlatformObjects[j].date);
 		
 		CKEDITOR.instances.PlatformEdittxtCnotes.setData( allPlatformObjects[j].customerNotes );
 		CKEDITOR.instances.PlatformEdittxtAnotes.setData( allPlatformObjects[j].aonInternalNotes );
@@ -404,8 +405,9 @@ for (j=0; j < allReleaseObjects.length; j++) {
 		$("#txtReleaseEditName").val(allReleaseObjects[j].name);
 		$("#ReleaseEditprimaryContact").val(allReleaseObjects[j].primaryContact);
 		
-		$("#EditReleaseDate").val(allReleaseObjects[j].date);
-		
+		//$("#EditReleaseDate").val(allReleaseObjects[j].date);
+		$("#editreleasedate").val(allReleaseObjects[j].date);
+
 		CKEDITOR.instances.ReleaseEdittxtCnotes.setData( allReleaseObjects[j].customerNotes );
 		CKEDITOR.instances.ReleaseEdittxtAnotes.setData( allReleaseObjects[j].aonInternalNotes );
 		CKEDITOR.instances.ReleasetxteditorDescription.setData( allReleaseObjects[j].description );
@@ -436,8 +438,8 @@ for (j=0; j < allFeatureObjects.length; j++) {
 		$("#txtFeatureEditName").val(allFeatureObjects[j].name);
 		$("#FeatureEditprimaryContact").val(allFeatureObjects[j].primaryContact);
 		
-		$("#EditFeatureDate").val(allFeatureObjects[j].date);
-		
+		//$("#EditFeatureDate").val(allFeatureObjects[j].date);
+		$("#editfeaturedate").val(allFeatureObjects[j].date);
 			
 		CKEDITOR.instances.FeatureEdittxtCnotes.setData( allFeatureObjects[j].customerNotes );
 		CKEDITOR.instances.FeatureEdittxtAnotes.setData( allFeatureObjects[j].aonInternalNotes );
@@ -536,7 +538,7 @@ function editportfoliodata() {
 
 	var newNodePortfolioContact = $("#EditprimaryContact").val();
 	
-	var newNodePortfolioDate = $("#EditDate").val();
+	var newNodePortfolioDate = $("#editportfoliodate").val();
 	
 	var VideoIds1 = $("#txtEditVideoIds1").val();
 	nodeToUpdate.name = newNodePortfolioName;
@@ -669,7 +671,7 @@ function editplatformdata() {
 
 	var newNodePlatformContact = $("#PlatformEditprimaryContact").val();
 	
-	var newNodePlatformDate = $("#EditPlatformDate").val();
+	var newNodePlatformDate = $("#editplatformdate").val();
 	
 	var VideoIds2 = $("#txtEditVideoIds2").val();
 	nodeToUpdate.name = newNodePlatformName;
@@ -787,7 +789,7 @@ function editreleasedata() {
 
 	var newNodeReleaseContact = $("#ReleaseEditprimaryContact").val();
 	
-	var newNodeReleaseDate = $("#EditReleaseDate").val();
+	var newNodeReleaseDate = $("#editreleasedate").val();
 	
 	var VideoIds3 = $("#txtEditVideoIds3").val();
 	nodeToUpdate.name = newNodeReleaseName;
@@ -908,7 +910,7 @@ function editfeaturedata() {
 
 	var newNodeFeatureContact = $("#FeatureEditprimaryContact").val();
 	
-	var newNodeFeatureDate = $("#EditFeatureDate").val();
+	var newNodeFeatureDate = $("#editfeaturedate").val();
 	
 		var VideoIds4 = $("#txtEditVideoIds4").val();
 	nodeToUpdate.name = newNodeFeatureName;
