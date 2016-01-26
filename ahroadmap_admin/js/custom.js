@@ -542,7 +542,7 @@ function editportfoliodata() {
 	nodeToUpdate.name = newNodePortfolioName;
 	nodeToUpdate.description = ckPortfolioEditorData1;
 	nodeToUpdate.primaryContact = newNodePortfolioContact;
-	
+	nodeToUpdate.idName = nodeToUpdate.idName;
 	nodeToUpdate.date = newNodePortfolioDate;
 	
 	nodeToUpdate.customerNotes = ckPortfolioEditorData2;
