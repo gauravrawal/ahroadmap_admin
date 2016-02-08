@@ -68,7 +68,7 @@ function begin(usr,pswd){
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
-/*
+
     	platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
@@ -85,9 +85,9 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {*/
+			}).then(function() {
 			
-		
+		/*
         platform = Gitana.connect({
 		 "username": username,
 		 "password": password,
@@ -102,7 +102,7 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() {
+			}).then(function() { */
             
 			
 			document.cookie="username=" + username;
