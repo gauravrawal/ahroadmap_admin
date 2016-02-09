@@ -84,3 +84,11 @@ margin-bottom:10px;
 	margin-left: auto;
 	display: none;
 }
+.moreinfo 
+{
+    display:none;
+    font-size:12px;
+    font-style:normal;
+    margin-left:5px;
+    
+}

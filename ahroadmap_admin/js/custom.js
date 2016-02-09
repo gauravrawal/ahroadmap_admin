@@ -66,54 +66,62 @@ viewPortfolioData(portfolio);
  $("#frmSubmitForm").submit(function (event) {
 		 
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			myFunction();
 
     });   
 
  $("#frmSubmitForm1").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			myFunction1();
 
     });   
 
  $("#frmSubmitForm2").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			myFunction2();
 
     });  
 	 $("#frmSubmitForm3").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			myFunction3();
 
     });
 	  $("#frmeditSubmitForm4").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			editportfoliodata();
 
     });
 	
 $("#frmeditSubmitForm5").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			editplatformdata();
 
     });
 
 $("#frmeditSubmitForm6").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			editreleasedata();
 
     });
 
 $("#frmeditSubmitForm7").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-			
+
+		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
 			editfeaturedata();
 
     });

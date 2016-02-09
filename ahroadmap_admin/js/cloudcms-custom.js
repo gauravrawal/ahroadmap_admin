@@ -710,3 +710,16 @@ $(function() {
     transitionEffect: "slideLeft"
   });
 });
+
+$(".infoButton").on( "click", function(){
+//alert('http://link.brightcove.com/services/player/bcpid4138676921001?bckey=AQ~~,AAAAAFn1oBc~,ccA6_zv_NerqWDGBUOeKCl54Yd4UTTKD&bctid=' + <span style="background-color:yellow">' + '4628078512001' + '</span>');
+var f = $(".moreinfo").css("display");
+if (f=='inline-block') {
+$(".moreinfo").css("display","none")
+} else {
+$(".moreinfo").css("display","inline-block")
+}
+
+
+
+})
