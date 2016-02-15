@@ -1,3 +1,4 @@
+
 var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
 var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
 var username;
@@ -317,6 +318,7 @@ function myFunction() {
 			})
 	  } else {
 		  alert("Your portfolio has been created.");
+		  alert($("#uploadFilename").val());
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
@@ -439,6 +441,7 @@ function myFunction1() {
 	
 	  } else {
 		  alert("Your platform has been created.");
+		  setCookie1('platformFinal','platformFinal',30);
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
@@ -557,6 +560,7 @@ function myFunction2() {
     })
 	   } else {
 		  alert("Your release has been created.");
+		  setCookie1('releaseFinal','releaseFinal',30);
       $("#txtName").val("");
       $("#primaryContact").val("");
       $("#txtCnotes").val("");
@@ -674,17 +678,30 @@ function myFunction3() {
     })
 	   } else {
 		  alert("Your feature has been created.");
-      $("#txtName").val("");
-      $("#primaryContact").val("");
-      $("#txtCnotes").val("");
-      $("#txtAnotes").val("");
-      location.reload(true);
+		  setCookie1('submitFinal','submitFinal',30);
+		  $("#txtName").val("");
+		  $("#primaryContact").val("");
+		  $("#txtCnotes").val("");
+		  $("#txtAnotes").val("");
+		  location.reload(true);		 
 	  }
 	  
     
   });
 };
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+function setCookie1(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
 function populateDropDown(callback) {
   var rows = "";
   for (j = 0; j < allPortfolioObjects.length; j++) {
@@ -709,16 +726,3 @@ $(function() {
     transitionEffect: "slideLeft"
   });
 });
-
-$(".infoButton").on( "click", function(){
-//alert('http://link.brightcove.com/services/player/bcpid4138676921001?bckey=AQ~~,AAAAAFn1oBc~,ccA6_zv_NerqWDGBUOeKCl54Yd4UTTKD&bctid=' + <span style="background-color:yellow">' + '4628078512001' + '</span>');
-var f = $(".moreinfo").css("display");
-if (f=='inline-block') {
-$(".moreinfo").css("display","none")
-} else {
-$(".moreinfo").css("display","inline-block")
-}
-
-
-
-})

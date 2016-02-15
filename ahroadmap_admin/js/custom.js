@@ -46,15 +46,31 @@ CKEDITOR.replace( 'PlatformEdittxtCnotes');
 
  });
 
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+function setCookie1(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
 function nextStep(m){
+	setCookie('portfolioId',m,2);
 	populatePlatform(m);
 	$(".actions li a[href='#next']").click();
 }
 function nextStep1(m){
+	setCookie('platformId',m,2);
 	populateRelease(m);
 	$(".actions li a[href='#next']").click();
 }
 function nextStep2(m){
+	setCookie('releaseId',m,2);
 	populateFeature(m);
 	$(".actions li a[href='#next']").click();
 }
@@ -66,62 +82,54 @@ viewPortfolioData(portfolio);
  $("#frmSubmitForm").submit(function (event) {
 		 
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			myFunction();
 
     });   
 
  $("#frmSubmitForm1").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			myFunction1();
 
     });   
 
  $("#frmSubmitForm2").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			myFunction2();
 
     });  
 	 $("#frmSubmitForm3").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			myFunction3();
 
     });
 	  $("#frmeditSubmitForm4").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			editportfoliodata();
 
     });
 	
 $("#frmeditSubmitForm5").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			editplatformdata();
 
     });
 
 $("#frmeditSubmitForm6").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			editreleasedata();
 
     });
 
 $("#frmeditSubmitForm7").submit(function (event) {
 		event.preventDefault(); // Prevent the form from submitting via the browser.
-
-		$(".moreinfo").css("display", "none") //hide the Brightcove info popup in case it is displayed
+			
 			editfeaturedata();
 
     });
@@ -190,6 +198,55 @@ function populateDropDown()
 			$('#loading-image').css("display", "none");
 			$('#main-container').css("display", "block");
 			$("#example_paginate").hide();
+			
+			var platformlast = getCookie("platformFinal");
+			var releaselast = getCookie("releaseFinal");
+			var last = getCookie("submitFinal");
+			var deletePlatform = getCookie("deletePlatform");
+			var deleteRelease = getCookie("deleteRelease");
+			var deleteFeature = getCookie("deleteFeature");
+			var editPlatformCookie = getCookie("editPlatformCookie");
+			var editReleaseCookie = getCookie("editReleaseCookie");
+			var editFeatureCookie = getCookie("editFeatureCookie");
+			/*--------Cookies for Add Functionality--------*/
+			if(platformlast == 'platformFinal' || deletePlatform == 'deletePlatform' || editPlatformCookie == 'editPlatformCookie'){
+				var portfolioIdValue = getCookie("portfolioId");
+				if(portfolioIdValue != ''){
+					nextStep(portfolioIdValue);
+				}
+			}
+			if(releaselast == 'releaseFinal' || deleteRelease == 'deleteRelease' || editReleaseCookie == 'editReleaseCookie'){
+				var portfolioIdValue = getCookie("portfolioId");
+				var platformIdValue = getCookie("platformId");
+				if(portfolioIdValue != '' && platformIdValue != ''){
+					nextStep(portfolioIdValue);
+					nextStep1(platformIdValue);
+				}
+			}
+			if(last == 'submitFinal' || deleteFeature == 'deleteFeature' || editFeatureCookie == 'editFeatureCookie'){
+				var portfolioIdValue = getCookie("portfolioId");
+				var platformIdValue = getCookie("platformId");
+				var releaseIdValue = getCookie("releaseId");
+				if(portfolioIdValue != '' && platformIdValue != '' && releaseIdValue != ''){
+					nextStep(portfolioIdValue);
+					nextStep1(platformIdValue);
+					nextStep2(releaseIdValue);	
+				}
+			}
+			/*--------End of Cookies for Add Functionality--------*/
+			
+			/*--------Cookies for Delete Functionality--------*/
+			/*if(){
+				var portfolioIdValue = getCookie("portfolioId");
+				var platformIdValue = getCookie("platformId");
+				var releaseIdValue = getCookie("releaseId");
+				if(portfolioIdValue != '' && platformIdValue != '' && releaseIdValue != ''){
+					nextStep(portfolioIdValue);
+					nextStep1(platformIdValue);
+					nextStep2(releaseIdValue);	
+				}
+			}*/
+			/*--------End of Cookies for Delete Functionality--------*/
 		}
 }
 function populatePlatform(m){
@@ -724,6 +781,7 @@ function editplatformdata() {
 	    }
 	});
 	//$('#Confirmation1').modal('show');
+	setCookie1('editPlatformCookie','editPlatformCookie',30);
 	pagereload();
 }
 
@@ -845,6 +903,7 @@ function editreleasedata() {
 	    }
 	});
 	//$('#Confirmation2').modal('show');
+	setCookie1('editReleaseCookie','editReleaseCookie',30);
 	pagereload();
 	
 }
@@ -952,6 +1011,7 @@ function editfeaturedata() {
 	        });
 	    }
 	});
+	setCookie1('editFeatureCookie','editFeatureCookie',30);
 	//$('#Confirmation3').modal('show'); 
             pagereload();
 }
@@ -1038,6 +1098,7 @@ function deleteplatformdata(){
 	var NewStatus = $("#platformtxtdelstatus").val();
 	//alert(NewStatus);
 	if(NewStatus == "true"){
+		setCookie1('deletePlatform','deletePlatform',30);
 		var cstatus="false";
 		nodeToUpdate.content = cstatus;
 		nodeToUpdate.update();
@@ -1050,6 +1111,7 @@ function deletereleasedata(){
 	var NewStatus = $("#releasetxtdelstatus").val();
 	//alert(NewStatus);
 	if(NewStatus == "true"){
+		setCookie1('deleteRelease','deleteRelease',30);
 		var cstatus="false";
 		nodeToUpdate.content = cstatus;
 		nodeToUpdate.update();
@@ -1060,8 +1122,8 @@ function deletereleasedata(){
 
 function deletefeaturedata(){
 	var NewStatus = $("#featuretxtdelstatus").val();
-	//alert(NewStatus);
 	if(NewStatus == "true"){
+		setCookie1('deleteFeature','deleteFeature',30);
 		var cstatus="false";
 		nodeToUpdate.content = cstatus;
 		nodeToUpdate.update();
