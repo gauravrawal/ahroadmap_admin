@@ -1,4 +1,5 @@
-
+var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
+var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
 var username;
 var password;
 
@@ -68,7 +69,7 @@ function begin(usr,pswd){
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
 	
-/*
+
     	platform = Gitana.connect({
 		  "clientKey": clientKey,
 		  "clientSecret": clientSecret,
@@ -86,8 +87,8 @@ function begin(usr,pswd){
 
 			}
 			}).then(function() {
-		*/	
-		
+			
+		/*
         platform = Gitana.connect({
 		 "username": username,
 		 "password": password,
@@ -102,7 +103,7 @@ function begin(usr,pswd){
 				return;
 
 			}
-			}).then(function() { 
+			}).then(function() { */
             
 			
 			document.cookie="username=" + username;
