@@ -1,8 +1,6 @@
 
 
 
-//var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
-//var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
 
 var username;
 var password;
