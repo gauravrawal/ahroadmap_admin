@@ -189,9 +189,9 @@ $("#frmeditSubmitForm15").submit(function (event) {
 			pagereload();
 
     });
-function populateDropDown() 
+function populateDropDown(callback) {
 
-	{
+    console.log('custom populate dropdown executed');
 	    activeParentId = "application";
 	 	var rows="";
 		for (j=0; j < allPortfolioObjects.length; j++) {
@@ -255,7 +255,9 @@ function populateDropDown()
 				}
 			}*/
 			/*--------End of Cookies for Delete Functionality--------*/
-		}
+}
+
+callback && callback();
 }
 function populatePlatform(m){
 	var rows="";

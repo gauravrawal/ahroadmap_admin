@@ -1,6 +1,3 @@
-
-
-
 //var clientKey = "9a44be0f-c2f8-4454-8bd1-fd68503a5a9d";
 //var clientSecret = "O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=";
 
@@ -23,7 +20,7 @@ var activeParentId;
 var activeParentIdForPlatform;
 var activeParentIdForRelease;
 var activeParentIdForFeature;
-
+var serverVersionId;
 
 function checkCookie() {
     var user = getCookie("username");
@@ -151,10 +148,13 @@ function begin(usr,pswd){
 				})
 				.then(function() {				 
 				  populateUniversalObject(function() {
+               
 					  populateDropDown(function() {	
-					  		$("#loading-image").css('display','none');	
-					  })
-					})
+					  		$("#loading-image").css('display','none');
+                            //alert("Dropdown populated");
+                            updateVersion();	
+					  });
+					});
 		
 				});
 				});
@@ -194,6 +194,17 @@ function populateUniversalObject(callback) {
 
   callback && callback();
 };
+
+
+function updateVersion(){
+
+    branch.readNode('1a2f75f3cfb52e97b794').then(function () {
+        this.number = this.number + 1;
+       this.update();
+       
+    });
+    };
+
 
 function myFunction() {
   
@@ -705,22 +716,28 @@ function setCookie1(cname, cvalue, exdays) {
     var expires = "expires="+d.toUTCString();
     document.cookie = cname + "=" + cvalue + "; " + expires;
 }
-function populateDropDown(callback) {
-  var rows = "";
-  for (j = 0; j < allPortfolioObjects.length; j++) {
-    rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
-                           <td><a class='btn btn-info btn-lg' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\"" + allPortfolioObjects[j].name + "\");' href='javascript:void(0)' class='btn btn-info btn-lg'>View</a>&nbsp;&nbsp;<a class='btn btn-info btn-lg' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\"" + allPortfolioObjects[j].name + "\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\"" + allPortfolioObjects[j].name + "\");' href='javascript:void(0)' class='btn btn-info btn-lg'>Platform</a> \</tr>";
 
-  }
+/*
+function populateDropDown1(callback) {
+console.log("populate executed");
+  var rows = "";
+      for (j = 0; j < allPortfolioObjects.length; j++) {
+        rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
+                               <td><a class='btn btn-info btn-lg' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\"" + allPortfolioObjects[j].name + "\");' href='javascript:void(0)' class='btn btn-info btn-lg'>View</a>&nbsp;&nbsp;<a class='btn btn-info btn-lg' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\"" + allPortfolioObjects[j].name + "\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-info btn-lg' data-toggle='modal' data-target='#myModal'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\"" + allPortfolioObjects[j].name + "\");' href='javascript:void(0)' class='btn btn-info btn-lg'>Platform</a> \</tr>";
+
+      }
   $(rows).appendTo("#example tbody");
-  if (rows != "") {
-    $('#example').DataTable();
-    $('#loading-image').css("display", "none");
-    $('#main-container').css("display", "block");
-    $("#example_paginate").hide();
-  }
-  callback && callback();
+       if (rows != "") {
+        $('#example').DataTable();
+        $('#loading-image').css("display", "none");
+        $('#main-container').css("display", "block");
+        $("#example_paginate").hide();
+          
+      }
+callback && callback();
 }
+*/
+
 
 $(function() {
   $("#wizard").steps({
@@ -730,6 +747,8 @@ $(function() {
   });
 });
 
+
+
 $(".infoButton").on( "click", function(){
 //alert('http://link.brightcove.com/services/player/bcpid4138676921001?bckey=AQ~~,AAAAAFn1oBc~,ccA6_zv_NerqWDGBUOeKCl54Yd4UTTKD&bctid=' + <span style="background-color:yellow">' + '4628078512001' + '</span>');
 var f = $(".moreinfo").css("display");
@@ -738,7 +757,4 @@ $(".moreinfo").css("display","none")
 } else {
 $(".moreinfo").css("display","inline-block")
 }
-
-
-
 })
