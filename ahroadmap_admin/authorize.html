@@ -10,7 +10,7 @@
             var clientSecret = 'O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=';
             // the uri to this page - we'll return back here with the code once the flow finishes
             // this is something like - http://myserver:port/page.html
-            var redirectUri = window.location.protocol + "//" + window.location.hostname + "/" + window.location.pathname;
+            var redirectUri = window.location.protocol + "//" + window.location.hostname + window.location.pathname;
             console.log('redirect uri is ' + redirectUri);
             // the uri to request a token
             // note that we're requesting the "api" scope (which is what the driver needs)
