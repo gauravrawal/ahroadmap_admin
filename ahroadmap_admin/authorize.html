@@ -1,0 +1,51 @@
+﻿
+
+<html>
+    <head>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <script type="text/javascript" src="http://code.cloudcms.com/gitana-javascript-driver/1.0.207/gitana.min.js"></script>
+        <script>
+            // assume the client key and secret are known
+            var clientKey = '9a44be0f-c2f8-4454-8bd1-fd68503a5a9d';
+            var clientSecret = 'O85O6EPbBuxrkmyrriQfw0eHAkS5je6PHwvT967+T8mWTB9z1eonabtgM3MovhywFas0FNWGhWqW1FE2vtfT0C/M97OqfTf87poOM5IvsLc=';
+            // the uri to this page - we'll return back here with the code once the flow finishes
+            // this is something like - http://myserver:port/page.html
+            var redirectUri = window.location.protocol + "//" + window.location.hostname + ":"
+                    + window.location.port + window.location.pathname;
+            console.log('redirect uri is ' + redirectUri);
+            // the uri to request a token
+            // note that we're requesting the "api" scope (which is what the driver needs)
+
+
+            //var authorizeUri = "/proxy/oauth/authorize?client_id=" + clientKey + "&redirect_uri=" + redirectUri + "&response_type=code&scope=api";
+            var authorizeUri = "/proxy/oauth/authorize?client_id=" + clientKey + "&redirect_uri=" + redirectUri + "&response_type=code&scope=api";
+            
+            
+            console.log('authorize uri is ' + authorizeUri);
+            // here we use jQuery
+            $(document).ready(function() {
+                // if we receive an authorization code...
+                var code = Gitana.getCurrentQueryStringParameter("code");
+                if (code) {
+                    console.log("Received authentication code: " + code);
+                    // build the gitana driver
+                    var gitana = new Gitana({ "clientId": clientKey, "clientSecret": clientSecret });
+                    // authenticate with the code that we received
+                    gitana.authenticate({ "code": code, "redirectUri": redirectUri }).then(function() {
+                        console.log("Successfully authenticated");
+                    });
+                }
+                // or we might have received an error
+                var error = Gitana.getCurrentQueryStringParameter("error");
+                if (error) {
+                    console.log("Error: " + Gitana.getCurrentQueryStringparameter("error_description"));
+                }
+                // add in a link
+                $("#linkDiv").append("<a href='" + authorizeUri + "'>Click here to authorize</a>");
+            });
+        </script>
+    </head>
+    <body>
+        <div id="linkDiv"></div>
+    </body>
+</html>
