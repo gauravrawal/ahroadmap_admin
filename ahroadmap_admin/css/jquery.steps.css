@@ -1,4 +1,4 @@
-﻿/*
+/*
     Common 
 */
 
@@ -210,6 +210,7 @@ color:#fff !important;
 {
     display: inline-block;
     margin-bottom: 0.5em;
+    color: #777;
 }
 
 .wizard > .content > .body label.error

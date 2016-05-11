@@ -1,9 +1,9 @@
 @charset "utf-8";
 /* CSS Document */
 body{
-	background-image: url("../images/bodyBackground.jpg");
-    background-position: 0 0;
-    background-size: cover;
+	/*background-image: url("../images/bodyBackground.jpg");*/
+	background-position: 0 0;
+	background-size: cover;
 }
 #loading-image{
 	margin-left:45%; 
@@ -21,10 +21,10 @@ h1{
 	color:#fff;
 }
 .dataTables_wrapper select{
-	color:#000;
+	color: #777;
 }
 .dataTables_wrapper input{
-	color:#000;
+	color: #777;
 	float:right;
 }
 .dataTables_wrapper{
