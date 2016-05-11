@@ -1,6 +1,6 @@
-
 var username;
 var password;
+
 
 var repositoryId = '254893db0c304ba3295d';
 var branchId = '1c6332c3a1eeafbfb3a2';
@@ -67,7 +67,8 @@ function begin(usr,pswd){
 	
 	$( "#dialog" ).dialog( "close" );
 	$("#loading-image").css('display','block');
-	
+
+	//This code block is used for testing off the Cloudcms server
     /*
     	platform = Gitana.connect({
 		  "clientKey": clientKey,
