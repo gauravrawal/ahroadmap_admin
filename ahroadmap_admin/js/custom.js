@@ -196,7 +196,7 @@ function populateDropDown(callback) {
 	 	var rows="";
 		for (j=0; j < allPortfolioObjects.length; j++) {
  	  	rows += "<tr><td>" + allPortfolioObjects[j].name + "</td><td>" + allPortfolioObjects[j].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePortfolio' onclick='javascript:deleteportfolio(\""+allPortfolioObjects[j].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\""+allPortfolioObjects[j].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Platform</a> \</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPortfolio' onclick='javascript:viewportfolio(\""+allPortfolioObjects[j].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPortfolio' onclick='javascript:editportfolio(\""+allPortfolioObjects[j].idName+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePortfolio' onclick='javascript:deleteportfolio(\""+allPortfolioObjects[j].idName+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep(\""+allPortfolioObjects[j].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Platform</a> \</tr>";
 	
 	}
 		$( rows ).appendTo("#example tbody");
@@ -271,7 +271,7 @@ function populatePlatform(m){
 
 			for (k=0; k < allPortfolioObjects[j].platforms.length; k++) {
 				rows += "<tr><td>" + allPortfolioObjects[j].platforms[k].name + "</td><td>" + allPortfolioObjects[j].platforms[k].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPlatform' onclick='javascript:viewplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPlatform' onclick='javascript:editplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePlatform' onclick='javascript:deleteplatform(\""+allPortfolioObjects[j].platforms[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep1(\""+allPortfolioObjects[j].platforms[k].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Release</a> \</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewPlatform' onclick='javascript:viewplatform(\""+allPortfolioObjects[j].platforms[k].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editPlatform' onclick='javascript:editplatform(\""+allPortfolioObjects[j].platforms[k].idName+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeletePlatform' onclick='javascript:deleteplatform(\""+allPortfolioObjects[j].platforms[k].idName+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep1(\""+allPortfolioObjects[j].platforms[k].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Release</a> \</tr>";
 				
 				//alert("allPortfolioObjects[j].name" + allPortfolioObjects[j].name)		   
 			}
@@ -301,7 +301,7 @@ function populateRelease(m){
 
 			for (k=0; k < allPlatformObjects[j].releases.length; k++) {
 				rows += "<tr><td>" + allPlatformObjects[j].releases[k].name + "</td><td>" + allPlatformObjects[j].releases[k].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewRelease' onclick='javascript:viewrelease(\""+allPlatformObjects[j].releases[k].name+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editRelease'  onclick='javascript:editrelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteRelease' onclick='javascript:deleterelease(\""+allPlatformObjects[j].releases[k].name+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep2(\""+allPlatformObjects[j].releases[k].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Feature</a> \</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal' data-target='#viewRelease' onclick='javascript:viewrelease(\""+allPlatformObjects[j].releases[k].idName+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editRelease'  onclick='javascript:editrelease(\""+allPlatformObjects[j].releases[k].idName+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteRelease' onclick='javascript:deleterelease(\""+allPlatformObjects[j].releases[k].idName+"\");' href='javascript:void(0)'>Delete</a>&nbsp;&nbsp;<a onclick='javascript:nextStep2(\""+allPlatformObjects[j].releases[k].idName+"\");' href='javascript:void(0)' class='btn btn-primary btn-xs'>Feature</a> \</tr>";
 			}
 		}
 	}
@@ -326,7 +326,7 @@ function populateFeature(m){
 
 			for (k=0; k < allReleaseObjects[j].features.length; k++) {
 				rows += "<tr><td>" + allReleaseObjects[j].features[k].name + "</td><td>" + allReleaseObjects[j].features[k].description + "</td>\
-                           <td><a class='btn btn-primary btn-xs' data-toggle='modal'  data-target='#viewFeature' onclick='javascript:viewfeature(\""+allReleaseObjects[j].features[k].name+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editFeature' onclick='javascript:editfeature(\""+allReleaseObjects[j].features[k].name+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteFeature' onclick='javascript:deletefeature(\""+allReleaseObjects[j].features[k].name+"\");' href='javascript:void(0)'>Delete</a>\</tr>";
+                           <td><a class='btn btn-primary btn-xs' data-toggle='modal'  data-target='#viewFeature' onclick='javascript:viewfeature(\""+allReleaseObjects[j].features[k].idName+"\");'>View</a>&nbsp;&nbsp;<a class='btn btn-primary btn-xs' id='myBtn' data-toggle='modal' data-target='#editFeature' onclick='javascript:editfeature(\""+allReleaseObjects[j].features[k].idName+"\");' href='javascript:void(0)'>Edit</a>&nbsp;&nbsp;<a  class='btn btn-primary btn-xs' data-toggle='modal' data-target='#DeleteFeature' onclick='javascript:deletefeature(\""+allReleaseObjects[j].features[k].idName+"\");' href='javascript:void(0)'>Delete</a>\</tr>";
 			}
 		}
 	}
@@ -343,7 +343,7 @@ function populateFeature(m){
 
 function viewPortfolioData(portfolio){
 		for (j=0; j < allPortfolioObjects.length; j++) {
-		if(portfolio == allPortfolioObjects[j].name){
+		if(portfolio == allPortfolioObjects[j].idName){
 		$("#txtViewName").html(allPortfolioObjects[j].name);
 		$("#viewprimaryContact").html(allPortfolioObjects[j].primaryContact);
 		
@@ -360,7 +360,7 @@ function viewPortfolioData(portfolio){
 }
 function viewplatform(platform){
 		for (j=0; j < allPlatformObjects.length; j++) {
-		if(platform == allPlatformObjects[j].name){
+		if(platform == allPlatformObjects[j].idName){
 		$("#txtPlatformViewName").html(allPlatformObjects[j].name);
 		$("#viewPlatformprimaryContact").html(allPlatformObjects[j].primaryContact);
 		$("#viewPlatformDate").html(allPlatformObjects[j].date);
@@ -378,7 +378,7 @@ function viewplatform(platform){
 
 function viewrelease(release){
 		for (j=0; j < allReleaseObjects.length; j++) {
-		if(release == allReleaseObjects[j].name){
+		if(release == allReleaseObjects[j].idName){
 		$("#txtReleaseViewName").html(allReleaseObjects[j].name);
 		$("#viewReleaseprimaryContact").html(allReleaseObjects[j].primaryContact);
 		$("#viewReleaseDate").html(allReleaseObjects[j].date);
@@ -395,7 +395,7 @@ function viewrelease(release){
 
 function viewfeature(feature){
 		for (j=0; j < allFeatureObjects.length; j++) {
-		if(feature == allFeatureObjects[j].name){
+		if(feature == allFeatureObjects[j].idName){
 		$("#txtFeatureViewName").html(allFeatureObjects[j].name);
 		$("#viewFeatureprimaryContact").html(allFeatureObjects[j].primaryContact);
 		$("#viewFeatureDate").html(allFeatureObjects[j].date);
@@ -415,7 +415,7 @@ function viewfeature(feature){
 function editportfolio(portfolio){
 
 for (j=0; j < allPortfolioObjects.length; j++) {
-		if(portfolio == allPortfolioObjects[j].name){
+		if(portfolio == allPortfolioObjects[j].idName){
 		$("#txtEditName").val(allPortfolioObjects[j].name);
 		$("#EditprimaryContact").val(allPortfolioObjects[j].primaryContact);
 		//$("#EditDate").val(allPortfolioObjects[j].date);
@@ -447,7 +447,7 @@ for (j=0; j < allPortfolioObjects.length; j++) {
 function editplatform(platform){
 
 for (j=0; j < allPlatformObjects.length; j++) {
-		if(platform == allPlatformObjects[j].name){
+		if(platform == allPlatformObjects[j].idName){
 		$("#txtPlatformEditName").val(allPlatformObjects[j].name);
 		$("#PlatformEditprimaryContact").val(allPlatformObjects[j].primaryContact);
 		
@@ -476,7 +476,7 @@ for (j=0; j < allPlatformObjects.length; j++) {
 function editrelease(release){
 
 for (j=0; j < allReleaseObjects.length; j++) {
-		if(release == allReleaseObjects[j].name){
+		if(release == allReleaseObjects[j].idName){
 		$("#txtReleaseEditName").val(allReleaseObjects[j].name);
 		$("#ReleaseEditprimaryContact").val(allReleaseObjects[j].primaryContact);
 		
@@ -509,7 +509,7 @@ for (j=0; j < allReleaseObjects.length; j++) {
 function editfeature(feature){
 
 for (j=0; j < allFeatureObjects.length; j++) {
-		if(feature == allFeatureObjects[j].name){
+		if(feature == allFeatureObjects[j].idName){
 		$("#txtFeatureEditName").val(allFeatureObjects[j].name);
 		$("#FeatureEditprimaryContact").val(allFeatureObjects[j].primaryContact);
 		
