@@ -1039,7 +1039,7 @@ function editfeaturedata() {
 
 function deleteportfolio(portfolio){
 	for (j=0; j < allPortfolioObjects.length; j++) {
-		if(portfolio == allPortfolioObjects[j].name){
+		if(portfolio == allPortfolioObjects[j].idName){
 			$("#txtdelstatus").val(allPortfolioObjects[j].content);
 			var status = allPortfolioObjects[j].content;
 		//nodeToUpdate.name = status;
@@ -1053,7 +1053,7 @@ function deleteportfolio(portfolio){
 
 function deleteplatform(platform){
 	for (j=0; j < allPlatformObjects.length; j++) {
-		if(platform == allPlatformObjects[j].name){
+		if(platform == allPlatformObjects[j].idName){
 			$("#platformtxtdelstatus").val(allPlatformObjects[j].content);
 			var status = allPlatformObjects[j].content;
 		//nodeToUpdate.name = status;
@@ -1067,7 +1067,7 @@ function deleteplatform(platform){
 
 function deleterelease(release){
 	for (j=0; j < allReleaseObjects.length; j++) {
-		if(release == allReleaseObjects[j].name){
+		if(release == allReleaseObjects[j].idName){
 			$("#releasetxtdelstatus").val(allReleaseObjects[j].content);
 			var status = allReleaseObjects[j].content;
 		//nodeToUpdate.name = status;
@@ -1081,7 +1081,7 @@ function deleterelease(release){
 
 function deletefeature(feature){
 	for (j=0; j < allFeatureObjects.length; j++) {
-		if(feature == allFeatureObjects[j].name){
+		if(feature == allFeatureObjects[j].idName){
 			$("#featuretxtdelstatus").val(allFeatureObjects[j].content);
 			var status = allFeatureObjects[j].content;
 		//nodeToUpdate.name = status;
